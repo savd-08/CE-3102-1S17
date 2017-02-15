@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//Estructura utilizada para contener las soluciones de una ecuación cuadrática
 template <typename fp> 
 struct quad_ec_sol { 
   fp x1, x2; 

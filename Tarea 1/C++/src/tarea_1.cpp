@@ -20,6 +20,7 @@ int main(int argc, char** argv){
 	return 0;
 }
 
+//Obtiene la suma de n veces un número x
 template <typename fp>
 fp ej_2 (int n, fp x) {
 
@@ -34,7 +35,7 @@ fp ej_2 (int n, fp x) {
 	return acum;
 }
 
-
+//Determina las raices de una ecuación cuadrática
 template <typename fp>
 quad_ec_sol<fp> ej_3 (fp a, fp b, fp c) {
 
