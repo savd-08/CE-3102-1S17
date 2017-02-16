@@ -5,17 +5,23 @@ int main(int argc, char** argv){
 	cout << "\n--- Tarea 1 - Análisis Numérico ---\n\n";
 	cout << "------------Ejercicio 2------------\n";
 	cout << "Valor Real: 1\n";
-	cout << "Precisión simple: " << ej_2(100000, 0.00001f) << "\n";
-	cout << "Precisión doble:  " << ej_2(100000, 0.00001)  << "\n\n";
+	cout << "Precisión simple: " << ej_2(100000, 0.00001f) << " => Hay error de redondeo\n";
+	cout << "Precisión doble:  " << ej_2(100000, 0.00001)  << " => No existe error de redondeo\n\n";
 
-	quad_ec_sol<float> res_float = ej_3(1.0f, 80.0f, 16.0f);
-	quad_ec_sol<double> res_double = ej_3(1.0, 80.0, 16.0);
+	quad_ec_sol<float> res_float = ej_3(1.0f, 100000.0f, 16.0f);
+	quad_ec_sol<double> res_double = ej_3(1.0, 100000.0, 16.0);
+
+
+	long double x1_r = -0.00001L;
+	long double x2_r = -99999.99999L;
 
 	cout << "------------Ejercicio 3------------\n";
-	cout << "Parámetros de prueba: a = 1; b = 80; c = 16; (80²) >> 4*1*16 \n";
-	cout << "Valor Real: x1 = -0,02005025157; x2 = -79.79949748\n";
+	cout << "Parámetros de prueba: a = 1; b = 100000; c = 1; (100000²) >> 4*1*1 \n";
+	cout << "Valor Real: x1 = -0.00001; x2 = -99999.99999\n";
 	cout << "Precisión simple: x1 = " << res_float.x1 << "; x2 = " << res_float.x2 << "\n";
-	cout << "Precisión doble:  x1 = " << res_double.x1 << "; x2 = " << res_double.x2 << "\n\n";
+	cout << "Precisión doble:  x1 = " << res_double.x1 << "; x2 = " << res_double.x2 << "\n";
+	cout << "Aparece error de redondeo en ambos casos.\n\n";
+
 
 	return 0;
 }
