@@ -2,22 +2,64 @@
 #include <chrono>
 #include "anpi.h"
 
-#define ITER 250000
+#define ITER 300000
 
 //using namespace anpi;
 
-int main(){
-	//double terms[10] = {11.0, 10.0, 9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0};
-	double terms[3] = {4.0, 3.0, 2.0};
+double test_opt(double x, double* terms, unsigned int term_amt){
+	double res_opt = 0;
+	auto begin = std::chrono::high_resolution_clock::now();
+	for(int i = 0;  i < ITER; i++){
+			res_opt += anpi::opt::poly_evaluator(x, terms, term_amt);
+			
+	}
+	
+	auto end = std::chrono::high_resolution_clock::now(); 
+	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
+	std::cout << "Result opt: "<< res_opt/ITER << std::endl ;
+	std::cout << duration << "ns total, average : " << duration / ITER << "ns." << std::endl << std::endl;
+}
+
+double test_ref(double x, double* terms, unsigned int term_amt){
 	double res = 0;
 	auto begin = std::chrono::high_resolution_clock::now();
 	for(int i = 0;  i < ITER; i++){
-			res += anpi::opt::poly_evaluator(3.0, terms, 3);
-	}
+			res += anpi::ref::poly_evaluator(x, terms, term_amt);
+	} 
 	
-	auto end = std::chrono::high_resolution_clock::now();
+	auto end = std::chrono::high_resolution_clock::now(); 
 	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
-	std::cout << duration << "ns total, average : " << duration / ITER << "ns.\n" << std::endl;
-	std::cout << "Result: "<< res/ITER << std::endl;
+	std::cout << "Result ref: "<< res/ITER << std::endl;
+	std::cout << duration << "ns total, average : " << duration / ITER << "ns." << std::endl << std::endl;
+}
+
+int main(){
+	int term_amt = 65;
+	double terms[term_amt];
+	double x = 2.0;
+	for(int i = term_amt; i >= 0; i--){
+		terms[i] = double(i);
+	}
+	test_ref(x, terms, term_amt);
+	test_opt(x, terms, term_amt);
+	//double res_opt = anpi::opt::poly_evaluator(x, terms, term_amt);
+	//std::cout << "Opt Result: "<< res_opt << std::endl;
+
+	
+	
+	/*auto begin = std::chrono::high_resolution_clock::now();
+	res_opt = anpi::opt::poly_evaluator(2.0, terms, term_amt);
+	
+
+	auto end = std::chrono::high_resolution_clock::now(); 
+	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
+	std::cout << "Opt Result: "<< res_opt<< std::endl;
+	std::cout << duration << "ns.\n" << std::endl;*/
+
+	/*for(int i = term_amt; i >= 0; i--){
+		terms[i] = i;
+	}
+	res_ref = anpi::ref::poly_evaluator(2.0, terms, term_amt);
+	std::cout << "Ref Result: "<< res_ref<< std::endl;*/
 	return 0;
 }

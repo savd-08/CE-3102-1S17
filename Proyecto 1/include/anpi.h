@@ -52,57 +52,146 @@ namespace anpi{
 	}
 
 	namespace opt{
-	/**
-	 * Evaluación de polinomios por el método de Estrin, utilizando el punto donde
-	 * se desea evaluar, los términos del polinomio y la cantidad de dichos términos. 
-	 * Se aprovecha la extensión SIMD del procesador. 
-	 *  
-	 */
-	inline double poly_evaluator(double x, double* terms, unsigned int term_amt){
-		
-		int n_pow2 = nearest_power_2(term_amt);
-		int j_limit = n_pow2;
-		int num_steps = i_log2(n_pow2);
-		double* terms_z = (double*) calloc(n_pow2, sizeof(double));
-		__m256d vec_c;
-		__m256d vec_x_power = _mm256_set_pd(1, x, 1, x);
+		template<typename T>
+		class simd;
 
-		int size_diff = n_pow2 - term_amt; 
-		for(int i = 0; i < term_amt; i++){
-			terms_z[i+size_diff] = terms[i];
+		template<>
+		struct simd<double>
+		{
+		    typedef __m256d simd_vector;
+		    simd_vector data;
+
+		    void set(const double &a, const double &b, const double &c, const double &d){
+		       data = _mm256_set_pd(a, b, c, d);
+		    }
+
+		    void add(const simd_vector &a, const simd_vector &b){
+		       data = _mm256_add_pd(a, b);
+		    }
+
+		    void mul(const simd_vector &a, const simd_vector &b){
+		       data = _mm256_mul_pd(a, b);
+		    }
+
+		    void hadd(const simd_vector &a, const simd_vector &b){
+		       data = _mm256_hadd_pd(a, b);
+		    }
+		};
+
+		template<>
+		struct simd<float>
+		{
+		    typedef __m128 simd_vector;
+		    simd_vector data;
+
+
+		    void set(const float &a, const float &b, const float &c, const float &d){
+		       data = _mm_set_ps(a, b, c, d);
+		    }
+
+		    void add(const simd_vector &a, const simd_vector &b){
+		       data = _mm_add_ps(a, b);
+		    }
+
+		    void mul(const simd_vector &a, const simd_vector &b){
+		       data = _mm_mul_ps(a, b);
+		    }
+
+		    void hadd(const simd_vector &a, const simd_vector &b){
+		       data = _mm_hadd_ps(a, b);
+		    }
+		};
+
+
+
+
+
+		/**
+		 * Evaluación de polinomios por el método de Estrin, utilizando el punto donde
+		 * se desea evaluar, los términos del polinomio y la cantidad de dichos términos. 
+		 * Se aprovecha la extensión SIMD del procesador. 
+		 *  
+		 */
+		template <typename T>
+		inline T  poly_evaluator(T x, T* terms, unsigned int term_amt){
+
+				int n_pow2 = nearest_power_2(term_amt);
+				//std::cout << "n_pow2: "<< n_pow2 << std::endl;
+				//int n_pow2_cp = n_pow2;
+
+				int zeros = n_pow2 - term_amt;
+				//std::cout << "Zeros: "<< zeros << std::endl;
+
+				int num_steps = i_log2(n_pow2);
+				//std::cout << "num_steps: "<< num_steps << std::endl;
+
+				T* terms_z = (T*) calloc(n_pow2, sizeof(T));
+
+				constexpr unsigned int type_index = sizeof(T)/sizeof(float);
+
+				simd<T> coef_vector;
+				simd<T> x_power_vector;
+				x_power_vector.set(T(1), x, T(1), x);
+
+				for(int i = 0; i < term_amt; i++){
+					terms_z[i+zeros] = terms[i];
+				}
+
+				zeros >>= 2;
+				
+
+				for(int i = 0; i < num_steps; i++){
+					//std::cout << "Ignore: "<< ignore << std::endl;
+					int j = 0;
+					do{
+						//std::cout << "........................j=: "<< j << std::endl;
+						int j_step = (zeros+j)<<2;
+						coef_vector.set(terms_z[3 + j_step], terms_z[2 + j_step], terms_z[1 + j_step], terms_z[j_step]);
+
+						/*std::cout << "coef_vector: ";
+							for(int k = 0; k < 4; k++){
+								std::cout << coef_vector.data[k] << ", ";
+							}
+						std::cout << std::endl;*/
+
+						coef_vector.mul(coef_vector.data, x_power_vector.data);
+
+						coef_vector.hadd(coef_vector.data, coef_vector.data);
+
+						terms_z[(zeros<<1) + (j<<1)] = coef_vector.data[0];
+						terms_z[(zeros<<1) + (j<<1) + 1] = coef_vector.data[type_index];
+
+						/*std::cout << "terms_z: ";
+							for(int k = 0; k < n_pow2; k++){
+								std::cout << terms_z[k] << ", ";
+							}
+						std::cout << std::endl;*/
+
+						j++;
+					} while(j < ((n_pow2)>>(2+i)) - zeros);
+					//n_pow2_cp >>= 1; 
+					zeros >>= 1;
+					x_power_vector.mul(x_power_vector.data, x_power_vector.data);
+				}
+
+				x = terms_z[0];
+				free(terms_z);
+
+				return x;
 		}
-		
-
-		for(int i = 0; i < num_steps; i++){
-			j_limit = (j_limit <= 1 ) ? 1 : n_pow2/(1<<(2+i)) ;
-			for(int j = 0; j < j_limit; j++){
-
-				vec_c = _mm256_set_pd(terms_z[3 + j*4], terms_z[2 + j*4], terms_z[1 + j*4], terms_z[0 + j*4]);
-
-				vec_c = _mm256_mul_pd(vec_c, vec_x_power);
-
-				vec_c = _mm256_hadd_pd(vec_c, vec_c);
-
-				double* vec_conv = ((double*) (&vec_c));
-
-				terms_z[j*2] = vec_conv[0];
-				terms_z[j*2 + 1] = vec_conv[2];
-			}
-			vec_x_power = _mm256_mul_pd(vec_x_power, vec_x_power);
-		}
-
-		x = terms_z[0];
-		free(terms_z);
-
-		return x;
-	}
 	}
 
 	namespace ref{
 
-	inline double poly_evaluator(double x, double* terms, unsigned int term_amt){
-		return x;
-	}
+		template <typename T>
+		inline T poly_evaluator(T x, T* terms, unsigned int term_amt){
+			T result = terms[0]*x;
+			for(int i = 1; i < term_amt-1; i++){
+				result = (result + terms[i])*x;
+			}
+			result += terms[term_amt-1];
+			return result;
+		}
 	}
 
 }
