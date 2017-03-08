@@ -1,4 +1,6 @@
 #include "immintrin.h"
+#include <cmath>
+#include <iostream>
 
 #ifndef anpi_f
 #define anpi_f
@@ -25,9 +27,9 @@ namespace anpi{
 	//Obtenido de http://graphics.stanford.edu/~seander/bithacks.html
 	inline unsigned int i_log2(unsigned int val){
 		unsigned int r;
-		static const int MultiplyDeBruijnBitPosition2[32] = 
+		static const int MultiplyDeBruijnBitPosition2[32] =
 		{
-		  0, 1, 28, 2, 29, 14, 24, 3, 30, 22, 20, 15, 25, 17, 4, 8, 
+		  0, 1, 28, 2, 29, 14, 24, 3, 30, 22, 20, 15, 25, 17, 4, 8,
 		  31, 27, 13, 23, 21, 19, 16, 7, 26, 12, 18, 6, 11, 5, 10, 9
 		};
 		r = MultiplyDeBruijnBitPosition2[(unsigned int)(val * 0x077CB531U) >> 27];
@@ -35,7 +37,7 @@ namespace anpi{
 	}
 
 
-	//Cálculo de la n-ésima potencia entera de un número de punto flotante. 
+	//Cálculo de la n-ésima potencia entera de un número de punto flotante.
 	template <typename fp>
 	inline fp pow(fp base, int power) {
 	    fp result = fp(1);
@@ -46,7 +48,7 @@ namespace anpi{
 	        }
 
 	        base = (base * base);
-	        power >>= 1; 
+	        power >>= 1;
 	    }
 	    return result;
 	}
@@ -108,9 +110,9 @@ namespace anpi{
 
 		/**
 		 * Evaluación de polinomios por el método de Estrin, utilizando el punto donde
-		 * se desea evaluar, los términos del polinomio y la cantidad de dichos términos. 
-		 * Se aprovecha la extensión SIMD del procesador. 
-		 *  
+		 * se desea evaluar, los términos del polinomio y la cantidad de dichos términos.
+		 * Se aprovecha la extensión SIMD del procesador.
+		 *
 		 */
 		template <typename T>
 		inline T  poly_evaluator(T x, T* terms, unsigned int term_amt){
@@ -138,7 +140,7 @@ namespace anpi{
 				}
 
 				zeros >>= 2;
-				
+
 
 				for(int i = 0; i < num_steps; i++){
 					//std::cout << "Ignore: "<< ignore << std::endl;
@@ -169,7 +171,7 @@ namespace anpi{
 
 						j++;
 					} while(j < ((n_pow2)>>(2+i)) - zeros);
-					//n_pow2_cp >>= 1; 
+					//n_pow2_cp >>= 1;
 					zeros >>= 1;
 					x_power_vector.mul(x_power_vector.data, x_power_vector.data);
 				}
@@ -179,6 +181,69 @@ namespace anpi{
 
 				return x;
 		}
+
+		/**
+		* Functor que calcula los terminos de taylor para el logartimo.
+		* Llama el algoritmo de Estrin optimizado para el calculo del logaritmo.
+		*/
+		template <class T>
+		class ln_a {
+			private:
+			//arreglo con los monomios
+			T* _coef;
+			//cantidad de terminos de la serie
+			unsigned int _terms;
+			//centro de la serie
+			T _center;
+
+			//metodo inicializador
+			void init(const T center, unsigned int terms){
+				_center = center;
+
+				_terms = terms;
+
+				_coef = new T[_terms];
+			}
+
+		public:
+			//constructor
+			ln_a(T center, int terms){
+				init(center, terms);
+			}
+
+			//functor
+			inline T operator()(T value){
+				//valor que va elevado
+				T h = value - _center;
+				//calulo de los coeficientes
+				for(unsigned i = (_terms - 1); i > -1; i--){
+					_coef[(_terms - 1) - i] = diff(_center, i);
+				}
+
+				return anpi::opt::poly_evaluator(h, _coef, _terms);
+
+			}//termina sobrecarga
+
+			//enesima derivada
+			inline T diff(T x, int n){
+				T result = 0;
+				//Para el caso de n == 0
+				if(n < 1){
+					result = std::log(x);
+				}
+				//de 0 en adelante
+				else{
+					result = 1 / (n*anpi::pow(x,n));
+					if(!(n & 1)){
+						result = (-1)*result;
+					}
+				}
+
+				return result;
+			}//termina funcion diff
+
+		};//fin del functor del logaritmo
+
 	}
 
 	namespace ref{
@@ -192,6 +257,68 @@ namespace anpi{
 			result += terms[term_amt-1];
 			return result;
 		}
+
+		/**
+		* Functor que calcula los terminos de taylor para el logartimo.
+		* Llama el algoritmo de Horner para el calculo del logaritmo.
+		*/
+		template <class T>
+		class ln_a {
+			private:
+
+			//arreglo con los monomios
+			T* _coef;
+			//cantidad de terminos de la serie
+			unsigned int _terms;
+			//centro de la serie
+			T _center;
+
+			//metodo inicializador
+			void init(const T center, unsigned int terms){
+				_center = center;
+				_terms = terms;
+				_coef = new T[_terms];
+			}
+
+		public:
+			//constructor
+			ln_a(T center, int terms){
+				init(center, terms);
+			}
+
+			//functor
+			inline T operator()(T value){
+				//valor que va elevado
+				T h = value - _center;
+				//calulo de los coeficientes
+				for(int i = (_terms - 1); i > -1; i--){
+					_coef[(_terms - 1) - i] = diff(_center, i);
+				}
+				for(int i = 0; i < _terms; i++){
+					std::cout << "coeficiente " << i << ": " << _coef[i] << "\n";
+				}
+				return anpi::ref::poly_evaluator(h, _coef, _terms);
+			}//termina sobrecarga
+
+			//enesima derivada
+			inline T diff(T x, int n){
+				T result = 0;
+				//Para el caso de n == 0
+				if(n < 1){
+					result = std::log(x);
+				}
+				//de 0 en adelante
+				else{
+					result = 1 / (n*anpi::pow(x,n));
+					if(!(n & 1)){
+						result = (-1)*result;
+					}
+				}
+				return result;
+			}//termina funcion diff
+
+		};//fin del functor del logaritmo
+
 	}
 
 }
