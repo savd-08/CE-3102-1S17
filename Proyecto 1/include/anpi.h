@@ -216,10 +216,9 @@ namespace anpi{
 				//valor que va elevado
 				T h = value - _center;
 				//calulo de los coeficientes
-				for(unsigned i = (_terms - 1); i > -1; i--){
+				for(int i = (_terms - 1); i > -1; i--){
 					_coef[(_terms - 1) - i] = diff(_center, i);
 				}
-
 				return anpi::opt::poly_evaluator(h, _coef, _terms);
 
 			}//termina sobrecarga
@@ -293,9 +292,6 @@ namespace anpi{
 				//calulo de los coeficientes
 				for(int i = (_terms - 1); i > -1; i--){
 					_coef[(_terms - 1) - i] = diff(_center, i);
-				}
-				for(int i = 0; i < _terms; i++){
-					std::cout << "coeficiente " << i << ": " << _coef[i] << "\n";
 				}
 				return anpi::ref::poly_evaluator(h, _coef, _terms);
 			}//termina sobrecarga
