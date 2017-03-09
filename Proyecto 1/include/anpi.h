@@ -53,6 +53,14 @@ namespace anpi{
 	    return result;
 	}
 
+	//Cálculo del factorial 
+	template<typename T>
+    T factorial(const unsigned int n) {
+        return n<2 ? T(1) : static_cast<T>(n) * factorial<T>(n-1);
+    }
+
+    /***************************************************************/
+
 	namespace opt{
 		template<typename T>
 		class simd;
@@ -243,7 +251,82 @@ namespace anpi{
 
 		};//fin del functor del logaritmo
 
+
+		/**
+        * Functor que calcula los terminos de taylor para el coseno.
+        * Llama el algoritmo de Estrin optimizado para el calculo del coseno.
+        */
+        template <typename T>
+        class cos_a {
+
+        private:
+            /// Coeficientes de la serie de Taylor
+            T* _coef;
+            ///Alignment en bytes
+            static const unsigned int _alignment = 32u;
+            /// Centro de la serie
+            T _center;
+            /// Cantidad de terminos de la serie
+            unsigned int _terms;
+
+            /**
+              *Inicializa los coeficientes de la serie de Taylor centrada en center
+              * para el numero dado de términos
+              */
+            void init(const T center, unsigned int terms) {
+
+                _center = center;
+                _terms = terms;
+
+                //Solicita memoria para la creacion de los coeficientes
+                unsigned int blocks = ((terms*sizeof(T) + (_alignment-1))/_alignment);
+                _coef = static_cast<T*>(aligned_alloc(_alignment, blocks*_alignment));
+
+                //Calculo de los coeficientes
+                for (int i = (terms-1); i > -1; i--) {
+                    _coef[(terms - 1) - i] = (diff(center, i)) / (factorial<T>(i));
+
+                }
+
+            }
+
+        public:
+            /**
+            * Unico constructor obliga a dar centro y numero de terminos
+            *  de la aproximacion
+            */
+            cos_a(const T center, int terms) {
+                //Se inicializa la clase
+                init(center, terms);
+            }
+
+            /// Destructor
+            ~cos_a() { free(_coef); }
+
+            /// Evaluación de la función coseno
+            inline T operator() (T val) {
+
+                T h = val - _center;
+                return anpi::opt::poly_evaluator(h, _coef, _terms);
+            }
+
+            /// Evaluación de la n-ésima derivada de coseno
+            inline T diff(T x, int n) {
+
+                T result;
+                if ((n & 1) == 0) {
+                    result = (anpi::pow(-1, (n+1/2)) ) * (sin(x));
+                } else {
+                    result = (anpi::pow(-1, (n/2)) ) * (cos(x));
+                }
+                return result;
+
+            }
+
+        };
 	}
+
+	/***************************************************************/
 
 	namespace ref{
 
@@ -314,6 +397,80 @@ namespace anpi{
 			}//termina funcion diff
 
 		};//fin del functor del logaritmo
+
+
+		/**
+        * Functor que calcula los terminos de taylor para el coseno.
+        * Llama el algoritmo de Horner para el calculo del coseno.
+        */
+        template <typename T>
+        class cos_a {
+
+        private:
+            /// Coeficientes de la serie de Taylor
+            T* _coef;
+            ///alignment en bytes
+            static const unsigned int _alignment = 32u;
+            /// Centro de la serie
+            T _center;
+            /// Cantidad de terminos de la serie
+            unsigned int _terms;
+
+            /**
+              *Inicializa los coeficientes de la serie de Taylor centrada en center
+              * para el numero dado de términos
+              */
+            void init(const T center, unsigned int terms) {
+
+                _center = center;
+                _terms = terms;
+
+                //Solicita memoria para la creacion de los coeficientes
+                unsigned int blocks = ((terms*sizeof(T) + (_alignment-1))/_alignment);
+                _coef = static_cast<T*>(aligned_alloc(_alignment, blocks*_alignment));
+
+                //Calculo de los coeficientes
+                for (int i = (terms-1); i > -1; i--) {
+                    _coef[(terms - 1) - i] = (diff(center, i)) / (factorial<T>(i));
+
+                }
+
+            }
+
+        public:
+            /**
+            * Unico constructor obliga a dar centro y numero de terminos
+            *  de la aproximacion
+            */
+            cos_a(const T center, int terms) {
+                //Se inicializa la clase
+                init(center, terms);
+            }
+
+            /// Destructor
+            ~cos_a() { free(_coef); }
+
+            /// Evaluación de la función coseno
+            inline T operator() (T val) {
+
+                T h = val - _center;
+                return anpi::ref::poly_evaluator(h, _coef, _terms);
+            }
+
+            /// Evaluación de la n-ésima derivada de coseno
+            inline T diff(T x, int n) {
+
+                T result;
+                if ((n & 1) == 0) {
+                    result = (anpi::pow(-1, (n+1/2)) ) * (sin(x));
+                } else {
+                    result = (anpi::pow(-1, (n/2)) ) * (cos(x));
+                }
+                return result;
+
+            }
+
+        };
 
 	}
 

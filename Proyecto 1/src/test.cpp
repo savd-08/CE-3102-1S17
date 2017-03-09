@@ -64,6 +64,42 @@ void test_ln(T center, unsigned int terms, T x){
 
 }//fin de test_ln
 
+
+template <typename T>
+void test_cos(T center, T x, unsigned int terms){
+
+    //Funcion coseno con Horner (referencia)
+    anpi::ref::cos_a<double> refCos(center,terms);
+    T tmpresr = 0;
+    //calculo del coseno
+    auto rbegin = std::chrono::high_resolution_clock::now();
+    for(int i = 0;  i < ITER; i++){
+            tmpresr += refCos(x);
+    }
+    auto rend = std::chrono::high_resolution_clock::now();
+    auto rduration = std::chrono::duration_cast<std::chrono::nanoseconds>(rend-rbegin).count();
+    std::cout << "Reference cos result: "<< tmpresr/ITER << std::endl ;
+    std::cout << rduration << "ns total, average : " << rduration / ITER << "ns." << std::endl << std::endl;
+
+    /***************************************************************/
+
+    //funcion coseno con Estrin (optimizada)
+    anpi::opt::cos_a<double> optCos(center,terms);
+    T tmpreso = 0;
+    //calculo del coseno
+    auto obegin = std::chrono::high_resolution_clock::now();
+    for(int i = 0;  i < ITER; i++){
+            tmpreso += optCos(x);
+    }
+    auto oend = std::chrono::high_resolution_clock::now();
+    auto oduration = std::chrono::duration_cast<std::chrono::nanoseconds>(oend-obegin).count();
+    std::cout << "Optimized cos result: "<< tmpreso/ITER << std::endl ;
+    std::cout << oduration << "ns total, average : " << oduration / ITER << "ns." << std::endl << std::endl;
+
+}
+
+
+
 int main(){
 	int term_amt = 65;
 	double terms[term_amt];
@@ -98,6 +134,17 @@ int main(){
 	unsigned int tterms = 100;
 
 	test_ln(tcenter, tterms, tx);
+
+	/*****************************************/
+    
+
+	double cos_center = 0.5;
+    double cos_x = 3.141592;
+    unsigned int cos_terms = 100;
+
+    test_cos(cos_center, cos_x, cos_terms);
+
+	
 
 	return 0;
 }
