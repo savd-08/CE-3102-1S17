@@ -38,7 +38,7 @@ double test_ref(double x, double* terms, unsigned int term_amt){
 template <typename T>
 void test_ln(T center, unsigned int terms, T x){
 	//logaritmo referencia
-	anpi::ref::ln_a<double> rln_a(center,terms);
+	anpi::ln_a<double> rln_a(center,terms, &anpi::ref::poly_evaluator);
 	//calculo del logaritmo
 	auto rbegin = std::chrono::high_resolution_clock::now();
 	T rres_opt = 0;
@@ -52,7 +52,7 @@ void test_ln(T center, unsigned int terms, T x){
 
 
 	//logaritmo optimizado
-	anpi::opt::ln_a<double> oln_a(center,terms);
+	anpi::ln_a<double> oln_a(center,terms, &anpi::ref::poly_evaluator);
 	//calculo del logaritmo
 	auto obegin = std::chrono::high_resolution_clock::now();
 	T ores_opt = 0;
@@ -71,7 +71,7 @@ template <typename T>
 void test_cos(T center, T x, unsigned int terms){
 
     //Funcion coseno con Horner (referencia)
-    anpi::ref::cos_a<double> refCos(center,terms);
+    anpi::cos_a<double> refCos(center,terms,&anpi::ref::poly_evaluator);
     T tmpresr = 0;
     //calculo del coseno
     auto rbegin = std::chrono::high_resolution_clock::now();
@@ -86,7 +86,7 @@ void test_cos(T center, T x, unsigned int terms){
     /***************************************************************/
 
     //funcion coseno con Estrin (optimizada)
-    anpi::opt::cos_a<double> optCos(center,terms);
+    anpi::cos_a<double> optCos(center,terms,&anpi::opt::poly_evaluator);
     T tmpreso = 0;
     //calculo del coseno
     auto obegin = std::chrono::high_resolution_clock::now();
@@ -118,14 +118,14 @@ int main(){
 	test_ln(tcenter, term_amt, tx);
 
 	/*****************************************/
-    
+
 
 	double cos_center = 0.5;
     double cos_x = 3.141592;
 
     test_cos(cos_center, cos_x, term_amt);
 
-	
+
 
 	return 0;
 }
