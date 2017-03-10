@@ -1,6 +1,8 @@
 #include <iostream>
 #include <chrono>
 #include "anpi.h"
+#include "anpi_opt.h"
+#include "anpi_ref.h"
 
 #define ITER 300000
 
@@ -101,7 +103,7 @@ void test_cos(T center, T x, unsigned int terms){
 
 
 int main(){
-	int term_amt = 65;
+	unsigned int term_amt = 65;
 	double terms[term_amt];
 	double x = 2.0;
 	for(int i = term_amt; i >= 0; i--){
@@ -109,40 +111,19 @@ int main(){
 	}
 	test_ref(x, terms, term_amt);
 	test_opt(x, terms, term_amt);
-	//double res_opt = anpi::opt::poly_evaluator(x, terms, term_amt);
-	//std::cout << "Opt Result: "<< res_opt << std::endl;
-
-
-
-	/*auto begin = std::chrono::high_resolution_clock::now();
-	res_opt = anpi::opt::poly_evaluator(2.0, terms, term_amt);
-
-
-	auto end = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
-	std::cout << "Opt Result: "<< res_opt<< std::endl;
-	std::cout << duration << "ns.\n" << std::endl;*/
-
-	/*for(int i = term_amt; i >= 0; i--){
-		terms[i] = i;
-	}
-	res_ref = anpi::ref::poly_evaluator(2.0, terms, term_amt);
-	std::cout << "Ref Result: "<< res_ref<< std::endl;*/
 
 	double tcenter = 8;
 	double tx = 10;
-	unsigned int tterms = 100;
 
-	test_ln(tcenter, tterms, tx);
+	test_ln(tcenter, term_amt, tx);
 
 	/*****************************************/
     
 
 	double cos_center = 0.5;
     double cos_x = 3.141592;
-    unsigned int cos_terms = 100;
 
-    test_cos(cos_center, cos_x, cos_terms);
+    test_cos(cos_center, cos_x, term_amt);
 
 	
 

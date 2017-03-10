@@ -11,7 +11,7 @@ CPPFLAGS = -mavx -Ofast -I$(IDIR)
 
 EXEC = test
 
-_DEPS = anpi.h
+_DEPS = anpi.h anpi_opt.h anpi_ref.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = $(EXEC).o
