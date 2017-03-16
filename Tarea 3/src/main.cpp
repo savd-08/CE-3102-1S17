@@ -6,6 +6,22 @@
 
 /**************************************************/
 
+//Cálculo de la n-ésima potencia entera de un número de punto flotante.
+template <typename fp>
+inline fp pow(fp base, int power) {
+		fp result = fp(1);
+		while(power > 0) {
+
+				if(power & 1) {
+						result = (result*base);
+				}
+
+				base = (base * base);
+				power >>= 1;
+		}
+		return result;
+}
+
 double check(const double t) {
 	static const double pi = 3.14159265358979323856264338327950288;
 	return 0.5*std::exp(-t) - 5.0*std::cos(pi*t);
@@ -15,11 +31,11 @@ int main(int argc, char *argv[]) {
 
 	int params = 2;
 
-	if (argc < params) 
+	if (argc < params)
 	{
 		std::cout << "Por favor, ingrese los parámetros necesarios..." << std::endl;
-	} 
-	else 
+	}
+	else
 	{
 		double xl = atof(argv[1]);
 		double xu = atof(argv[2]);
