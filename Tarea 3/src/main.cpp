@@ -1,7 +1,8 @@
-#include <iostream>
+//#include <iostream>
 #include "biseccion.h"
 #include "interpolacion.h"
 #include "newton_raphson.h"
+#include "secant.h"
 
 
 /**************************************************/
@@ -56,12 +57,20 @@ int main(int argc, char *argv[]) {
 		biseccion<double> bis(test_func_2);
 		interpolacion<double> interpol(test_func_2);
 		newton_raphson<double> nt_rp(test_func_2, d_test_func_2);
+		secant<double> sec(test_func_2);
+		bis(xl, xu);
+		interpol(xl, xu);
+		nt_rp(xl);
+		sec(xl, xu);
 
-		std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(xl, xu) << std::endl;
+		/*std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(xl, xu) << std::endl;
 		std::cout << std::endl;
 		std::cout << "Raíz por interpolación en [" << xl << ", " << xu << "]= " << interpol(xl, xu) << std::endl;
 		std::cout << std::endl;
 		std::cout << "Raíz por Newton-Raphson iniciando en " << xl << " = " << nt_rp(xl) << std::endl;
+		std::cout << std::endl;
+		std::cout << "Raíz por secante en [" << xl << ", " << xu << "]= " << sec(xl, xu) << std::endl;
+		std::cout << std::endl;*/
 	}
 
 	return 0;

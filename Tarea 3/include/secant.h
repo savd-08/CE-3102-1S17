@@ -2,7 +2,6 @@
 #define secant_f
 
 #include <cmath>
-#include <iostream>
 #include <limits>
 
 template<class T>
@@ -72,10 +71,6 @@ class secant {
         //valor de y
         y0 = f_x(x0);
 
-        std::cout << "iteraciones: " << iterations << std::endl;
-        std::cout << "m: " << m << "b: " << b << std::endl;
-        std::cout << "x1: " << x1 << " y1: " << y1 << std::endl << "x2: " << x2 << " y2: " << y2 << std::endl;
-        std::cout << "x0: " << x0 << " y0: " << y0 <<  std::endl << std::endl;
         //end determination
         if(fabs(y0) <= ZERO){
           return x0;
@@ -95,7 +90,7 @@ class secant {
         }
       }
 
-      throw "the iterations quantity has been exceeded";
+      return std::numeric_limits<T>::quiet_NaN();
     }
 
 };

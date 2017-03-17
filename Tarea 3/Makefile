@@ -11,7 +11,7 @@ CPPFLAGS = -Ofast -I$(IDIR)
 
 EXEC = main
 
-_DEPS = biseccion.h interpolacion.h newton_raphson.h
+_DEPS = biseccion.h interpolacion.h newton_raphson.h secant.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = $(EXEC).o
