@@ -34,7 +34,7 @@ class secant {
 
   public:
 
-    secant(T(*pf_x)(T x), T zero = std::numeric_limits<T>::epsilon(), int maxiter = 1000){
+    secant(T(*pf_x)(T x), T zero = std::sqrt(std::numeric_limits<T>::epsilon()), int maxiter = 1000){
       ZERO = zero;
       MAXITER = maxiter;
       f_x = pf_x;
@@ -53,15 +53,15 @@ class secant {
       //y = f_X(x0)
       T y0 = 0;
 
+      //Y's calculation
+      T y1 = f_x(x1), y2 = f_x(x2);
+
       //se valida que el menor este en x1
-      if(x1 > x2){
+      if(y1 > y2){
         T tmp = x2;
         x2 = x1;
         x1 = tmp;
       }
-
-      //Y's calculation
-      T y1 = f_x(x1), y2 = f_x(x2);
 
       for(iterations; iterations < MAXITER; iterations++){
         //linear function calculos
@@ -72,6 +72,10 @@ class secant {
         //valor de y
         y0 = f_x(x0);
 
+        std::cout << "iteraciones: " << iterations << std::endl;
+        std::cout << "m: " << m << "b: " << b << std::endl;
+        std::cout << "x1: " << x1 << " y1: " << y1 << std::endl << "x2: " << x2 << " y2: " << y2 << std::endl;
+        std::cout << "x0: " << x0 << " y0: " << y0 <<  std::endl << std::endl;
         //end determination
         if(fabs(y0) <= ZERO){
           return x0;
