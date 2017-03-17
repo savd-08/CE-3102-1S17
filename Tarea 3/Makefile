@@ -1,10 +1,31 @@
-all:test
+IDIR = ./include
+SDIR = ./src
+ODIR = ./obj
+LDIR = ./lib
 
-test: obj/main.o 
-	g++ obj/main.o -o test
+CC = gcc
+CXX = g++
 
-main.o: main.cpp
-	g++ -c src/main.cpp
+CFLAGS = -I$(IDIR)
+CPPFLAGS = -mavx -Ofast -I$(IDIR)
+
+EXEC = main
+
+_DEPS = biseccion.h interpolacion.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = $(EXEC).o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+LIBS =
+
+$(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
+	$(CXX) -c -o $@ $< $(CPPFLAGS)
+
+$(EXEC): $(OBJ)
+	g++ -o $@ $^ $(CPPFLAGS) $(LIBS)
+
+.PHONY: clean
 
 clean:
-	rm -rf *.o test
+	rm -f $(ODIR)/*.o $(EXEC)

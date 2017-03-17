@@ -24,12 +24,12 @@ int main(int argc, char *argv[]) {
 		double xl = atof(argv[1]);
 		double xu = atof(argv[2]);
 
-		biseccion<double> bis(xl, xu);
-		interpolacion<double> interpol(xl,xu);
+		biseccion<double> bis(check);
+		interpolacion<double> interpol(check);
 
-		std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(check) << std::endl;
+		std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(xl, xu) << std::endl;
 		std::cout << std::endl;
-		std::cout << "Raíz por interpolación en [" << xl << ", " << xu << "]= " << interpol(check) << std::endl;
+		std::cout << "Raíz por interpolación en [" << xl << ", " << xu << "]= " << interpol(xl, xu) << std::endl;
 	}
 
 	return 0;
