@@ -45,6 +45,7 @@ T secant(T x1, T x2, T(*f_x)(T)){
   if((x1*x2) > 0){
     throw "There is no root bracked";
   }
+
   //se valida que el menor este en x1
   if(x1 > x2){
     T tmp = x2;
@@ -65,10 +66,10 @@ T secant(T x1, T x2, T(*f_x)(T)){
     //valor de y
     y0 = f_x(x0);
 
-    std::cout << "x0: " << x0 << "y0: " << y0 << "\n";
+    std::cout << "x0: " << x0 << " y0: " << y0 << "\n";
     //end determination
     if(fabs(y0) <= ZERO){
-      std::cout << "x0: " << x0 << "y0: " << y0 << "\n";
+      std::cout << "x0: " << x0 << " y0: " << y0 << "\n";
       end_flag = false;
     }
     else{
@@ -97,13 +98,13 @@ T secant(T x1, T x2, T(*f_x)(T)){
 }
 
 double function(double x){
-  return (x*x + x);
+  return (x*x*x) - 3.0;
 }
 
 int main(int argc, char const *argv[]) {
 
-    double x1 = -0.75;
-    double x2 = 2.39;
+    double x1 = 0.5;
+    double x2 = 6.0;
 
     double result = secant(x1, x2, &function);
 
