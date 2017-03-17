@@ -2,8 +2,8 @@
 #define interpolacion_f
 
 #include <cmath>
-#include <iostream>   
 #include <limits>
+#include <iostream>
 
 /**
 *Clase que realiza el metodo de interpolacion
@@ -38,13 +38,6 @@ public:
 	//Operador del funtor 
 	inline T operator() (T xl, T xu) {
 
-		std::cout << "i          ";
-		std::cout << "xl         ";
-		std::cout << "xu         ";
-		std::cout << "xr         ";
-		std::cout << "ea         " << std::endl;
-		std::cout << "_________________________________________________________________" << std::endl;
-
 		T raiz = xl; ///Inicio del calculo de la raiz
 		T fl = _func(xl); ///funcion evaluada en xl
 		T fu = _func(xu); ///funcion evaluada en xu
@@ -55,18 +48,12 @@ public:
 		for(int i=_iters ; i>0 ; i--) {
 
 			T raiz_ant(raiz); ///variable para calcular el error
-			raiz = (xu-fu*(xl-xu))/(fl-fu); /// nueva raiz por interpolacion 
+			raiz = xu - fu * (xl - xu) / (fl - fu) ; /// nueva raiz por interpolacion 
 			T fr = _func(raiz); /// funcion evaluada en la raiz
-
-			std::cout << i << "          ";
-			std::cout << xl << "          ";
-			std::cout << xu << "          ";
-			std::cout << raiz << "          ";
-			std::cout << errorAprox << "          ";
 
 			if (std::abs(raiz) > std::numeric_limits<T>::epsilon()) {
 				
-				errorAprox = std::abs((raiz-raiz_ant)/raiz)*T(100); ///nuevo error aproximado					
+				errorAprox = std::abs((raiz-raiz_ant)/raiz)*T(100); ///nuevo error aproximado
 			}
 
 			T eval = fl*raiz; 
@@ -75,36 +62,27 @@ public:
 				fu = fr;
 				iu = 0;
 				il++;
-				if (il >= 2) {fl /= T(2);}
-
+				if (il >= 2) {fu /= T(2);}
 			} else if (eval > T(0)) {
 				xl = raiz;
 				fl = fr;
 				il = 0;
 				iu++;
-				if(iu >= 2) {fu /= 2;}
+				if(iu >= 2) {fl /= T(2);}
 			} else {
 				errorAprox = T(0);
-				raiz = (fl == T(0)) ? xl : xu;
+				raiz = (std::abs(fl) < std::numeric_limits<T>::epsilon()) ? xl : xu;
 			}
 
-			if (errorAprox < _precision) { return raiz; } //si alcanza la precision requerida, retorna raiz
-
-			std::cout << std::endl;
+			if (errorAprox < _precision) { 
+				return raiz; 
+			} //si alcanza la precision requerida, retorna raiz
 			
 		}
-
-		std::cout << 0 << "          ";
-		std::cout << xl << "          ";
-		std::cout << xu << "          ";
-		std::cout << raiz << "          ";
-		std::cout << errorAprox << "          ";
 
 		return std::numeric_limits<T>::quiet_NaN();
 	}     
 
 };
-
-
 
 #endif

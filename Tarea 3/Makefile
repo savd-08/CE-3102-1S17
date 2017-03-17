@@ -7,11 +7,11 @@ CC = gcc
 CXX = g++
 
 CFLAGS = -I$(IDIR)
-CPPFLAGS = -mavx -Ofast -I$(IDIR)
+CPPFLAGS = -Ofast -I$(IDIR)
 
 EXEC = main
 
-_DEPS = biseccion.h interpolacion.h
+_DEPS = biseccion.h interpolacion.h newton_raphson.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = $(EXEC).o

@@ -2,7 +2,6 @@
 #define biseccion_f
 
 #include <cmath>
-#include <iostream>   
 #include <limits>
 
 /**
@@ -39,13 +38,6 @@ public:
 	//Operador del funtor 
 	inline T operator() (T xl, T xu) {
 
-		std::cout << "i          ";
-		std::cout << "xl         ";
-		std::cout << "xu         ";
-		std::cout << "xr         ";
-		std::cout << "ea         " << std::endl;
-		std::cout << "_________________________________________________________________" << std::endl;
-
 		T raiz = xl; ///Se inicia con param valido
 		T fl = _func(xl); ///sombra 
 		T errorAprox = T(); /// error aproximado
@@ -54,12 +46,6 @@ public:
 			T raiz_ant(raiz); ///variable para calculo de error
 			raiz = (xl + xu) / T(2); /// nueva estimacion de la raiz centrada
 			T fr = _func(raiz); /// sombra de f en el centro
-
-			std::cout << i << "          ";
-			std::cout << xl << "          ";
-			std::cout << xu << "          ";
-			std::cout << raiz << "          ";
-			std::cout << errorAprox << "          ";
 
 			if (std::abs(raiz) > std::numeric_limits<T>::epsilon()) {
 				errorAprox = std::abs((raiz-raiz_ant) / raiz) * T(100); ///nuevo error aprox
@@ -79,16 +65,8 @@ public:
 			}
 
 			if (errorAprox < _precision) { return raiz; } //si alcanza la precision estimada, retorne la raiz
-
-			std::cout << std::endl;
 			
 		}
-
-		std::cout << 0 << "          ";
-		std::cout << xl << "          ";
-		std::cout << xu << "          ";
-		std::cout << raiz << "          ";
-		std::cout << errorAprox << "          ";
 
 		return std::numeric_limits<T>::quiet_NaN();
 	}
