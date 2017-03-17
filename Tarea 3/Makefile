@@ -1,31 +1,10 @@
-IDIR = ./include
-SDIR = ./src
-ODIR = ./obj
-LDIR = ./lib
+all:test
 
-CC = gcc
-CXX = g++
+test: obj/main.o 
+	g++ obj/main.o -o test
 
-CFLAGS = -I$(IDIR)
-CPPFLAGS = -mavx -Ofast -I$(IDIR)
-
-EXEC = test
-
-_DEPS = anpi.h anpi_opt.h anpi_ref.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
-
-_OBJ = $(EXEC).o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
-
-LIBS =
-
-$(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
-	$(CXX) -c -o $@ $< $(CPPFLAGS)
-
-$(EXEC): $(OBJ)
-	g++ -o $@ $^ $(CPPFLAGS) $(LIBS)
-
-.PHONY: clean
+main.o: main.cpp
+	g++ -c src/main.cpp
 
 clean:
-	rm -f $(ODIR)/*.o $(EXEC)
+	rm -rf *.o test
