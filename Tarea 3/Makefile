@@ -7,7 +7,7 @@ CC = gcc
 CXX = g++
 
 CFLAGS = -I$(IDIR)
-CPPFLAGS = -Ofast -I$(IDIR)
+CPPFLAGS = -I$(IDIR)
 
 EXEC = main
 

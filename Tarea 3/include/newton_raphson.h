@@ -37,7 +37,7 @@ public:
 	}
 
 	//Operador del funtor 
-	inline T operator() (T xs) {
+	T operator() (T xs) {
 
 		T x0 = (xs == 0) ? std::numeric_limits<T>::epsilon()*1000 : xs; ///Inicio del calculo de la raiz
 		T x1 = T(1);

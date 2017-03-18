@@ -36,7 +36,7 @@ public:
 	}
 
 	//Operador del funtor 
-	inline T operator() (T xl, T xu) {
+	T operator() (T xl, T xu) {
 
 		T raiz = xl; ///Inicio del calculo de la raiz
 		T fl = _func(xl); ///funcion evaluada en xl

@@ -54,10 +54,11 @@ int main(int argc, char *argv[]) {
 		double xl = atof(argv[1]);
 		double xu = atof(argv[2]);
 
-		biseccion<double> bis(test_func_2);
-		interpolacion<double> interpol(test_func_2);
-		newton_raphson<double> nt_rp(test_func_2, d_test_func_2);
-		secant<double> sec(test_func_2);
+		biseccion<double> bis(test_func_1);
+		interpolacion<double> interpol(test_func_1);
+		newton_raphson<double> nt_rp(test_func_1, d_test_func_1);
+		secant<double> sec(test_func_1);
+
 		bis(xl, xu);
 		interpol(xl, xu);
 		nt_rp(xl);

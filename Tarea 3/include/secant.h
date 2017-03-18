@@ -39,7 +39,7 @@ class secant {
       f_x = pf_x;
     }
 
-    inline T operator() (T x1, T x2){
+    T operator() (T x1, T x2){
       //iteration counter
       unsigned int iterations = 0;
       //iteration variables
