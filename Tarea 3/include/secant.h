@@ -60,6 +60,9 @@ class secant {
         T tmp = x2;
         x2 = x1;
         x1 = tmp;
+        tmp = y2;
+        y2 = y1;
+        y1 = tmp;
       }
 
       for(iterations; iterations < MAXITER; iterations++){
