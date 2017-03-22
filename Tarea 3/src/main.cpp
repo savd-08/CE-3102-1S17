@@ -1,8 +1,9 @@
-//#include <iostream>
+#include <iostream>
 #include "biseccion.h"
 #include "interpolacion.h"
 #include "newton_raphson.h"
 #include "secant.h"
+#include "brent.h"
 
 
 /**************************************************/
@@ -58,20 +59,25 @@ int main(int argc, char *argv[]) {
 		interpolacion<double> interpol(test_func_1);
 		newton_raphson<double> nt_rp(test_func_1, d_test_func_1);
 		secant<double> sec(test_func_1);
+		brent<double> br(test_func_1);
 
-		bis(xl, xu);
+		/*bis(xl, xu);
 		interpol(xl, xu);
 		nt_rp(xl);
 		sec(xl, xu);
+		br(xl, xu);*/
 
-		/*std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(xl, xu) << std::endl;
+
+		std::cout << "Raíz por bisección en [" << xl << ", " << xu << "]= " << bis(xl, xu) << std::endl;
 		std::cout << std::endl;
 		std::cout << "Raíz por interpolación en [" << xl << ", " << xu << "]= " << interpol(xl, xu) << std::endl;
 		std::cout << std::endl;
 		std::cout << "Raíz por Newton-Raphson iniciando en " << xl << " = " << nt_rp(xl) << std::endl;
 		std::cout << std::endl;
 		std::cout << "Raíz por secante en [" << xl << ", " << xu << "]= " << sec(xl, xu) << std::endl;
-		std::cout << std::endl;*/
+		std::cout << std::endl;
+		std::cout << "Raíz por Brent en [" << xl << ", " << xu << "]= " << br(xl, xu) << std::endl;
+		std::cout << std::endl;
 	}
 
 	return 0;

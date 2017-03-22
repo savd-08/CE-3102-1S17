@@ -1,0 +1,9510 @@
+version: 1
+creator: callgrind-3.12.0.SVN
+pid: 13705
+cmd:  ./main -10 100
+part: 1
+
+
+desc: I1 cache: 
+desc: D1 cache: 
+desc: LL cache: 
+
+desc: Timerange: Basic block 0 - 367505
+desc: Trigger: Program termination
+
+positions: line
+events: Ir
+summary: 2242139
+
+
+ob=/lib/x86_64-linux-gnu/ld-2.24.so
+fl=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/sysv/linux/wordsize-64/xstat.c
+fn=_xstat
+34 4
+-1 4
++1 4
++1 24
++4 1
+-4 12
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/x86_64/brk.c
+fn=brk
+31 7
++8 1
+-6 2
++7 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-object.c
+fn=_dl_new_object
+61 66
++1 6
+-1 12
++1 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=6 +4 
+* 114
++6 6
+-6 24
++6 24
++1 42
++6 30
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=6 +26 
+* 198
+* 6
++3 6
+-3 6
++3 6
++4 6
++5 12
+-6 6
++1 12
++5 6
+-1 6
++1 6
+-1 6
++1 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=6 +44 
+* 71
++10 6
+-10 6
++11 6
+-1 6
+-10 6
++10 6
+-8 6
++8 12
++1 6
+-1 6
++1 18
++3 6
+-3 6
++3 6
++9 6
+-7 6
++4 6
++3 12
++2 2
+-2 2
++2 30
+-2 30
++12 6
++6 6
+-5 6
+-1 6
++6 30
++2 5
++3 5
+-3 5
++3 5
+-3 10
++7 15
++4 12
++8 1
++3 1
++3 2
+-3 1
++3 1
+-3 5
++3 10
+-3 5
++3 5
++2 15
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=5 -91 
+* 170
++4 5
+-4 20
++4 15
++64 5
++4 54
+102 17
++39 15
++70 15
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=5 -94 
+* 84
+* 84
++6 79
+-1 79
++1 84
+-1 5
++1 15
++5 10
+-89 2
++32 10
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=5 -73 
+* 115
+* 5
++1 5
+-1 5
++1 15
+-33 2
+
+fn=_dl_add_to_namespace_list
+32 30
++2 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_lock_recursive
+calls=6 688 
+* 12
++2 6
+-2 6
++2 46
++3 60
++2 5
++2 5
++4 5
++4 5
+-4 10
++1 5
++4 10
+-4 5
++1 5
++3 5
+-3 5
++2 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=5 694 
+* 10
+-4 1
++4 1
+-4 2
++1 1
++4 2
+-4 1
++1 1
++3 1
+-3 1
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=1 694 
+* 2
+-5 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+fn=_dl_runtime_resolve_avx
+64 12
++3 12
++2 12
++2 12
++3 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++5 12
++1 12
++1 12
++1 12
++14 12
++1 12
++1 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-runtime.c
+cfn=_dl_fixup
+calls=12 -46 
+* 10363
++1 12
++5 12
++1 12
++1 12
++1 12
++13 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++1 12
++2 12
++2 12
++4 12
++3 12
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::error_category::~error_category()
+calls=1 0 
+* 1
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::_V2::error_category::~error_category()
+calls=1 0 
+* 1
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+calls=1 0 
+* 85
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ostream::flush()
+calls=1 0 
+* 1344
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+calls=1 0 
+* 8706
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+calls=1 0 
+* 12983
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ios_base::ios_base()
+calls=1 0 
+* 86
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::locale()
+calls=1 0 
+* 68486
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/malloc/malloc.c
+cfn=malloc
+calls=1 2914 
+* 59987
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::future_category()
+calls=1 0 
+* 1563
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+* 60
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::error_category::error_category()
+calls=1 0 
+* 4
+
+fn=_dl_runtime_resolve_avx'2
+64 60
++3 60
++2 60
++2 60
++3 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++5 60
++1 60
++1 60
++1 60
++14 60
++1 60
++1 60
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-runtime.c
+cfn=_dl_fixup
+calls=60 -46 
+* 58489
++1 60
++5 60
++1 60
++1 60
++1 60
++13 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++1 60
++2 60
++2 60
++4 60
++3 60
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+cfn=fflush
+calls=1 33 
+* 68
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=1 0 
+* 112
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=1 0 
+* 114
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=1 0 
+* 112
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=1 0 
+* 114
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<wchar_t> const& std::use_facet<std::ctype<wchar_t> >(std::locale const&)
+calls=1 0 
+* 112
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::ctype<wchar_t> >(std::locale const&)
+calls=1 0 
+* 114
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::_M_cache_locale(std::locale const&)
+calls=1 0 
+* 7494
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=1 0 
+* 112
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=1 0 
+* 114
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=1 0 
+* 112
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=1 0 
+* 114
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&)
+calls=1 0 
+* 161
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S
+cfn=__strcmp_sse2_unaligned
+calls=1 24 
+* 15
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=__dynamic_cast
+calls=1 0 
+* 1416
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=bool std::has_facet<std::ctype<char> >(std::locale const&)
+calls=1 0 
+* 2127
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+calls=1 0 
+* 9610
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::~locale()
+calls=1 0 
+* 11
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::operator=(std::locale const&)
+calls=1 0 
+* 18
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ios_base::_M_init()
+calls=1 0 
+* 1520
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::messages<wchar_t>::messages(unsigned long)
+calls=1 0 
+* 32
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 106
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 106
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+calls=1 0 
+* 349
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::messages<char>::messages(unsigned long)
+calls=1 0 
+* 32
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 98
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 98
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+calls=1 0 
+* 349
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::messages<wchar_t>::messages(unsigned long)
+calls=1 0 
+* 32
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__timepunct<wchar_t>::_M_initialize_timepunct(__locale_struct*)
+calls=1 0 
+* 113
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__timepunct<wchar_t>::__timepunct(std::__timepunct_cache<wchar_t>*, unsigned long)
+calls=1 0 
+* 1222
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 106
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 106
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+calls=1 0 
+* 349
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::codecvt<wchar_t, char, __mbstate_t>::codecvt(unsigned long)
+calls=1 0 
+* 27
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+* 97
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+calls=1 0 
+* 1384
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/btowc.c
+cfn=btowc
+calls=1 38 
+* 9
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/wctob.c
+cfn=wctob
+calls=1 40 
+* 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/locale/uselocale.c
+cfn=uselocale
+calls=1 31 
+* 21
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<wchar_t>::_M_initialize_ctype()
+calls=1 0 
+* 20879
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<wchar_t>::ctype(unsigned long)
+calls=1 0 
+* 21768
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::messages<char>::messages(unsigned long)
+calls=1 0 
+* 32
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__timepunct<char>::_M_initialize_timepunct(__locale_struct*)
+calls=1 0 
+* 115
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__timepunct<char>::__timepunct(std::__timepunct_cache<char>*, unsigned long)
+calls=1 0 
+* 1232
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 98
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+calls=1 0 
+* 98
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+calls=1 0 
+* 349
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::codecvt<char, char, __mbstate_t>::codecvt(unsigned long)
+calls=1 0 
+* 27
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+* 14
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+* 1126
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/locale/newlocale.c
+cfn=newlocale
+calls=1 44 
+* 38
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::facet::_S_create_c_locale(__locale_struct*&, char const*, __locale_struct*)
+calls=1 0 
+* 1323
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+* 2414
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ctype<char>::ctype(unsigned short const*, bool, unsigned long)
+calls=1 0 
+* 3381
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+* 2
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::locale::_Impl::_Impl(unsigned long)
+calls=1 0 
+* 67709
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-open.c
+cfn=_dl_find_dso_for_object
+calls=1 +23 
+* 53
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=__cxa_guard_release
+calls=1 0 
+* 14
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=__cxa_guard_acquire
+calls=1 0 
+* 33
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86/cpu-features.c
+fn=get_common_indeces.constprop.1
+28 1
+-5 1
++5 3
++3 3
++4 1
+-4 1
++4 1
+-4 1
++3 1
++1 2
++1 4
++1 4
++1 3
++1 2
++7 2
++1 7
++7 3
++4 2
++2 4
++34 2
+-30 2
++2 1
++2 3
++5 3
++16 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+fn=check_match
+92 16656
++3 14574
++12 12492
++3 8520
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=48 +34 
+* 2378
+* 96
++5 2082
+-1 2082
++1 2082
++2 4160
++19 4160
++1 16640
++46 2081
+-7 2081
++7 10405
+-18 4
++2 4
++1 2
+-1 4
++1 6
+-1 4
++4 2
++1 7
++2 2
++9 1
+-7 1
++7 5
+-45 6240
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=2080 +6 
+* 62949
+* 6240
+
+fn=_dl_lookup_symbol_x
+810 21050
+572 2105
+810 10525
+572 10525
++1 2105
+-1 2105
++1 6315
+-1 6315
++1 88427
+-1 88427
++1 265281
+-1 267386
+813 2105
+-1 2105
++4 2105
++4 2105
+-8 2105
++1 2105
++7 6265
++7 2105
+-2 2105
++2 2105
+-2 2105
++6 2105
+-7 2105
++7 4210
+-7 18945
++15 23
+-8 115
++2 27365
+cfn=do_lookup_x
+calls=2105 355 
+* 784106
++3 6315
++26 6315
++21 2082
++1 14574
++31 2082
++9 8328
++14 6246
++3 8328
++5 2082
++2 18945
+-84 161
++15 23
++1 46
++59 2
+
+fn=do_lookup_x
+355 14735
++1 2105
+-1 10525
++48 2105
+-30 2105
+-11 2105
++41 2105
++3 4210
+-3 4210
+-30 8420
++33 8420
+-40 4210
++3 4210
+-3 9228
++3 9228
++4 13444
++4 13436
++4 13436
++6 20154
++8 6718
+-4 6718
++1 6718
++3 13436
++1 20154
++3 6718
++1 13436
++4 13436
++3 6718
+-5 6718
++5 20154
++3 47026
+-99 4636
+557 36080
++1 350
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+cfn=_dl_name_match_p
+calls=175 288 
+* 14869
+* 525
++3 13911
++3 23
++1 16840
+-96 4164
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/generic/ldsodefs.h
+102 6246
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+520 4164
++3 10616
++4 4347
++12 3920
++1 1960
++1 3920
+220 366
++2 122
+-2 122
++2 732
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_lock_recursive
+calls=122 688 
+* 244
++2 122
++2 122
+-2 244
++1 122
++1 122
+-2 122
++2 122
++2 484
++1 847
+-1 121
++1 2156
++23 558
++4 462
+-24 759
++1 120
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=40 -89 
+* 2679
+* 200
++2 120
++13 160
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=40 694 
+* 80
+546 80
+260 1135
+-69 82
+322 82
+191 82
+322 164
+191 82
++1 82
+-1 82
++1 410
+321 164
++13 492
++5 164
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=82 694 
+* 164
++2 164
++1 82
+-1 82
+546 164
+197 518
+-2 168
++1 168
+-3 332
++7 82
++1 82
++1 82
++1 82
+329 328
++3 66
+-75 330
+414 8724
+-1 4362
++2 4362
++2 28288
++13 8838
+-10 25135
++2 4164
++1 10410
+-1 2082
++2 2082
+-1 4164
++1 2082
+-1 6246
+-1 2082
++1 6246
+cfn=check_match
+calls=2082 92 
+* 175960
++4 6248
++34 191
++2 4
+267 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+cfn=_dl_higher_prime_number
+calls=2 +77 
+* 149
++1 4
+-1 2
++1 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=2 101 
+* 64
+* 2
++2 2
+-2 2
++2 4
++7 26
++1 276
++1 70
+-88 70
++88 140
+-88 70
++88 70
+-88 70
++1 70
+-1 70
++1 650
++3 28
++1 28
+-3 168
++7 70
++1 70
++1 70
++1 140
++74 140
+-74 22
++74 48
++6 16
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=free
+calls=2 118 
+* 12
++4 2
+-3 2
++2 2
++1 6
+-20 669
+-22 40
++1 80
+-49 10
+303 2
++9 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=1 101 
+* 32
+* 1
++1 1
+-1 1
++1 1
++3 1
++2 1
+-7 1
++6 1
++1 1
+-7 1
++7 2
+439 18729
+
+fn=_dl_setup_hash
+959 21
++4 7
++4 14
++2 7
+-1 7
++3 21
++1 7
++1 7
++3 7
+-3 7
++7 7
+-4 7
+-1 7
++3 7
++2 7
+-7 7
++7 14
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-init.c
+fn=call_init.part.0
+36 7
++3 7
+-3 14
++3 21
+-11 42
++16 30
++5 10
++9 30
+cob=???
+cfi=???
+cfn=0x0000000004cb14b0
+calls=1 -58 
+* 6
+cob=???
+cfi=???
+cfn=0x0000000004fb6548
+calls=1 -58 
+* 6
+cob=???
+cfi=???
+cfn=0x00000000052bc7b0
+calls=1 -58 
+* 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
+cfn=_init
+calls=1 -6 
+* 176
+cob=???
+cfi=???
+cfn=0x0000000004a27560
+calls=1 -58 
+* 6
+* 5
++4 10
++6 5
++2 10
+-2 10
++3 25
++1 20
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008c1f0
+calls=1 -72 
+* 17
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=???
+cfn=0x00000000000057e0
+calls=1 -72 
+* 17
+cob=/lib/x86_64-linux-gnu/libgcc_s.so.1
+cfi=???
+cfn=__cpu_indicator_init
+calls=1 -72 
+* 255
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
+cfn=init_cacheinfo
+calls=1 485 
+* 1748
+cob=/usr/lib/valgrind/vgpreload_core-amd64-linux.so
+cfi=???
+cfn=0x0000000000000690
+calls=1 -72 
+* 17
+* 44
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008c060
+calls=1 -72 
+* 49
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008bfa0
+calls=1 -72 
+* 49
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008bf20
+calls=1 -72 
+* 33
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008bea0
+calls=1 -72 
+* 33
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008be60
+calls=1 -72 
+* 144
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008bc30
+calls=1 -72 
+* 54
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008bb20
+calls=1 -72 
+* 73
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008ba90
+calls=1 -72 
+* 61302
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008ba70
+calls=1 -72 
+* 2309
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008b9f0
+calls=1 -72 
+* 2301
+cob=/lib/x86_64-linux-gnu/libgcc_s.so.1
+cfi=???
+cfn=0x0000000000003160
+calls=1 -72 
+* 17
+* 16
+-1 32
++3 36
+-29 3
+-5 2
++34 1
+
+fn=_dl_init
+80 11
++1 1
++1 1
++3 3
++8 2
++1 2
++25 24
++1 21
+-90 38
+cfn=call_init.part.0
+calls=6 +6 
+* 68922
+* 6
++96 8
+-96 2
++58 2
++16 1
+cfn=call_init.part.0
+calls=1 -68 
+* 76
+* 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/syscall-template.S
+fn=mprotect
+84 48
++1 12
+
+fn=munmap
+84 4
++1 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/setjmp.S
+fn=__sigsetjmp
+26 13
++9 13
++1 26
++1 13
++4 13
++1 13
++1 13
++1 13
++1 13
++2 26
++2 13
++1 13
++1 13
++2 26
++2 13
++4 13
++1 13
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-environ.c
+fn=_dl_next_ld_env_entry
+30 3
++3 10
++13 65
+-13 195
++2 134
++1 20
++5 2
+-3 2
++3 2
++2 2
++7 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+fn=strlen
+66 29
++1 29
++1 29
++1 29
++1 29
++1 29
++1 29
++2 29
++2 29
++30 28
++1 28
++1 28
++1 28
++1 28
++1 12
++1 12
++4 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++1 16
++5 128
++4 1
++1 14
++1 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+fn=_dl_relocate_object
+149 70
++15 7
+-15 14
++15 7
++1 42
++6 14
++6 21
+-18 12
++22 12
++7 7
+-32 7
++32 7
++44 7
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+76 21
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+232 14
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+76 19
++6 10
++4 15
++14 5
+-8 5
++10 5
+-2 10
++20 10
++9 6
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 279
+-99 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 40
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+-46 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+58 5
+-10 5
+-1 10
++11 5
+-11 5
++11 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 2
+-99 8
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 16
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+-46 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+58 2
+-10 2
+-1 4
++11 2
+-11 2
++11 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 7
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+58 7
+-10 7
+-1 14
++11 7
+-11 7
++11 7
++3 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+532 1762
++4 1762
++2 2643
++1 881
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+61 2703
++2 3612
++2 70
+-4 6
++13 10
++1 10
++1 44
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+532 22
++24 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+75 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+556 22
++2 22
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_sin.c
+cfn=sin
+calls=1 17 
+* 8
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_atan2.c
+cfn=__atan2_finite
+calls=1 9 
+* 8
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_asin.c
+cfn=__asin_finite
+calls=1 16 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_floor.S
+cfn=floor
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_floorf.S
+cfn=floorf
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_asin.c
+cfn=__acos_finite
+calls=1 10 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_rintf.S
+cfn=rintf
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_log.c
+cfn=__log_finite
+calls=1 9 
+* 8
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_pow.c
+cfn=__pow_finite
+calls=1 8 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_ceil.S
+cfn=ceil
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_ceilf.S
+cfn=ceilf
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_rint.S
+cfn=rint
+calls=1 25 
+* 5
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_sin.c
+cfn=cos
+calls=1 12 
+* 8
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_exp.c
+cfn=__exp_finite
+calls=1 9 
+* 8
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/memmove.S
+cfn=memmove
+calls=1 29 
+* 15
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/gettimeofday.c
+cfn=gettimeofday
+calls=1 37 
+* 66
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strspn.S
+cfn=strspn
+calls=1 30 
+* 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcspn.S
+cfn=strpbrk
+calls=1 45 
+* 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp.S
+cfn=strncasecmp
+calls=1 129 
+* 5
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcspn.S
+cfn=strcspn
+calls=1 45 
+* 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/time.c
+cfn=time
+calls=1 38 
+* 66
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp.S
+cfn=strcasecmp
+calls=1 109 
+* 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+75 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+559 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+75 28
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 4
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+75 24
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 24
++3 28
++24 7
++3 14
++17 21
++2 56
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+84 9
+-1 18
++3 36
++12 27
++10 14
++3 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+516 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+112 12
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+516 1969
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+112 3914
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+516 3914
++5 3926
++1 3926
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+111 3926
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+522 1963
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+111 1963
++7 27
++6 8
+-3 16
++3 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+472 18
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+127 12976
++9 6488
++3 3244
+-3 3244
++3 3244
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+273 3244
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 3244
+-2 3244
++1 12976
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+273 3244
++21 6488
++4 6488
++7 12976
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/generic/ldsodefs.h
+102 9687
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 46085
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 2026
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 4052
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 2026
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 2026
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 2026
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 4052
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+138 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 28380
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_lookup_symbol_x
+calls=2027 810 
+* 1645130
+* 16216
++2 9687
++3 3225
+-3 6450
++3 9675
++6 19464
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+178 14
++3 3
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+411 45
++4 75
++5 45
++9 30
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+124 45
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+420 3223
++9 6446
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+124 9699
++19 12
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 66
++52 6
++2 4
++9 4
+-19 6
++1 9
+478 3
++4 7
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=1 131 
+* 68
++2 4
++1 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+314 42
++3 7
+-3 7
++3 7
++4 14
++1 21
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/syscall-template.S
+cfn=mprotect
+calls=7 84 
+* 35
+* 21
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+123 25
++6 20
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+259 3
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
++54 16
++1 2
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_sin.c
+cfn=sin
+calls=1 17 
+* 8
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_sin.c
+cfn=cos
+calls=1 12 
+* 8
+* 8
+-9 22043
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+160 7
++2 24
++8 12
++1 6
+-1 6
++1 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+273 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+170 18
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+273 6
++21 12
++4 12
++7 24
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/generic/ldsodefs.h
+102 18
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 210
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_lookup_symbol_x
+calls=6 810 
+* 3809
+* 48
++2 18
++3 2
+-3 4
++3 6
++6 36
+420 6
++9 12
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+160 19
++14 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+305 17793
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+fn=_dl_sysdep_start_cleanup
+256 1
+
+fn=_dl_sysdep_start
+86 8
++25 1
+-1 1
++1 210
++6 1
+-3 1
++1 1
+-4 1
++3 1
++3 4
++1 2
+-1 25
++1 105
+-1 102
++62 1
++1 1
+-1 1
++1 1
+-29 1
++1 2
++11 1
++1 1
+-1 1
++1 1
+-7 1
++1 1
+-1 1
++1 1
+-4 1
++1 2
+-25 1
++1 2
+-4 1
++1 2
+-7 1
++1 1
++2 1
++1 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-sysdep.c
+-90 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/x86_64/brk.c
+cfn=brk
+calls=1 -4 
+* 11
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+223 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86/cpu-features.c
+113 1
+-13 1
++1 1
++12 1
++3 1
+-3 1
+-11 1
++14 7
+262 3
++1 1
++3 2
++1 1
++13 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+-49 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86/cpu-features.c
++60 1
++1 1
++1 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+-62 2
++1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=1 66 
+* 32
+* 1
++2 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../misc/sbrk.c
+cfn=sbrk
+calls=1 34 
+* 17
+* 3
++12 3
++3 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=dl_main
+calls=1 738 
+* 2046497
++2 9
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86/cpu-features.c
++29 4
++1 5
++1 2
+122 5
+cfn=get_common_indeces.constprop.1
+calls=1 -94 
+* 59
++3 3
++84 2
++2 1
+-91 2
+283 4
+128 2
+-1 1
++1 1
++1 7
++48 2
++22 4
+-64 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+fn=index
+24 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 20
++1 16
++4 16
++1 16
++1 16
++1 16
++2 16
++4 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++52 4
++4 4
++1 4
++1 4
++1 4
++2 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+fn=memcpy
+131 30
++2 30
++1 30
++1 21
++1 21
++5 10
++1 10
++1 10
++1 10
++5 10
+260 9
++1 9
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++2 1
++22 8
++1 8
++1 8
++1 8
++1 8
++24 11
++1 11
++1 10
++1 10
++22 10
++1 10
++1 10
++1 10
++1 10
++1 10
++1 10
++1 10
++2 10
++3 1
++1 1
++2 1
++3 1
++1 1
++1 1
++1 1
++1 1
++2 1
++1 1
++3 1
++1 1
++2 1
++2 1
++2 1
++2 1
++8 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
+-12 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++2 1
++1 1
++1 1
++1 1
++2 1
++2 1
+
+fn=mempcpy
+117 30
++1 30
++1 30
++14 30
++1 30
++1 6
++1 6
++5 3
++1 3
++1 3
++1 3
++5 3
+260 24
++1 24
++1 11
++1 11
++1 8
++1 8
++1 7
++1 2
++1 2
++2 7
++22 13
++1 13
++1 13
++1 13
++1 13
++3 3
++1 3
++1 3
++1 3
++1 3
++3 1
++1 1
++1 1
++1 1
++1 1
++10 3
++1 3
++1 3
++1 3
++22 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++2 3
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+fn=open_path
+2018 32
++1 4
++6 4
+-6 4
++6 4
++5 36
+-7 4
+-1 4
++8 28
++74 20
+-71 12
++9 16
++7 16
+-12 4
++12 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=4 117 
+* 48
+* 4
++33 20
+-12 8
+-20 83
++3 32
++5 14
+-1 7
++1 14
+-1 21
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=7 117 
+* 92
+* 28
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=7 117 
+* 84
++3 14
++3 21
++3 63
+cfn=open_verify.constprop.7
+calls=7 1695 
+* 315
+* 7
++2 35
++26 12
++2 6
++63 36
+-24 28
++7 4
+-2 4
++2 12
++3 12
+-13 8
+-57 8
++1 36
++6 8
++2 8
+-2 8
++2 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/sysv/linux/wordsize-64/xstat.c
+cfn=_xstat
+calls=4 34 
+* 49
+* 8
++1 1
++2 1
+-2 1
++2 7
++7 2
+-7 3
++7 6
+-30 3
++23 6
+
+fn=_dl_init_paths
+661 1
++13 2
+-13 8
++13 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-hwcaps.c
+cfn=_dl_important_hwcaps
+calls=1 39 
+* 368
++5 1
+-5 1
++5 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 23
+* 1
++1 1
+-2 1
++2 2
++8 1
+-1 1
++1 4
+-1 3
++5 1
+-5 1
++5 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 81
+* 1
++2 1
+-3 1
++3 1
++20 1
++9 1
+-12 1
+-2 1
+-9 1
++1 1
++13 1
++9 1
+-12 2
++1 1
++3 1
++8 2
+-3 3
++3 3
+-3 5
++1 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=4 91 
+* 48
++2 14
+-14 6
++14 3
+-12 3
+-2 3
++3 3
++2 3
+-3 3
++4 3
++4 3
+-4 3
++1 3
++3 3
++1 3
+-4 3
++4 3
++10 1
++4 1
+-11 1
++6 1
++6 2
++2 4
++2 3
++38 5
++8 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+cfn=index
+calls=1 24 
+* 23
+* 2
++2 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=1 66 
+* 16
+* 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=1 131 
+* 10
+* 1
++4 2
++15 4
++2 1
+-4 4
++2 52
++2 13
+-4 53
++8 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 23
+* 1
++1 1
+-2 1
++2 1
++6 9
+cfn=fillin_rpath
+calls=1 433 
+* 552
++4 5
++6 1
++4 8
+-75 1
+-2 2
++2 2
++14 2
+
+fn=fillin_rpath
+433 8
++2 1
+-2 9
++5 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=strsep
+calls=1 -86 
+* 238
+* 4
+-66 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+cfn=index
+calls=1 24 
+* 23
+* 2
++4 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/strdup.c
+cfn=strdup
+calls=1 40 
+* 67
+* 1
++68 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=1 66 
+* 16
++4 1
+-4 1
++4 1
++22 15
++1 8
++55 2
++2 2
+cob=???
+cfi=???
+cfn=0x0000000004000a90
+calls=1 0 
+* 7
+* 2
+-90 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=strsep
+calls=1 -86 
+* 6
+* 3
++94 1
++3 9
+-46 2
++4 5
+-1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 23
+* 1
++3 1
+-3 1
++3 2
++5 1
++1 2
+-2 1
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=1 117 
+* 12
++3 1
+-3 1
++1 1
++2 1
++6 2
++1 1
+-1 2
++1 12
++1 11
+-1 2
++3 2
++1 3
++7 1
++1 1
+-1 2
+-67 6
++8 1
+-3 3
++3 2
++26 2
+-34 2
++65 2
+-9 2
+
+fn=_dl_map_object
+2167 91
++8 13
+-8 26
++8 13
++1 52
++3 254
++5 406
++2 174
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+cfn=_dl_name_match_p
+calls=58 288 
+* 6156
+* 116
++4 100
++1 150
++3 28
++1 28
++1 28
+-1 28
++1 28
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=28 144 
+* 1095
+* 56
+2478 117
+2213 10
++9 5
+-53 5
++53 10
++36 10
+-2 5
++2 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+cfn=index
+calls=5 24 
+* 115
+* 10
+2409 2
+372 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+cfn=index
+calls=1 24 
+* 47
+* 2
++4 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/strdup.c
+cfn=strdup
+calls=1 40 
+* 93
+2410 1
+-3 1
++3 2
++4 10
+cfn=open_verify.constprop.7
+calls=1 1695 
+* 283
++3 2
+-3 1
++3 3
++12 3
++46 1
++1 4
+-1 1
++1 8
+cfn=_dl_map_object_from_fd
+calls=1 871 
+* 1371
+-1 4
++1 16
+-1 4
++1 32
+cfn=_dl_map_object_from_fd
+calls=4 871 
+* 6188
+* 15
+2262 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=4 66 
+* 64
+* 4
++2 4
+-2 4
++2 4
++7 16
++35 8
++1 56
+cfn=open_path
+calls=4 2018 
+* 1387
++6 8
+-6 4
++6 4
+638 4
+2314 4
+638 8
+2401 8
++28 12
++2 16
+2275 4
++8 8
+-8 4
++8 4
+-8 4
++8 28
+-3 12
+638 4
+2281 4
+638 8
+2336 4
+-14 4
++14 4
++2 12
++4 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-cache.c
+cfn=_dl_load_cache_lookup
+calls=4 185 
+* 5010
++2 4
+-2 4
++2 4
++4 8
++8 12
++23 36
+cfn=open_verify.constprop.7
+calls=4 1695 
+* 1317
++4 4
+-4 4
++4 12
++1 12
+-89 20
++1 28
+638 4
+2297 4
+638 8
+
+fn=_dl_map_object_from_fd
+871 55
++10 5
+-10 5
++10 5
+-10 15
++10 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+cfn=_dl_debug_initialize
+calls=5 50 
+* 40
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/posix/dl-fileid.h
+37 15
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+881 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/posix/dl-fileid.h
+37 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c
+cfn=_fxstat
+calls=5 -3 
+* 50
+* 10
++4 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+897 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/posix/dl-fileid.h
+40 5
++1 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+897 95
++1 40
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/posix/dl-fileid.h
+49 60
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1443 45
+915 10
++24 20
++10 10
++22 20
++32 10
+882 5
+1006 35
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-object.c
+cfn=_dl_new_object
+calls=5 61 
+* 1716
++1 5
+-1 5
++1 5
++11 10
++5 5
+-5 5
++1 10
++1 5
++2 5
+-2 5
++2 10
++1 15
++1 5
++19 5
+-2 5
++10 5
+-8 30
++8 5
+-8 10
++8 5
++87 5
++8 5
+-8 20
++8 5
+-8 15
+-86 77
+-1 234
++1 219
++6 10
++1 15
++1 5
++3 2
++1 1
++5 50
++5 80
++9 30
+-1 30
++1 10
++1 20
++2 10
+-2 10
++1 10
+-1 10
++3 10
++4 10
+-7 10
++2 10
++1 10
++4 10
++1 30
++5 5
+-1 5
++1 5
+-15 5
++14 5
++1 25
++10 5
+-10 5
+-1 5
++1 5
+-15 5
++14 5
++1 25
++10 5
++3 6
++4 2
++1 2
++1 2
+-1 4
++1 2
++3 6
++1 2
++3 2
+-3 2
++7 8
++6 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_next_tls_modid
+calls=2 52 
+* 12
+* 4
++1 2
++59 10
++1 15
++1 5
+-6 10
++1 5
++8 20
+1019 5
+1207 5
+1019 5
+1207 5
++10 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
+56 10
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1217 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
+56 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1217 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
+50 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1217 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
+56 5
+-6 10
++6 15
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+cfn=mmap
+calls=5 -23 
+* 175
++4 5
+-4 5
++4 15
++3 10
++1 5
++2 5
+-2 5
+-1 5
++3 5
++10 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-load.h
++14 20
++1 15
++2 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
++7 40
++6 5
++2 5
+-2 5
++3 5
+-2 5
++1 5
++1 5
+-1 15
++8 15
++17 10
++12 10
+-59 50
++2 20
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1229 20
++9 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+39 5
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1238 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+39 5
++6 5
+-2 5
++2 10
++15 5
++5 5
++3 5
+-1 5
+-3 5
+-3 114
++10 26
+-26 78
++16 98
++10 98
+-26 294
++26 5
+-26 15
++2 258
++13 124
++2 20
++3 20
++13 10
++20 17
++1 20
++1 20
++1 20
++2 20
++5 20
++1 19
++1 20
++6 15
++5 10
++7 10
++1 15
++16 15
++5 2
++2 2
+-2 2
++2 2
++2 4
++2 4
++3 15
++10 1
+-8 4
++8 1
++5 2
++3 10
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1245 10
++15 15
++19 10
++2 25
++54 15
++1 4
++3 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=close
+calls=2 84 
+* 10
+* 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=close
+calls=3 84 
+* 15
+* 10
++9 10
++2 15
++2 5
+-2 5
++2 5
++16 10
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_setup_hash
+calls=5 959 
+* 115
++4 10
++1 10
++17 10
++9 5
+-5 15
++5 5
++10 10
++10 15
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-object.c
+cfn=_dl_add_to_namespace_list
+calls=5 32 
+* 235
++4 15
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+68 20
++1 5
++1 20
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1391 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
+119 15
++8 35
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=5 -36 
+* 545
+* 20
+-54 10
+-1 5
++1 10
+-1 25
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/syscall-template.S
+cfn=mprotect
+calls=5 +12 
+* 25
+* 10
++18 60
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+cfn=mmap
+calls=5 -57 
+* 155
+* 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-load.h
++4 20
++2 4
+-1 12
++1 4
+-1 4
++1 8
+-1 8
++3 16
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/./dl-map-segments.h
++39 22
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+cfn=mmap
+calls=2 33 
+* 62
++3 8
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+1233 8
+
+fn=open_verify.constprop.7
+1695 132
++39 12
+-39 36
++39 46
++31 48
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=open
+calls=12 84 
+* 88
++2 12
+-2 12
++2 17
++10 5
++1 10
++5 40
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=read
+calls=5 84 
+* 25
++2 10
++2 5
++2 5
+-2 10
++2 5
++6 10
++16 20
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=5 24 
+* 147
+* 45
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=5 24 
+* 180
+* 15
++74 10
++5 10
++2 20
++6 10
++11 10
++6 5
++1 5
+-1 15
++1 15
++1 10
++20 205
++2 89
++4 20
++1 15
++13 5
++1 5
+-1 5
++1 5
+-1 5
++1 5
+-2 5
++4 15
++5 2
++1 2
+-13 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=2 24 
+* 50
+* 20
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=5 24 
+* 150
+* 14
++16 4
++3 2
++1 6
++1 2
+-1 2
+-1 2
++3 6
++1 10
++5 7
++23 108
+1804 6
++7 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=3 24 
+* 72
+* 6
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+fn=memset
+91 115
++2 23
++1 23
++1 9
++1 9
++2 5
++1 5
++2 5
++48 4
++1 4
++10 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++2 64
++1 64
++1 64
++1 64
++1 64
++1 64
++1 64
++1 4
++15 14
++1 14
++1 14
++1 6
++1 6
++1 2
++1 2
++24 8
++1 8
++2 8
++3 4
++1 4
++2 4
++3 2
++1 2
++2 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-fini.c
+fn=_dl_fini
+130 8
++20 15
++3 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_lock_recursive
+calls=1 688 
+* 2
++2 1
++3 2
++2 8
++8 1
+-3 1
++3 4
++5 1
+-5 3
++7 14
++2 14
++2 7
++1 7
++5 7
+-6 7
+-6 7
++8 7
+-8 15
++14 9
++1 2
++4 1
+31 1
++2 1
+192 1
+33 1
++6 1
+-1 1
++2 1
+-2 2
++1 6
++1 1
+-1 1
++1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=1 +51 
+* 13
+* 1
++77 30
++3 35
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=5 -29 
+* 73
+* 6
+-76 12
++1 6
+-1 6
++1 12
++4 24
++6 12
++1 12
++2 75
++1 40
++2 105
++1 75
+201 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=1 694 
+* 2
++5 3
+81 4
+208 1
++2 3
+-2 6
++2 18
++3 14
++3 21
++4 10
++11 5
++1 5
+-1 5
++2 10
++1 15
++1 10
+cob=/lib/x86_64-linux-gnu/libgcc_s.so.1
+cfi=???
+cfn=0x0000000000003120
+calls=1 0 
+* 99
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=???
+cfn=0x00000000000057a0
+calls=1 0 
+* 99
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008c1b0
+calls=1 0 
+* 1779
+cob=/usr/lib/valgrind/vgpreload_core-amd64-linux.so
+cfi=???
+cfn=0x0000000000000650
+calls=1 0 
+* 99
+cob=/media/sergio/A8F0BDFDF0BDD1B4/Users/savd_/Documents/1S 2017/Análisis Numérico/git/CE-3102-1S17/Tarea 3/main
+cfi=???
+cfn=0x0000000000000b40
+calls=1 0 
+* 99
+-1 20
++5 10
++1 15
+cob=???
+cfi=???
+cfn=0x00000000052cc878
+calls=1 0 
+* 3
+cob=???
+cfi=???
+cfn=0x0000000005027b7c
+calls=1 0 
+* 3
+cob=???
+cfi=???
+cfn=0x0000000004d63c7c
+calls=1 0 
+* 3
+cob=???
+cfi=???
+cfn=0x0000000004a27818
+calls=1 0 
+* 3
+cob=???
+cfi=???
+cfn=0x000000000010a024
+calls=1 0 
+* 3
++6 42
++16 14
+-56 17
++11 6
+92 45
++21 15
+-57 35
+268 6
++6 2
++7 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-error.c
+fn=_dl_catch_error
+163 26
++15 13
+-3 26
++1 26
+-13 26
++14 26
++1 13
++2 13
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=_dl_initial_error_catch_tsd
+calls=13 648 
+* 26
++2 13
+-1 13
++4 13
+-3 26
++3 13
+-4 13
++4 13
+cfi=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/setjmp.S
+cfn=__sigsetjmp
+calls=13 26 
+* 260
+* 39
++2 39
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-deps.c
+cfn=openaux
+calls=12 60 
+* 23416
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=map_doit
+calls=1 480 
+* 2249
++1 26
++2 13
++1 13
+-3 13
++1 26
++1 13
++9 13
+-8 13
++8 39
+
+fn=_dl_receive_error
+205 10
++1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=_dl_initial_error_catch_tsd
+calls=1 648 
+* 2
++5 1
+-1 1
+-4 1
++9 1
++2 1
+-3 1
++3 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=version_check_doit
+calls=1 513 
+* 14704
++2 1
++1 1
++1 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+fn=_dl_debug_state
+74 2
+
+fn=_dl_debug_initialize
+50 14
++5 12
++5 2
+-1 1
++1 2
++1 2
+-1 1
++4 1
+-13 7
++4 14
++4 1
+-1 1
++1 7
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+fn=do_preload
+654 4
++12 1
+-12 2
++10 1
+-4 1
++1 1
++5 4
+-10 1
++6 1
++4 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-error.c
+cfn=_dl_catch_error
+calls=1 163 
+* 2311
++1 3
++8 3
++6 5
+
+fn=rtld_lock_default_unlock_recursive
+694 260
+
+fn=rtld_lock_default_lock_recursive
+688 260
+
+fn=version_check_doit
+513 2
++2 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-version.c
+cfn=_dl_check_all_versions
+calls=1 380 
+* 14694
+* 2
++4 2
+
+fn=_dl_start
+337 9
++18 4
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+45 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+355 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+59 3
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+-14 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+381 1
+-3 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+45 1
++25 2
+-3 1
+-19 1
++12 1
++5 1
++5 1
+-2 1
+-1 1
+-3 2
+-3 16
++10 4
+-26 12
++16 13
++10 13
+-26 39
++26 1
+-26 3
++2 36
++13 20
++2 4
++16 2
++20 4
++1 4
++1 4
++1 4
++2 4
++5 4
++1 4
++1 4
++6 3
++5 2
++7 3
++1 3
++8 3
++2 3
++3 2
++1 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+392 2
+286 1
+399 1
+286 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_setup_hash
+calls=1 959 
+* 23
++1 2
++1 2
++1 2
++1 2
++8 1
++9 1
+-9 3
++9 1
+-6 1
+-3 1
++9 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+cfn=_dl_sysdep_start
+calls=1 86 
+* 2047214
+* 1
++9 4
++3 1
++4 1
+-4 1
++4 1
+424 9
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+65 4
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+397 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+76 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+397 25
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+84 1
++27 1
+-28 1
++28 2
++1 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+521 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+112 18
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+521 18
++1 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+111 20
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+522 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+111 10
++5 2
++8 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+316 1
++87 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+124 2
++12 1
++3 2
+-3 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+270 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+136 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+298 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+137 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+298 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+136 5
++3 10
+-3 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+270 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+136 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+298 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
+137 10
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+298 5
++9 12
++3 6
+-3 12
++3 18
++6 36
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+68 4
++1 1
++1 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/do-rel.h
++54 19
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
+335 18
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+
+fn=_dl_initial_error_catch_tsd
+648 28
+
+fn=init_tls
+573 1
++6 1
+-6 1
++2 2
++4 1
++10 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=1 101 
+* 32
+* 1
++11 1
+-15 1
++3 1
++6 1
++2 1
+-11 1
++15 1
++2 1
+-1 1
++1 16
++2 14
++4 2
++2 2
+-2 4
+-5 14
++9 3
++3 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_determine_tlsoffset
+calls=1 144 
+* 98
++7 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_allocate_tls_storage
+calls=1 354 
+* 434
++1 1
+-1 1
++1 1
++6 1
++3 1
+-3 1
++3 6
++3 1
++3 3
+
+fn=map_doit
+480 1
++2 1
+-2 1
++3 2
+-1 3
++1 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+cfn=_dl_map_object
+calls=1 2167 
+* 2235
+* 1
++2 2
+
+fn=dl_main
+738 1
++19 1
+-19 7
+2353 1
+738 3
++19 1
++3 1
+2353 1
+738 1
++22 1
++4 1
+2348 1
+764 1
++1 1
+2353 1
+765 1
++5 2
+2346 2
++7 2
+-4 1
++4 7
++2 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-environ.c
+cfn=_dl_next_ld_env_entry
+calls=1 30 
+* 66
+* 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-environ.c
+cfn=_dl_next_ld_env_entry
+calls=2 30 
+* 370
+* 9
++4 50
++1 19
+-1 57
++3 4
++6 14
+2514 3
++30 3
+780 3
+981 7
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-object.c
+cfn=_dl_new_object
+calls=1 61 
+* 241
++2 1
+-2 1
++2 1
++1 1
++1 1
++5 2
+-5 1
++1 2
++4 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-object.c
+cfn=_dl_add_to_namespace_list
+calls=1 32 
+* 33
++1 3
+747 1
+1020 1
+-3 1
+-5 1
++1 1
++2 1
++5 5
++56 3
+-37 1
++22 1
++15 2
+-55 24
+-1 27
++1 47
+1123 5
++3 2
++2 2
++2 3
++13 3
++1 7
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=1 144 
+* 50
+* 2
++7 1
++3 1
+-5 1
++3 1
+-3 1
++5 1
++1 2
++4 2
++2 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+30 1
++9 2
++6 1
+-2 1
++2 2
++15 1
++5 1
++3 1
++2 1
+-3 1
+-3 1
+-3 22
++10 5
+-26 15
++16 20
++10 20
+-26 60
++26 1
+-26 3
++2 52
++13 24
++2 4
++16 3
++20 3
++1 4
++1 4
++1 4
++2 4
++5 3
++1 4
++1 4
++6 3
++12 2
++1 3
++16 3
++14 3
++10 1
+-8 3
++8 1
++5 2
++1 2
++2 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+1166 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_setup_hash
+calls=1 959 
+* 23
++3 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/setup-vdso.h
+24 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+1191 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-sysdep.c
+cfn=_dl_discover_osversion
+calls=1 45 
+* 86
+* 8
+-75 2
++1 2
++1 1
+-6 2
++1 1
+-88 3
++1 1
++50 2
+-1 2
++1 4
+-1 2
++2 4
++1 1
++3 2
++1 2
+-1 2
++1 2
++1 2
++1 6
++1 2
+-45 3
++9 1
+-7 1
++25 1
+-28 1
++10 1
+-19 3
++1 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/get-dynamic-info.h
+65 4
++3 4
++1 1
++1 3
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+2442 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=1 24 
+* 31
+* 2
++2 3
+-55 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=1 24 
+* 18
+* 2
++7 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=1 24 
+* 36
+* 2
++2 3
+1196 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+cfn=_dl_init_paths
+calls=1 661 
+* 1479
++3 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+cfn=_dl_debug_initialize
+calls=1 50 
+* 17
++7 1
+-7 1
++2 1
++5 1
++3 3
++1 1
++3 1
+-3 3
++1 2
++3 1
++5 1
+-7 1
++7 1
++1 5
++17 2
++1 2
++5 1
+-3 3
++2 1
++1 3
++5 3
++1 5
++2 2
++1 2
++5 2
++5 1
+753 1
+1262 2
+1439 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_count_modids
+calls=1 115 
+* 4
+* 1
++8 3
++3 1
++4 3
++5 1
++1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+cfn=_dl_debug_state
+calls=1 74 
+* 1
++1 1
++4 3
++15 3
++4 1
+-2 1
++2 2
++31 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=access
+calls=1 84 
+* 9
+* 2
++77 1
+1481 1
+1592 3
++17 3
++1 1
+-1 1
++1 2
+-1 1
++1 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-deps.c
+cfn=_dl_map_object_deps
+calls=1 161 
+* 27599
++1 1
++5 1
+-5 3
++2 2
++3 6
++1 3
+-1 2
++1 18
+-1 12
++4 3
++1 3
++1 1
++2 2
++1 6
+-1 8
++1 19
+-1 12
+-28 5
++1 1
+-1 3
++4 3
++1 1
++1 2
++1 3
++35 1
+-1 1
++1 1
+-1 1
++1 1
++2 1
++2 3
++2 1
+-4 1
++5 1
+-1 2
++14 2
++1 2
++1 3
++11 1
++2 1
+-2 1
++2 2
+-1 1
++1 1
+-2 3
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-error.c
+cfn=_dl_receive_error
+calls=1 205 
+* 14734
++10 1
++1 1
+-1 1
++1 1
++1 1
+cfn=init_tls
+calls=1 573 
+* 657
+* 1
++2 2
+703 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-osinfo.h
+64 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+705 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-osinfo.h
+77 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+714 1
++7 1
+-5 1
+1692 3
+1922 3
+2092 4
++2 1
++5 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_allocate_tls_init
+calls=1 449 
+* 210
++3 2
+-59 3
++7 1
++2 7
++2 1
++2 21
++5 14
++2 14
++6 7
++2 14
++1 48
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+cfn=_dl_relocate_object
+calls=6 149 
+* 1991097
++4 25
+-22 16
++25 4
++2 2
++6 1
+-6 1
++6 1
+-10 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+cfn=_dl_add_to_slotinfo
+calls=2 890 
+* 40
+* 2
+-12 1
++1 1
+-3 2
++48 3
++2 2
++15 1
++2 1
+-2 2
++3 1
+-3 1
++3 1
+-3 1
++3 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-reloc.c
+cfn=_dl_relocate_object
+calls=1 149 
+* 5139
++1 4
++2 2
++8 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-sysdep.c
+cfn=_dl_sysdep_start_cleanup
+calls=1 256 
+* 1
++4 3
++20 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+cfn=_dl_debug_initialize
+calls=1 50 
+* 8
++1 1
+-1 1
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-debug.c
+cfn=_dl_debug_state
+calls=1 74 
+* 1
++1 1
++4 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-cache.c
+cfn=_dl_unload_cache
+calls=1 322 
+* 15
++5 8
+1978 1
++11 1
+-7 1
+-4 1
++4 3
++4 2
++3 1
+1635 2
+1491 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=1 66 
+* 34
+* 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=1 131 
+* 18
+* 1
++3 6
++3 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=strsep
+calls=1 352 
+* 766
+* 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=strsep
+calls=1 352 
+* 6
+* 6
++1 2
++1 3
++2 4
+cfn=do_preload
+calls=1 654 
+* 2339
+* 2
++2 1
++2 2
+-2 3
++2 3
+1185 5
+
+fl=???
+fn=0x0000000000000ca0
+0 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=_dl_start
+calls=1 337 
+0 2047857
+0 14
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-init.c
+cfn=_dl_init
+calls=1 80 
+0 69121
+0 3
+cob=/media/sergio/A8F0BDFDF0BDD1B4/Users/savd_/Documents/1S 2017/Análisis Numérico/git/CE-3102-1S17/Tarea 3/main
+cfi=???
+cfn=_start
+calls=1 0 
+0 125142
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-runtime.c
+fn=_dl_fixup
+66 144
++6 144
+-6 72
++3 144
++3 216
+-4 72
++5 432
++1 72
+-1 72
++1 144
++5 144
++4 144
++4 216
++4 144
++1 288
++2 288
++7 144
+-1 72
++1 72
++10 648
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-lookup.c
+cfn=_dl_lookup_symbol_x
+calls=72 810 
+* 63445
+* 72
++4 360
++10 432
++16 72
+-8 72
++8 216
++4 216
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-machine.h
++94 72
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-runtime.c
+-90 216
+fi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-irel.h
+32 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp.S
+cfn=strcmp
+calls=1 +55 
+* 5
+* 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/elf/../elf/dl-runtime.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+fn=strsep
+352 8
++2 4
++1 8
++4 132
++7 366
+-2 244
++13 2
++4 4
+-7 61
+-15 187
+
+fn=calloc
+101 17
++8 17
+-1 34
+-3 17
++4 34
++3 17
+cfn=malloc
+calls=17 -20 
+* 513
+* 17
+
+fn=__libc_memalign
+53 159
++11 39
++1 39
+-1 39
++3 39
+-3 39
++3 78
+-3 1
++1 1
+-1 1
++3 1
+-3 1
++3 150
+-15 9
++20 12
++1 6
++2 3
++1 24
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+cfn=mmap
+calls=3 -43 
+* 99
++2 15
++4 9
++3 3
++1 3
++2 15
+-2 37
+-1 37
++3 74
+-29 1
+-1 1
++1 1
++1 2
+-2 2
+
+fn=free
+118 3
++2 9
++7 6
+
+fn=malloc
+92 39
++1 78
+cfn=__libc_memalign
+calls=39 -40 
+* 921
+* 39
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-tls.c
+fn=_dl_count_modids
+115 2
++1 2
+
+fn=_dl_determine_tlsoffset
+144 1
+-6 5
++6 2
++3 2
++36 3
++2 10
+-2 1
++2 2
++3 2
+-1 2
++5 4
+-4 2
+-1 4
++3 4
++2 6
++16 4
++3 4
+-3 10
++2 4
++10 2
+-37 4
++25 2
+-25 9
++40 1
++1 1
++52 1
+-1 1
++1 5
+
+fn=_dl_allocate_tls_storage
+354 3
++2 1
++11 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=__libc_memalign
+calls=1 53 
+* 19
+* 1
++1 2
++7 2
++4 1
+-57 1
++57 296
+-58 2
++1 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=1 101 
+* 90
+* 1
++1 2
++3 1
++6 2
++64 5
+
+fn=_dl_next_tls_modid
+52 8
++48 4
+
+fn=_dl_add_to_slotinfo
+890 8
++9 2
+-3 4
++8 6
++42 6
+-1 2
++1 4
++1 8
+
+fn=_dl_allocate_tls_init
+449 8
++1 1
+-1 1
++1 1
++4 1
++6 2
+-6 1
++6 1
+-4 1
++16 1
+-15 3
++20 6
++6 20
++3 2
++1 4
++6 6
++3 2
+-2 4
++2 8
++1 2
++3 4
+-1 4
++4 4
++1 8
++2 4
++9 2
+-8 2
++8 2
+-8 4
++8 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=2 117 
+* 25
+* 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=2 91 
+* 45
+* 4
+-38 6
++52 3
++3 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+fn=bcmp
+24 25
++1 25
++1 25
++1 25
++1 25
++1 25
++1 25
++1 25
++3 25
++1 25
++1 8
++1 8
++1 8
++1 8
++1 8
++1 8
++1 8
++2 24
++1 24
++1 7
++1 7
++1 7
++1 7
++1 7
++1 7
++1 7
++2 24
++1 24
++1 8
++1 8
++1 8
++1 8
++1 2
++1 2
++1 2
++2 18
++1 18
++1 10
++1 10
++1 10
++1 10
++5 8
++1 8
++1 8
++1 8
++1 8
++1 8
++1 8
++1 5
++1 5
++1 5
++1 5
++1 5
++7 5
++2 6
++4 16
++1 16
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++1 3
++4 16
++1 16
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-hwcaps.c
+fn=_dl_important_hwcaps
+39 6
++3 1
+-3 2
++3 1
+-1 1
++1 1
++9 1
+-12 4
++12 1
++10 4
+162 2
+-47 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=access
+calls=1 -31 
+* 9
+* 3
++55 3
++2 2
++1 5
++4 2
++4 1
+-4 1
++1 1
++3 1
++3 2
++4 6
++1 1
+-1 8
++1 1
++80 2
+-12 2
++12 1
++1 2
+-1 5
++1 6
+-1 11
++5 12
++4 3
+-4 7
++4 9
++1 4
+-1 4
++1 8
+-2 4
++1 8
+-1 14
++4 4
++4 1
+-1 1
++2 1
+-2 1
++1 1
++1 1
+-2 1
++2 9
++13 2
++1 1
+-1 1
++3 2
+-3 2
++1 1
+-1 1
++3 2
++3 4
++3 1
+-1 1
++1 7
+207 11
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 23
+* 1
++1 1
+-1 1
++1 3
++29 1
++3 1
+-3 2
++3 1
++2 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=1 117 
+* 16
+* 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=1 117 
+* 15
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=1 117 
+* 14
+* 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=mempcpy
+calls=1 117 
+* 15
++25 10
+113 1
++17 1
++1 1
+-1 9
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/strdup.c
+fn=strdup
+40 24
++1 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=6 +25 
+* 186
+* 6
++1 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=6 +50 
+* 138
+* 6
++2 12
++4 6
+-1 12
++1 12
+-1 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=6 +84 
+* 84
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+fn=strcmp
+144 2837
++1 2837
++2 2837
++1 2837
++21 2837
++1 2837
++1 2048
++1 2048
++1 2001
++1 2001
++1 2001
++1 2001
++21 2001
++1 2001
++1 2001
++1 2001
++1 2001
++1 2001
++1 2001
++5 46
++1 46
++9 46
++1 46
++1 46
++1 46
++1 46
++1 46
++1 46
++1 46
+-7 836
++1 836
++1 836
++1 836
++1 836
++1 836
++1 836
++1 836
++1 263
++1 72
++1 72
++1 72
++2 72
++1 72
++1 72
++1 72
++1 72
++1 72
+-5 191
++1 191
++1 191
++1 191
++1 191
++1 191
++10 619
++1 619
++1 619
++2 619
++6 619
++1 619
++1 619
++1 619
++1 619
++5 619
++2 608
++1 608
++1 1216
++8 608
++1 608
++3 608
++1 608
++1 608
++1 608
++1 608
++1 608
+-9 19
++1 19
++3 19
++1 19
++1 19
++1 19
++1 19
++1 19
++6 27
++1 27
++1 27
++3 27
++1 27
++1 27
++1 27
++1 27
++1 27
++5 19
++1 19
+447 2
++1 2
++1 2
++1 2
++1 2
++2 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 4
++4 2
++1 2
++3 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++72 2
++1 2
++1 2
++1 2
++1 2
++2 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++4 2
++1 2
++1 2
++6 2
++1 2
++1 4
++4 2
++1 2
++3 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++72 1
++1 1
++1 1
++1 1
++1 1
++2 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
+946 2
++1 2
++1 2
++1 2
++1 2
++2 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++4 2
++1 2
++1 2
++6 2
++1 2
++1 4
++4 2
++1 2
++3 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++72 2
++1 2
++1 2
++1 2
++1 2
++2 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++4 2
++1 2
++1 2
++6 2
++1 2
++1 4
++4 2
++1 2
++3 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++72 29
++1 29
++1 29
++1 29
++1 29
++2 29
++1 29
++1 29
++1 29
++1 29
++1 29
++1 29
++1 5
++4 5
++1 5
++1 5
++6 5
++1 5
++1 10
++4 5
++1 5
++3 5
++1 5
++1 5
++3 5
++1 5
++1 5
++6 5
++1 5
++1 5
++1 5
++1 5
++1 5
++7 1
++1 1
++2 1
++1 1
++2 1
++1 1
++1 1
++3 1
++1 1
++1 1
++6 1
++1 1
++1 1
++1 1
++1 1
++1 1
++41 61
++1 61
++1 61
++1 61
++1 61
++2 61
++1 61
++1 61
++1 61
++1 61
++1 61
++1 61
++1 3
++4 3
++1 3
++1 3
++6 3
++1 3
++1 6
++4 3
++1 3
++3 3
++1 3
++1 3
++3 3
++1 3
++1 3
++6 3
++1 3
++1 3
++1 3
++1 3
++1 3
++72 5
++1 5
++1 5
++1 5
++1 5
++2 5
++1 5
++1 5
++1 5
++1 5
++1 5
++1 5
++1 2
++4 2
++1 2
++1 2
++6 2
++1 2
++1 4
++4 2
++1 2
++3 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++72 4
++1 4
++1 4
++1 4
++1 4
++2 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 4
++1 3
++4 3
++1 3
++1 3
++6 3
++1 3
++1 6
++4 3
++1 3
+-1 1
++1 1
++3 4
++1 4
++1 4
++3 4
++1 4
++1 4
++6 4
++1 4
++1 4
++1 4
++1 4
++1 4
++7 1
++1 1
++2 1
++1 1
++2 1
++1 1
++1 1
++3 1
++1 1
++1 1
++6 1
++1 1
++1 1
++1 1
++1 1
++1 1
++7 1
++1 1
++1 1
++32 38
++1 38
++1 38
++1 38
++1 38
++2 38
++1 38
++1 38
++1 38
++1 38
++1 38
++1 38
++1 5
++4 5
++1 5
++1 5
++6 5
++1 5
++1 10
++4 5
++1 5
+-1 1
++1 1
++3 6
++1 6
++1 6
++3 6
++1 6
++1 6
++6 6
++1 6
++1 6
++1 6
++1 6
++1 6
++7 2
++1 2
++2 2
++1 2
++2 2
++1 2
++1 2
++3 2
++1 2
++1 2
++6 2
++1 2
++1 2
++1 2
++1 2
++1 2
++7 1
++1 1
++1 1
++32 14
++1 14
++1 14
++1 14
++1 14
++2 14
++1 14
++1 14
++1 14
++1 14
++1 14
++1 14
++1 3
++4 3
++1 3
++1 3
++6 3
++1 3
++1 6
++4 3
++1 3
++3 3
++1 3
++1 3
++3 3
++1 3
++1 3
++6 3
++1 3
++1 3
++1 3
++1 3
++1 3
++7 1
++1 1
++2 1
++1 1
++2 1
++1 1
++1 1
++3 1
++1 1
++1 1
++6 1
++1 1
++1 1
++1 1
++1 1
++1 1
++41 50
++1 50
++1 50
++1 50
++1 50
++2 50
++1 50
++1 50
++1 50
++1 50
++1 50
++1 50
++1 10
++4 10
++1 10
++1 10
++6 10
++1 10
++1 20
++4 10
++1 10
++3 10
++1 10
++1 10
++3 10
++1 10
++1 10
++6 10
++1 10
++1 10
++1 10
++1 10
++1 10
++72 53
++1 53
++1 53
++1 53
++1 53
++2 53
++1 53
++1 53
++1 53
++1 53
++1 53
++1 53
++2 4
++4 4
++1 4
++1 4
++6 4
++1 4
++2 8
++4 4
++1 4
++3 4
++1 4
++1 4
++3 4
++1 4
++1 4
++6 4
++1 4
++1 4
++1 4
++1 4
++1 4
++7 1
++1 1
++2 1
++1 1
++2 1
++1 1
++1 1
++3 1
++1 1
++1 1
++6 1
++1 1
++1 1
++1 1
++1 1
++1 1
++43 651
++2 651
++1 651
++1 651
++1 651
+-3 231
++1 231
++1 231
++1 231
++1 216
++5 72
++6 72
++1 72
++8 72
++1 72
+-16 2765
++6 2765
++1 2765
++8 2765
++1 2765
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+fn=open
+84 52
++1 6
++1 35
+
+fn=close
+84 24
++1 6
+
+fn=access
+84 24
++2 30
+
+fn=read
+84 20
++1 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/posix/../sysdeps/unix/syscall-template.S
+fn=uname
+84 4
++1 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+fn=mmap
+33 16
+-1 160
++1 38
++1 160
++2 112
+-3 38
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-open.c
+fn=_dl_find_dso_for_object
+182 5
++1 4
++1 24
++1 2
++3 2
++4 1
+-9 15
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c
+fn=_fxstat
+34 6
+-1 6
++1 6
++1 36
++4 6
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-sysdep.c
+fn=_dl_discover_osversion
+45 7
++2 4
++85 8
+-45 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/posix/../sysdeps/unix/syscall-template.S
+cfn=uname
+calls=1 -3 
+* 5
+* 1
++15 1
+-15 1
++20 1
+-1 1
++3 12
++4 3
+-2 6
++2 9
++7 3
+-1 3
++4 3
+-2 3
++2 10
++5 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-deps.c
+fn=openaux
+60 24
++7 12
+-4 12
++2 12
+-2 24
++2 12
+-2 12
++2 24
+-2 24
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-load.c
+cfn=_dl_map_object
+calls=12 2167 
+* 23224
+* 12
++5 24
+
+fn=_dl_map_object_deps
+161 1
+-1 1
++1 1
+-1 4
++1 1
+-1 2
++1 1
+-1 2
++1 1
+-1 2
++1 1
+-9 1
++9 2
+-15 1
++6 3
++26 1
+-17 1
+-17 1
++1 1
++1 1
++6 1
++26 4
+-32 1
++33 1
+-35 3
++2 2
+-1 1
++1 2
++6 3
++26 1
+-26 1
++26 5
++4 1
++21 1
++1 1
+-22 2
++19 1
+-12 1
++15 1
+-16 2
++13 1
+317 7
+217 1
+-4 1
++4 8
+-4 6
++4 12
++12 14
++2 5
++11 5
+-5 5
+-6 10
++5 5
++2 10
++1 10
++3 30
++75 15
+-25 24
++1 32
+-51 540
++1 270
++6 60
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strchr.S
+cfn=index
+calls=12 24 
+* 348
+* 24
++5 60
+-3 12
++3 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-error.c
+cfn=_dl_catch_error
+calls=12 -91 
+* 24160
++2 36
++15 12
++2 24
++5 5
++6 5
++2 5
+-8 10
++3 5
++1 5
++1 5
++1 5
++4 30
++7 369
+459 14
++2 15
++3 10
+-1 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=5 92 
+* 115
+* 5
++2 5
+-2 5
++2 5
++4 20
+-1 5
++1 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=5 131 
+* 58
++1 30
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=5 131 
+* 58
++4 5
+-1 5
++5 28
++3 18
+-1 7
++1 14
++4 2
+202 1
+485 2
++4 5
++11 3
+-1 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=malloc
+calls=1 92 
+* 23
+* 1
++3 1
+-3 1
++3 1
++5 7
++1 12
++8 14
++4 14
+-4 7
+-6 22
++13 2
++51 3
++2 3
++42 1
+-4 1
++5 2
+-1 4
++1 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=1 91 
+* 13
+* 2
+-2 9
++7 1
++6 1
+-7 1
++1 1
++6 1
+-7 3
++7 1
+-13 5
++7 5
++6 5
+-7 5
++1 5
++6 5
+-7 15
++7 10
++2 20
++1 10
+-1 40
++1 30
++2 105
++1 75
++28 45
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memset-vec-unaligned-erms.S
+cfn=memset
+calls=5 91 
+* 73
+* 30
+485 3
++1 2
+658 15
+-28 30
++31 22
+-6 2
++16 2
++2 1
++1 1
+-1 1
++2 3
++7 3
++3 3
++3 8
+229 8
+-19 4
++8 46
++2 5
++2 15
++2 28
++84 18
+611 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=1 131 
+* 18
++2 1
+-38 1
++38 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../misc/sbrk.c
+fn=sbrk
+34 4
++8 6
++4 2
++16 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-cache.c
+fn=_dl_cache_libcmp
+138 120
++1 88
++2 418
++2 209
+-2 209
++2 8
++6 4
++2 4
+-1 4
+-1 4
++1 4
++1 16
++2 20
++2 8
++6 410
++2 748
++4 169
++1 169
+-29 338
++32 12
+-7 72
+
+fn=_dl_unload_cache
+322 4
+-1 1
++3 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/syscall-template.S
+cfn=munmap
+calls=1 84 
+* 5
++1 1
++2 2
+
+fn=_dl_load_cache_lookup
+185 36
++8 8
++3 12
++45 12
++6 8
++9 4
++6 8
+-6 8
++6 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=access
+calls=4 84 
+* 36
+* 4
++4 4
+-4 4
++4 12
++15 582
+cfn=_dl_cache_libcmp
+calls=36 138 
+* 2722
+* 226
+cfn=_dl_cache_libcmp
+calls=4 138 
+* 312
+* 32
+-82 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+cfn=_dl_sysdep_read_whole_file
+calls=1 45 
+* 94
++8 1
+-8 1
++8 4
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=1 24 
+* 38
+* 2
++7 1
+-3 1
++3 3
++3 1
++1 2
+-1 1
++1 1
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=bcmp
+calls=1 24 
+* 32
+* 2
++61 28
++12 12
++4 8
++4 8
++8 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=4 66 
+* 136
+* 8
++1 4
+-1 16
++1 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../multiarch/memmove-vec-unaligned-erms.S
+cfn=memcpy
+calls=4 131 
+* 56
++1 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/strdup.c
+cfn=strdup
+calls=4 40 
+* 356
++1 32
+-45 16
+-1 12
++15 60
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-version.c
+fn=match_symbol
+76 286
++9 26
+-8 26
+-1 52
++1 26
++8 26
++6 78
++15 26
++1 52
++2 26
++5 52
++14 416
++12 546
++4 182
+-30 364
++16 26
++3 104
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=26 +11 
+* 956
+* 52
++35 208
+
+fn=_dl_check_map_versions
+174 56
++15 21
++2 7
++3 28
+-3 7
++2 7
++1 7
++2 7
+-3 7
++3 7
++3 10
++4 5
+-4 5
++4 20
++17 5
+56 10
+220 5
+56 25
+220 7
+56 14
+220 7
+56 35
++1 54
+-1 108
++2 198
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+cfn=_dl_name_match_p
+calls=66 288 
+* 6074
+* 132
+228 36
++5 48
++4 36
++2 12
+-2 84
+-4 14
++4 42
++2 14
+-2 152
+cfn=match_symbol
+calls=6 76 
+* 725
+* 80
+cfn=match_symbol
+calls=20 76 
+* 2805
+* 26
++7 156
++3 78
++9 48
++5 21
+-43 7
++52 10
++3 20
++10 82
+-7 328
++3 246
+-3 20
++3 15
++8 12
++87 63
+-81 24
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=calloc
+calls=6 101 
+* 250
+* 6
++1 6
+-2 6
++2 6
++11 6
++2 6
+-5 6
++3 6
++2 6
+-2 6
++2 6
++3 20
++4 36
++18 14
+-15 42
++2 42
+-2 36
++2 36
++2 26
++1 26
+-1 52
++1 26
+-1 26
++1 26
++1 26
+-2 26
++2 52
++1 78
++3 78
++8 36
++5 7
+-28 7
++33 18
++3 20
++20 82
+-14 174
+-2 82
++6 82
++1 82
++1 82
+-1 246
++1 82
+-1 82
++1 82
++1 82
++3 266
+183 2
+-8 2
++95 5
+
+fn=_dl_check_all_versions
+380 5
++4 7
++2 49
+cfn=_dl_check_map_versions
+calls=7 174 
+* 14577
+-2 7
++2 21
+-1 7
+-1 14
++5 7
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-misc.c
+fn=_dl_higher_prime_number
+344 2
++1 2
++4 16
++1 6
+-1 16
++1 7
+-1 48
++1 22
+-3 17
++4 2
+-4 4
++4 1
+-4 4
++3 2
+
+fn=_dl_sysdep_read_whole_file
+45 2
++7 1
+-7 3
++7 1
+-7 3
++7 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=open
+calls=1 +32 
+* 5
++1 2
++2 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c
+cfn=_fxstat
+calls=1 -21 
+* 10
+* 2
++2 1
++3 1
+-3 1
++3 1
++13 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/io/../sysdeps/unix/syscall-template.S
+cfn=close
+calls=1 +11 
+* 5
++3 7
+-14 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/wordsize-64/mmap.c
+cfn=mmap
+calls=1 -29 
+* 33
+* 2
+
+fn=_dl_name_match_p
+288 1495
++1 598
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=299 144 
+* 9258
+* 299
++1 299
+-1 299
++3 299
++2 598
++4 295
+-4 590
++1 945
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../strcmp.S
+cfn=strcmp
+calls=315 144 
+* 9700
+* 630
+-5 20
++11 379
+-1 279
++1 1116
+
+ob=/lib/x86_64-linux-gnu/libm-2.24.so
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_floor.S
+fn=floor
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_asin.c
+fn=__acos_finite
+10 5
+
+fn=__asin_finite
+16 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_ceilf.S
+fn=ceilf
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_pow.c
+fn=__pow_finite
+8 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_sin.c
+fn=cos
+12 16
+
+fn=sin
+17 16
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_rintf.S
+fn=rintf
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=???
+fn=0x00000000000057e0
+0 17
+
+fn=0x0000000000005710
+0 9
+
+fn=0x00000000000057a0
+0 8
+cob=???
+cfi=???
+cfn=0x0000000004fb6700
+calls=1 0 
+0 78
+0 1
+cfn=0x0000000000005710
+calls=1 0 
+0 9
+0 3
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_ceil.S
+fn=ceil
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_floorf.S
+fn=floorf
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_atan2.c
+fn=__atan2_finite
+9 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/w_sqrt.c
+fn=sqrt
+27 69
+fi=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/math_private.h
++31 23
+fe=/build/glibc-jxM2Ev/glibc-2.24/math/w_sqrt.c
+-27 23
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/s_rint.S
+fn=rint
+25 1
++1 1
++1 1
++1 1
++2 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_exp.c
+fn=__exp_finite
+9 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/math/../sysdeps/x86_64/fpu/multiarch/e_log.c
+fn=__log_finite
+9 8
+
+ob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+fl=???
+fn=std::locale::locale()
+0 132
+cfn=0x00000000000a32c0
+calls=22 0 
+0 68592
+0 308
+
+fn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+0 390
+cfn=std::locale::id::_M_id() const
+calls=29 0 
+0 406
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 757
+0 34
+0 10530
+
+fn=std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 349
+
+fn=std::codecvt<wchar_t, char, __mbstate_t>::codecvt(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 5
+
+fn=std::__cxx11::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 106
+
+fn=std::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 106
+
+fn=bool std::has_facet<std::ctype<char> >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=3 0 
+0 405
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2095
+0 8
+0 16
+
+fn=__cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 280
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S
+cfn=__strcmp_sse2_unaligned
+calls=7 24 
+0 105
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1292
+0 12
+0 256
+
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::_M_cache_locale(std::locale const&)
+0 28
+cfn=bool std::has_facet<std::ctype<wchar_t> >(std::locale const&)
+calls=3 0 
+0 342
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 976
+0 8
+0 16
+cfn=std::ctype<wchar_t> const& std::use_facet<std::ctype<wchar_t> >(std::locale const&)
+calls=3 0 
+0 336
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 998
+0 8
+0 12
+cfn=bool std::has_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=3 0 
+0 342
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1344
+0 8
+0 16
+cfn=std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=3 0 
+0 336
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1390
+0 8
+0 12
+cfn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=3 0 
+0 342
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1344
+0 8
+0 16
+cfn=std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+calls=3 0 
+0 336
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1382
+0 8
+0 20
+
+fn=__gnu_cxx::stdio_sync_filebuf<wchar_t, std::char_traits<wchar_t> >::sync()
+0 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+cfn=fflush
+calls=3 33 
+0 204
+0 3
+
+fn=0x000000000008bf20
+0 33
+
+fn=std::locale::facet::_S_get_c_locale()
+0 125
+cfn=0x00000000000a0ed0
+calls=1 0 
+0 2403
+0 3
+
+fn=std::__timepunct<char>::__timepunct(std::__timepunct_cache<char>*, unsigned long)
+0 14
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1202
+0 5
+0 4
+
+fn=std::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 349
+
+fn=std::messages<char>::messages(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 2
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 5
+
+fn=std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 540
+0 4
+0 16
+
+fn=bool std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=__cxxabiv1::__si_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 1360
+
+fn=0x000000000008c1b0
+0 8
+cob=???
+cfi=???
+cfn=0x0000000004cb4880
+calls=1 0 
+0 1758
+0 1
+cfn=0x000000000008c120
+calls=1 0 
+0 9
+0 3
+
+fn=0x00000000000bb420
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 806
+0 5
+
+fn=0x00000000000bb450
+0 3
+cfn=std::_V2::error_category::~error_category()
+calls=1 0 
+0 1
+0 1
+
+fn=0x000000000008c120
+0 9
+
+fn=0x000000000008ba70
+0 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 2298
+0 5
+0 4
+
+fn=0x000000000008c060
+0 49
+
+fn=0x00000000000bbc20
+0 20
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1388
+0 5
+0 7
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 8
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 7
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 12
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1233
+0 5
+0 6
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 12
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1241
+0 5
+0 6
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 17
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1380
+0 5
+0 6
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 8
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 7
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 13
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1241
+0 5
+0 6
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 12
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1249
+0 5
+0 6
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 7
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 17
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 6
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 750
+0 5
+0 15
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 11
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 14
+0 1
+0 6
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 774
+0 5
+0 6
+
+fn=std::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 349
+
+fn=std::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 106
+
+fn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=0x000000000008b9f0
+0 5
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 771
+0 5
+0 7
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 1426
+0 5
+0 3
+cfn=std::error_category::error_category()
+calls=1 0 
+0 4
+0 1
+0 7
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+0 66
+0 1
+
+fn=std::ctype<char>::ctype(unsigned short const*, bool, unsigned long)
+0 14
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 3261
+0 5
+0 101
+
+fn=std::__cxx11::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 98
+
+fn=std::__cxx11::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 349
+
+fn=std::messages<wchar_t>::messages(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 2
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 5
+
+fn=std::ios_base::_M_init()
+0 96
+cfn=std::locale::locale()
+calls=8 0 
+0 208
+0 8
+0 24
+cfn=std::locale::operator=(std::locale const&)
+calls=7 0 
+0 126
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 729
+0 12
+0 16
+cfn=std::locale::~locale()
+calls=7 0 
+0 77
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 730
+0 12
+0 56
+
+fn=std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+0 28
+cfn=bool std::has_facet<std::ctype<char> >(std::locale const&)
+calls=3 0 
+0 489
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 3013
+0 8
+0 16
+cfn=std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&)
+calls=3 0 
+0 483
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1093
+0 8
+0 12
+cfn=bool std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=3 0 
+0 342
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1360
+0 8
+0 16
+cfn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=3 0 
+0 336
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1366
+0 8
+0 12
+cfn=bool std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=3 0 
+0 342
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1344
+0 8
+0 16
+cfn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+calls=3 0 
+0 336
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1374
+0 8
+0 20
+
+fn=bool std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::ostream::flush()
+0 27
+cfn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::sync()
+calls=3 0 
+0 1472
+0 15
+
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::sync()
+0 6
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+cfn=fflush
+calls=2 33 
+0 136
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1323
+0 7
+
+fn=0x000000000008bc30
+0 54
+
+fn=0x00000000000a32c0
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 68444
+0 5
+0 139
+
+fn=std::locale::_Impl::_Impl(unsigned long)
+0 447
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 841
+0 5
+0 7
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 4108
+0 5
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2173
+0 5
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 850
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 23
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1482
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 5
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 5
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 35
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1319
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 35
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1381
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 56
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2190
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 836
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 22463
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 850
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 23
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1474
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 5
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 5
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 35
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1335
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 35
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1319
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 56
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2180
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 836
+0 5
+0 4
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 8
+cfn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+calls=1 0 
+0 379
+0 1
+0 10
+cfn=0x00000000000bbc20
+calls=1 0 
+0 9891
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 4
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 5
+cfn=std::locale::id::_M_id() const
+calls=1 0 
+0 5
+0 1
+0 13
+
+fn=std::__cxx11::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 106
+
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::ios_base::Init::~Init()
+0 11
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 2022
+0 5
+0 2
+cfn=std::ostream::flush()
+calls=1 0 
+0 85
+0 1
+0 2
+cfn=std::ostream::flush()
+calls=1 0 
+0 85
+0 1
+0 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 1035
+0 5
+0 2
+cfn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+calls=1 0 
+0 85
+0 1
+0 2
+cfn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+calls=1 0 
+0 85
+0 1
+0 2
+
+fn=0x00000000000b96b0
+0 3
+cfn=std::_V2::error_category::~error_category()
+calls=1 0 
+0 1
+0 1
+
+fn=std::error_category::~error_category()
+0 2
+
+fn=0x000000000008c1f0
+0 17
+
+fn=__cxa_guard_acquire
+0 33
+
+fn=0x000000000008bfa0
+0 49
+
+fn=std::locale::id::_M_id() const
+0 954
+
+fn=std::ctype<wchar_t>::ctype(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 7
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 21734
+0 5
+
+fn=std::__timepunct<wchar_t>::_M_initialize_timepunct(__locale_struct*)
+0 9
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 94
+
+fn=std::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 98
+
+fn=std::locale::operator=(std::locale const&)
+0 144
+
+fn=bool std::has_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::future_category()
+0 6
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 744
+0 5
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 725
+0 5
+0 4
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+0 66
+0 1
+0 3
+
+fn=0x000000000008be60
+0 5
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+0 66
+0 1
+0 5
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+0 66
+0 1
+
+fn=0x000000000008bea0
+0 33
+
+fn=std::__cxx11::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 98
+
+fn=std::__cxx11::messages<char>::messages(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 2
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 5
+
+fn=std::ctype<wchar_t>::_M_initialize_ctype()
+0 9
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1341
+0 5
+0 770
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/wctob.c
+cfn=wctob
+calls=127 40 
+0 762
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1295
+0 132
+0 260
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1215
+0 5
+0 510
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/btowc.c
+cfn=btowc
+calls=255 38 
+0 7671
+0 255
+0 1067
+cfn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+calls=7 0 
+0 1555
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2239
+0 12
+0 16
+cfn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+calls=4 0 
+0 1609
+0 4
+0 123
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/locale/uselocale.c
+cfn=uselocale
+calls=1 31 
+0 21
+0 1
+0 2
+
+fn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+0 102
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 146
+0 1
+0 9
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 514
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 318
+0 1
+0 5
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1368
+0 5
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 195
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 244
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 367
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 465
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 197
+0 1
+0 3
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+cfn=wctype_l
+calls=1 27 
+0 583
+0 1
+
+fn=std::__timepunct<wchar_t>::__timepunct(std::__timepunct_cache<wchar_t>*, unsigned long)
+0 14
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1192
+0 5
+0 4
+
+fn=std::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 98
+
+fn=std::locale::~locale()
+0 88
+
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+0 24
+cfn=std::ios_base::_M_init()
+calls=4 0 
+0 328
+0 4
+0 12
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::_M_cache_locale(std::locale const&)
+calls=3 0 
+0 2142
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 8596
+0 8
+0 52
+
+fn=bool std::has_facet<std::ctype<wchar_t> >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+0 27
+cfn=__gnu_cxx::stdio_sync_filebuf<wchar_t, std::char_traits<wchar_t> >::sync()
+calls=3 0 
+0 213
+0 15
+
+fn=__cxa_guard_release
+0 14
+
+fn=0x000000000008ba90
+0 9
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 61280
+0 5
+0 8
+
+fn=0x000000000008bb20
+0 73
+
+fn=std::ios_base::Init::Init()
+0 27
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 69173
+0 5
+0 16
+cfn=std::locale::locale()
+calls=1 0 
+0 26
+0 1
+0 14
+cfn=std::locale::locale()
+calls=1 0 
+0 26
+0 1
+0 6
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 781
+0 5
+0 15
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 14101
+0 5
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 16
+cfn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+calls=1 0 
+0 918
+0 1
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 14
+cfn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+calls=1 0 
+0 918
+0 1
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 14
+cfn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+calls=1 0 
+0 918
+0 1
+0 16
+cfn=std::locale::locale()
+calls=1 0 
+0 26
+0 1
+0 16
+cfn=std::locale::locale()
+calls=1 0 
+0 26
+0 1
+0 14
+cfn=std::locale::locale()
+calls=1 0 
+0 26
+0 1
+0 6
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 15
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 9808
+0 5
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 16
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+calls=1 0 
+0 820
+0 1
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 14
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+calls=1 0 
+0 820
+0 1
+0 3
+cfn=std::ios_base::ios_base()
+calls=1 0 
+0 86
+0 1
+0 14
+cfn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+calls=1 0 
+0 820
+0 1
+0 18
+
+fn=std::locale::facet::_S_create_c_locale(__locale_struct*&, char const*, __locale_struct*)
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 1309
+0 5
+0 5
+
+fn=std::ios_base::ios_base()
+0 472
+cfn=std::locale::locale()
+calls=8 0 
+0 208
+0 8
+
+fn=std::ctype<wchar_t> const& std::use_facet<std::ctype<wchar_t> >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 44
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+0 16
+
+fn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 16
+cfn=std::locale::id::_M_id() const
+calls=4 0 
+0 20
+0 4
+0 52
+cfn=__dynamic_cast
+calls=4 0 
+0 344
+0 4
+
+ob=/usr/lib/valgrind/vgpreload_core-amd64-linux.so
+fl=???
+fn=0x0000000000000690
+0 11
+
+ob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+fl=???
+fn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 16
+
+fn=std::_V2::error_category::~error_category()
+0 3
+
+fn=0x000000000008d0a0
+0 3
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx
+calls=1 64 
+0 768
+0 5
+
+fn=0x000000000008d0d0
+0 3
+cfn=std::error_category::~error_category()
+calls=1 0 
+0 1
+0 1
+
+fn=std::error_category::error_category()
+0 8
+
+fn=std::locale::facet::_S_get_c_name()
+0 14
+
+fn=0x00000000000a0ed0
+0 4
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2394
+0 5
+
+fn=std::codecvt<char, char, __mbstate_t>::codecvt(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 5
+
+fn=std::__timepunct<char>::_M_initialize_timepunct(__locale_struct*)
+0 10
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 95
+
+fn=std::__cxx11::messages<wchar_t>::messages(unsigned long)
+0 12
+cfn=std::locale::facet::_S_get_c_locale()
+calls=1 0 
+0 9
+0 1
+0 2
+cfn=std::locale::facet::_S_get_c_name()
+calls=1 0 
+0 2
+0 1
+0 5
+
+fn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+0 24
+cfn=std::ios_base::_M_init()
+calls=3 0 
+0 246
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 2263
+0 8
+0 12
+cfn=std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+calls=3 0 
+0 2436
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 64 
+0 10688
+0 8
+0 52
+
+fn=__dynamic_cast
+0 1008
+
+ob=/usr/lib/valgrind/vgpreload_core-amd64-linux.so
+fl=???
+fn=0x0000000000000690
+0 6
+
+fn=0x00000000000005c0
+0 9
+
+fn=0x0000000000000650
+0 8
+cob=???
+cfi=???
+cfn=0x0000000004a275a0
+calls=1 0 
+0 78
+0 1
+cfn=0x00000000000005c0
+calls=1 0 
+0 9
+
+ob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+fl=???
+fn=__dynamic_cast
+0 1008
+cfn=__cxxabiv1::__si_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+calls=40 0 
+0 1360
+cfn=__cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+calls=8 0 
+0 1945
+0 480
+
+ob=/usr/lib/valgrind/vgpreload_core-amd64-linux.so
+fl=???
+fn=0x0000000000000650
+0 3
+
+ob=/lib/x86_64-linux-gnu/libgcc_s.so.1
+fl=???
+fn=__cpu_indicator_init
+0 32
+cfn=0x0000000000002c80
+calls=1 0 
+0 20
+0 13
+cfn=0x0000000000002c80
+calls=1 0 
+0 20
+0 33
+cfn=0x0000000000002a90
+calls=1 0 
+0 127
+0 10
+
+fn=0x0000000000002c80
+0 40
+
+fn=0x0000000000002a90
+0 127
+
+fn=0x0000000000003090
+0 9
+
+fn=0x0000000000003120
+0 8
+cob=???
+cfi=???
+cfn=0x00000000052bca80
+calls=1 0 
+0 78
+0 1
+cfn=0x0000000000003090
+calls=1 0 
+0 9
+0 3
+
+fn=0x0000000000003160
+0 17
+
+ob=/lib/x86_64-linux-gnu/libc-2.24.so
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/exit.c
+fn=exit
+105 1
+-1 1
++1 3
+cfn=__run_exit_handlers
+calls=1 -70 
+* 7001
+
+fn=__run_exit_handlers
+35 8
++5 3
++7 6
++4 3
+-4 6
++4 6
++3 7
+-1 7
++2 50
+-4 10
++37 1
++1 1
+-1 1
++1 1
++6 2
++1 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+cfn=_IO_cleanup
+calls=1 954 
+* 149
+* 3
++2 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/posix/../sysdeps/unix/sysv/linux/_exit.c
+cfn=_Exit
+calls=1 -71 
+* 5
+-19 2
++4 2
+-4 2
++2 2
++2 2
+-2 4
++2 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-fini.c
+cfn=_dl_fini
+calls=1 +47 
+* 3260
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ios_base::Init::~Init()
+calls=1 -83 
+* 3434
++1 2
+-43 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_thread_atexit_impl.c
+cfn=__call_tls_dtors
+calls=1 145 
+* 11
+* 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-profstub.c
+fn=_dl_mcount_wrapper_check
+38 384
++1 128
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+fn=__cxa_finalize
+31 20
++17 5
+-17 20
++4 20
++4 100
++5 50
++2 5
++1 5
++1 20
+-2 10
++5 5
++5 5
+-2 10
++2 5
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008d0d0
+calls=1 -56 
+* 5
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x000000000008d0a0
+calls=1 -56 
+* 776
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x00000000000b96b0
+calls=1 -56 
+* 5
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x00000000000bb450
+calls=1 -56 
+* 5
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=0x00000000000bb420
+calls=1 -56 
+* 814
++4 10
+-21 15
+-4 15
++32 20
++4 30
+-4 15
++12 10
++3 5
+-2 5
++2 30
+-2 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/nptl/unregister-atfork.c
+cfn=__unregister_atfork
+calls=5 -44 
+* 20
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/time.c
+fn=time
+38 1
+-1 1
++1 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/generic/dl-hash.h
++10 3
++14 4
+-17 3
++3 9
++14 12
+-17 9
++22 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/time.c
+-29 2
++3 2
+-3 1
++3 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-vdso.c
+cfn=_dl_vdso_vsym
+calls=1 -14 
+* 6
++1 3
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/malloc/malloc.c
+fn=malloc
+2914 3
++5 2
++1 2
++1 1
++20 3
+-20 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+cfn=malloc_hook_ini
+calls=1 29 
+* 59975
+
+fn=_int_malloc
+3384 3
+-30 2
++30 1
+-30 4
++30 3
+-30 1
++30 4
++6 1
+-2 2
++14 2
++37 2
++44 8
++1 2
++1 2
+cfn=malloc_consolidate
+calls=1 4157 
+* 915
+3854 11
+-2 2
++2 1
+5042 1
+3854 2
+-2 1
+5044 1
+3854 3
+5044 1
+3854 6
+5044 2
+3854 1
+5044 1
+3854 2
+5044 1
+-2 2
+3504 6
+3868 9
+3638 2
++73 2
++1 2
++1 2
++1 2
++1 2
++5 2
++4 3
+3827 1
++3 1
+-2 2
++2 2
++17 2
+3640 4
++3 1
+-3 1
++3 2
+3868 1
+-6 3
+cfn=sysmalloc
+calls=1 2277 
+* 248
++1 1
+-1 1
++1 1
+1888 3
+3483 11
+
+fn=sysmalloc
+2277 8
++20 1
++11 1
+-11 1
++11 1
++1 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+485 4
+fe=/build/glibc-jxM2Ev/glibc-2.24/malloc/malloc.c
+2324 3
++65 1
++1 3
++10 1
+-9 1
++9 5
++6 3
++3 3
+2730 2
++1 1
++5 2
++3 2
++5 1
+-3 1
++3 1
+-2 1
++2 3
++1 1
+-1 1
+-1 1
++1 2
++1 1
++2 1
++6 8
+2462 3
++19 1
+-11 1
++11 2
+-11 1
++1 1
++10 2
++8 1
+-8 1
++8 1
++2 6
+cfi=/build/glibc-jxM2Ev/glibc-2.24/malloc/morecore.c
+cfn=__default_morecore
+calls=1 46 
+* 62
++1 1
+-1 1
++1 1
++3 4
++3 4
++1 2
++46 2
++2 2
++6 1
+-6 1
++6 1
++3 7
++37 2
++6 4
++19 1
++3 2
++1 5
++2 2
++1 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/malloc/morecore.c
+cfn=__default_morecore
+calls=1 46 
+* 25
++12 4
++8 2
++1 4
++39 1
++1 1
+-2 1
++1 3
++12 1
+-12 1
++1 1
++11 1
+2546 2
+
+fn=malloc_consolidate
+4157 7
++22 2
++39 1
+1811 6
+4179 5
+1811 16
++1 12
+-1 480
++1 362
+-1 2
++1 2
++4 1
+-4 2
++4 2
++5 2
++2 2
+4252 8
+1820 3
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+fn=strlen
+66 70
++1 70
++1 70
++1 70
++1 70
++1 70
++1 70
++2 70
++2 70
++30 70
++1 70
++1 70
++1 70
++1 70
++1 70
++1 70
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/nptl/unregister-atfork.c
+fn=__unregister_atfork
+36 5
++3 10
++82 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/locale/uselocale.c
+fn=uselocale
+31 2
++2 4
+-2 2
++2 2
++3 4
++1 2
++28 6
++1 6
++2 6
++4 6
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+fn=_IO_cleanup
+954 2
++3 1
+-3 5
++3 1
+cfn=_IO_flush_all_lockp
+calls=1 766 
+* 95
+-63 1
++63 1
+-63 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
++42 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+-32 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
++32 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+-2 3
+-40 9
++2 9
++2 6
++71 9
+
+fn=_IO_flush_all_lockp
+766 8
++6 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
+936 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+772 1
++11 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
+936 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/genops.c
+782 3
+-1 3
++1 3
++3 9
++10 6
++4 3
+-2 3
++2 6
++7 3
+-7 3
+-20 6
++31 2
++2 3
++4 9
+-38 1
+-1 1
+-5 1
++7 2
++6 12
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/gettimeofday.c
+fn=gettimeofday
+37 1
+-1 1
++1 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/generic/dl-hash.h
++11 3
++14 4
+-17 3
++3 9
++14 12
+-17 9
++22 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/time/../sysdeps/unix/sysv/linux/x86/gettimeofday.c
+-30 2
++3 2
+-3 1
++3 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-vdso.c
+cfn=_dl_vdso_vsym
+calls=1 -13 
+* 6
++1 3
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-vdso.c
+fn=_dl_vdso_vsym
+27 8
++4 8
+-3 4
++20 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+fn=malloc_hook_ini
+29 4
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+257 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+30 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+257 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+30 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+257 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/malloc.c
+2923 7
++2 3
+cfn=_int_malloc
+calls=1 3384 
+* 1307
++3 1
+-3 1
++3 1
++8 4
++2 10
+fe=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+33 5
+fi=/build/glibc-jxM2Ev/glibc-2.24/malloc/malloc.c
+2923 6
++12 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+cfn=ptmalloc_init.part.5
+calls=1 255 
+* 58617
+* 1
+-15 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/malloc/hooks.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod.c
+fn=strtod
+64 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+cfn=____strtod_l_internal
+calls=2 481 
+* 802
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+fn=__cxa_atexit
+57 35
+-22 7
++22 7
+-22 7
+cfn=__new_exitfn
+calls=7 +38 
+* 302
++2 14
++4 7
++3 7
++1 7
+-4 14
++2 7
++4 7
++1 7
++11 28
+
+fn=__new_exitfn
+73 14
++6 7
+-6 7
++6 7
+-6 7
++6 28
++2 42
++2 21
++1 30
+-3 1
++10 2
+-10 2
++2 12
++11 12
++25 6
++1 6
+-1 6
++1 6
+-1 6
++7 6
++1 6
++3 12
+-4 1
++1 1
++3 16
++3 35
+-21 1
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
+fn=handle_intel
+262 6
+-1 6
++17 3
+-17 18
++14 3
++1 6
+-3 9
++23 12
+cfn=intel_check_word
+calls=3 133 
+* 996
++1 6
++3 15
+cfn=intel_check_word
+calls=3 133 
+* 371
++1 6
+-17 6
++5 3
+-5 9
++5 3
++2 3
++1 3
+-1 6
++27 24
+
+fn=intel_check_word
+133 12
++6 6
+-7 30
++7 24
+-7 6
++7 6
++2 6
+-2 6
++2 6
++68 12
++3 36
+-69 6
++2 12
+-2 9
++2 18
++8 30
++51 24
++22 12
+fi=/build/glibc-jxM2Ev/glibc-2.24/string/../bits/stdlib-bsearch.h
+27 12
++1 24
++3 24
++1 12
+fe=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
++89 24
+fi=/build/glibc-jxM2Ev/glibc-2.24/string/../bits/stdlib-bsearch.h
+-90 18
++1 9
+fe=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
++89 18
++3 81
+fi=/build/glibc-jxM2Ev/glibc-2.24/string/../bits/stdlib-bsearch.h
+-95 69
++2 69
+-2 69
++2 120
++1 60
+fe=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
++89 120
+251 12
+141 24
+-6 3
+256 36
+fi=/build/glibc-jxM2Ev/glibc-2.24/string/../bits/stdlib-bsearch.h
+37 12
+-8 27
+fe=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86/cacheinfo.c
+165 9
++3 9
++4 6
++2 6
++1 6
+-1 6
++1 8
++2 4
+-1 4
++1 6
+-12 4
++12 4
++1 18
++1 14
++1 10
++17 5
+-32 15
++3 15
++4 10
++2 20
++1 10
++1 10
++1 10
++5 3
++2 6
++2 3
++2 3
++1 3
+-3 3
++2 3
+-1 3
++1 3
+-2 3
++3 3
+-2 9
++2 9
+
+fn=init_cacheinfo
+485 7
++12 4
+774 3
++1 8
+499 4
+cfn=handle_intel
+calls=1 262 
+* 453
++2 2
+-2 1
++2 1
+cfn=handle_intel
+calls=1 262 
+* 516
++5 2
+-5 1
++5 1
+cfn=handle_intel
+calls=1 262 
+* 545
++8 1
+-8 1
++8 1
++11 1
+-20 1
++25 2
++4 2
++8 6
++3 2
++9 6
++14 2
++4 1
++3 1
++1 1
+-4 1
++3 1
+-3 1
++3 1
++6 4
+-39 3
++3 9
++6 6
+-6 3
++6 2
++3 20
++5 2
++4 1
++1 1
+-1 3
+686 4
++1 4
++4 2
++60 2
++2 1
++1 1
++2 1
+-3 1
++5 1
+-5 1
++4 3
++4 2
++2 1
++1 1
++2 1
+-3 1
++5 1
+-5 1
++4 4
+587 2
++8 8
++2 3
++4 2
+-4 1
+-2 1
++4 1
++23 4
+-23 6
++2 6
++2 2
++1 2
++1 8
++2 4
++3 2
++5 1
++2 2
++1 1
+-1 1
++2 1
+-2 1
++1 2
++7 2
++4 2
++3 1
++2 2
++1 1
+-1 2
++1 1
++5 2
++6 2
++1 2
++1 1
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strrchr.S
+fn=rindex
+24 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
+fn=_init
+52 8
++6 3
++14 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-36 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
++34 1
++1 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-35 3
+fe=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
++36 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-36 3
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/generic/dl-hash.h
++12 3
++14 4
+-17 3
++3 9
++14 12
+-17 9
++22 1
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-31 2
++2 2
+-2 1
++2 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-vdso.c
+cfn=_dl_vdso_vsym
+calls=1 -11 
+* 6
++1 2
++5 2
+-3 2
++1 1
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/unix/sysv/linux/dl-vdso.c
+cfn=_dl_vdso_vsym
+calls=1 -17 
+* 6
+fe=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
++42 3
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-41 2
++1 1
+fe=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
++40 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/init-misc.c
+cfn=__init_misc
+calls=1 -55 
+* 48
++8 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/ctype/ctype-info.c
+cfn=__ctype_init
+calls=1 -63 
+* 16
++5 6
+-34 1
+-7 1
++7 4
+fi=/build/glibc-jxM2Ev/glibc-2.24/csu/../sysdeps/unix/sysv/linux/x86_64/init-first.c
+-25 2
+fe=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/init-first.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/misc/init-misc.c
+fn=__init_misc
+31 2
+-1 3
++1 4
++2 3
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strrchr.S
+cfn=rindex
+calls=1 -9 
+* 24
++4 5
++1 3
++2 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/setjmp/sigjmp.c
+fn=__sigjmp_save
+29 1
+-1 2
++1 2
++5 3
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+fn=__GI_memcmp
+24 49
++1 49
++1 49
++1 49
++1 49
++1 49
++1 49
++1 49
++3 49
++1 49
++1 48
++1 48
++1 48
++1 48
++1 48
++1 48
++1 48
++2 11
++1 11
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++2 11
++1 11
++1 11
++1 11
++1 11
++1 11
++35 38
++4 11
++1 11
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++1 1
++4 10
++1 10
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/misc/sbrk.c
+fn=sbrk
+34 2
++8 2
+-8 6
++8 9
++4 4
++4 6
++12 5
+-19 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/x86_64/brk.c
+cfn=brk
+calls=1 -12 
+* 12
+* 4
++15 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/x86_64/brk.c
+cfn=brk
+calls=1 -27 
+* 12
+* 2
++4 5
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/malloc/arena.c
+fn=ptmalloc_init.part.5
+255 6
++13 1
+-8 1
++8 1
++6 3
++2 5
++16 2
+-56 67
+-18 204
++2 134
++1 2
++1 2
+337 2
++7 2
++1 2
++3 1
++1 7
+-80 5
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-addr.c
+cfn=_dl_addr
+calls=1 127 
+* 58164
+* 2
++1 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/misc/../sysdeps/unix/sysv/linux/x86_64/brk.c
+fn=brk
+31 16
++8 2
+-6 4
++7 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/btowc.c
+fn=btowc
+38 1280
++5 768
+-10 640
++14 384
+fi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/./wcsmbsload.h
++24 384
+fe=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/btowc.c
+-20 128
+-3 256
++3 384
++4 256
++3 256
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-profstub.c
+cfn=_dl_mcount_wrapper_check
+calls=128 -20 
+* 512
+* 384
+cfi=/build/glibc-jxM2Ev/glibc-2.24/iconv/gconv_simple.c
+cfn=__gconv_btwoc_ascii
+calls=128 -6 
+* 640
++41 768
+fi=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/./wcsmbsload.h
+-26 384
++1 256
+fe=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/btowc.c
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcspn.S
+fn=strpbrk
+45 1
++1 1
++1 1
++1 1
++1 1
++1 1
+
+fn=strcspn
+45 1
++1 1
++1 1
++1 1
++1 1
++1 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/x86_64/lshift.S
+fn=__mpn_lshift
+29 2
++1 2
++2 2
++1 2
++1 2
++12 2
++1 2
++1 2
++1 2
++1 2
++1 2
++1 2
++6 2
++1 2
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/bsd-_setjmp.S
+fn=_setjmp
+30 1
++2 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/setjmp.S
+cfn=__sigsetjmp
+calls=1 -6 
+* 27
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/setjmp.S
+fn=__sigsetjmp
+26 1
++9 1
++1 2
++1 1
++4 1
++1 1
++1 1
++1 1
++1 1
++2 2
++2 1
++1 1
++1 1
++2 2
++2 1
++8 1
+cfi=/build/glibc-jxM2Ev/glibc-2.24/setjmp/sigjmp.c
+cfn=__sigjmp_save
+calls=1 -34 
+* 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/wcsmbs/wctob.c
+fn=wctob
+40 256
++5 256
++1 256
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/libio/fileops.c
+fn=_IO_file_sync@@GLIBC_2.2.5
+876 24
++5 24
++2 6
++1 12
++17 6
++4 6
+-4 6
++4 18
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+fn=round_and_return
+197 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/generic/get-rounding-mode.h
+94 2
++1 10
+fe=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+200 4
+329 16
+-35 4
+fi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/generic/get-rounding-mode.h
+104 2
+-9 4
+fe=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+301 20
+-4 2
+fi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../include/rounding-mode.h
+46 6
+fe=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+328 8
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/ieee754/dbl-64/mpn2dbl.c
+cfn=__mpn_construct_double
+calls=2 39 
+* 28
+* 22
+fi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../include/rounding-mode.h
+46 4
++6 4
+fe=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod_l.c
+
+fn=____strtod_l_internal
+481 4
++72 2
+-72 14
++55 2
+-2 2
+-53 2
++73 2
+-18 2
++32 4
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=2 66 
+* 32
++1 2
+-1 2
++1 4
++4 2
++6 6
++3 4
++1 2
+-1 2
++1 2
++3 4
++5 1
+-17 1
++17 1
++13 6
++1 4
++56 6
++19 4
+-67 6
+1743 16
+706 6
++59 2
+-17 21
++1 4
++12 4
++16 10
++42 8
++9 4
++1 4
++18 4
++6 2
++1 2
+-1 2
++1 2
+752 10
++22 10
+-26 10
+-23 6
+855 10
+986 4
++10 14
++19 6
++6 4
++33 4
++92 2
++2 12
++1 2
++1 2
++3 2
+-3 2
++3 6
++12 4
++3 2
+576 2
+1168 2
+590 1
+-1 1
++1 6
++91 4
+487 4
+1171 22
+cfn=str_to_mpn.isra.0
+calls=2 338 
+* 136
+* 2
++6 12
++44 2
++1 4
+-1 4
++1 2
++4 2
+-4 2
++4 2
++6 4
++32 4
++3 14
++2 4
++10 22
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/x86_64/lshift.S
+cfn=__mpn_lshift
+calls=2 29 
+* 30
++4 8
++15 14
+cfn=round_and_return
+calls=2 197 
+* 158
+* 2
+
+fn=str_to_mpn.isra.0
+338 14
++14 2
+-1 2
+-13 4
++14 16
++34 20
++13 10
++1 5
++2 5
+-3 5
++3 5
+-47 6
++49 8
++9 2
+-2 4
++2 2
+-2 2
++2 2
++2 2
++1 2
++15 18
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/atof.c
+fn=atof
+27 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/strtod.c
+cfn=strtod
+calls=2 +37 
+* 810
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+fn=fflush
+33 12
+-1 24
++7 18
++1 6
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
+936 18
++2 12
++1 12
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+40 12
+cfi=/build/glibc-jxM2Ev/glibc-2.24/libio/fileops.c
+cfn=_IO_file_sync@@GLIBC_2.2.5
+calls=6 876 
+* 102
+* 24
+fi=/build/glibc-jxM2Ev/glibc-2.24/libio/libioP.h
+862 12
++1 48
+fe=/build/glibc-jxM2Ev/glibc-2.24/libio/iofflush.c
+44 30
+-5 78
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/libc-start.c
+fn=(below main)
+134 7
++4 1
+-4 3
++4 4
++82 1
+-82 1
++82 1
++1 4
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+* 66
++22 4
++3 2
++1 5
+cob=/media/sergio/A8F0BDFDF0BDD1B4/Users/savd_/Documents/1S 2017/Análisis Numérico/git/CE-3102-1S17/Tarea 3/main
+cfi=???
+cfn=__libc_csu_init
+calls=1 0 
+* 100274
++4 4
++15 2
++12 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/setjmp/../sysdeps/x86_64/bsd-_setjmp.S
+cfn=_setjmp
+calls=1 30 
+* 29
++1 2
++5 2
++1 2
++3 2
++3 6
+cob=/media/sergio/A8F0BDFDF0BDD1B4/Users/savd_/Documents/1S 2017/Análisis Numérico/git/CE-3102-1S17/Tarea 3/main
+cfi=???
+cfn=main
+calls=1 0 
+* 17697
++34 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/exit.c
+cfn=exit
+calls=1 105 
+* 7006
+* 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/locale/newlocale.c
+fn=newlocale
+44 9
++12 1
+-12 1
++12 1
++8 2
++3 4
++6 2
++1 1
++2 1
+-2 3
+279 9
+57 2
++17 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/wctype/wctype_l.c
+fn=wctype_l
+27 50
++7 10
+-7 40
++3 10
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=10 +36 
+* 160
++3 10
+-3 10
++3 20
++8 48
++1 96
+-8 48
++2 96
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=48 +30 
+* 768
+* 20
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/strlen.S
+cfn=strlen
+calls=10 +30 
+* 160
++2 58
+-2 58
++2 254
+cfi=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/../memcmp.S
+cfn=__GI_memcmp
+calls=49 -14 
+* 1012
+* 98
++8 10
++1 10
++1 80
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/posix/../sysdeps/unix/sysv/linux/_exit.c
+fn=_Exit
+27 2
++4 1
++2 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/malloc/morecore.c
+fn=__default_morecore
+46 2
++1 2
+cfi=/build/glibc-jxM2Ev/glibc-2.24/misc/sbrk.c
+cfn=sbrk
+calls=2 -13 
+* 73
++2 6
++3 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-addr.c
+fn=_dl_addr
+127 9
++5 1
+-5 2
++5 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_lock_recursive
+calls=1 688 
+* 2
++2 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/../sysdeps/x86_64/dl-trampoline.h
+cfn=_dl_runtime_resolve_avx'2
+calls=1 -70 
+* 1593
+* 5
++2 2
+30 1
++1 1
+-1 1
++1 1
++3 2
++5 1
++6 1
+-7 1
++2 2
++2 1
+-2 1
++2 1
++3 1
++5 8
++2 1
++1 2
+-1 1010
++1 2020
++2 3628
++9 2019
++7 25
+-2 25
++2 2264
+-2 2214
++2 5760
+-10 11195
++2 8956
++1 14345
++7 1011
+-21 2022
++50 3
++1 1
++1 3
++3 2
++37 2
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/rtld.c
+cfn=rtld_lock_default_unlock_recursive
+calls=1 694 
+* 2
++3 9
+-28 1
++1 1
++21 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/iconv/gconv_simple.c
+fn=__gconv_btwoc_ascii
+52 512
++3 128
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_thread_atexit_impl.c
+fn=__call_tls_dtors
+145 3
++1 4
++18 4
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strspn.S
+fn=strspn
+30 1
++1 1
++1 1
++1 1
++1 1
++1 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp-sse2-unaligned.S
+fn=__strcmp_sse2_unaligned
+24 8
++1 8
++1 8
++1 8
++1 8
++1 8
++1 8
+197 8
++1 8
++5 8
++1 8
++1 8
++1 8
++3 8
++1 8
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/stdlib/../sysdeps/ieee754/dbl-64/mpn2dbl.c
+fn=__mpn_construct_double
+39 2
+-6 8
++6 4
++1 8
++6 4
++1 2
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/ctype/ctype-info.c
+fn=__ctype_init
+31 5
++2 1
++2 1
+-4 1
++4 1
+-4 1
++2 3
++2 3
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/strcmp.S
+fn=strcmp
+87 1
++2 1
++1 1
++1 1
++12 1
+
+fn=strcasecmp
+109 1
++1 1
++1 1
++1 1
++10 1
+
+fn=strncasecmp
+129 1
++1 1
++1 1
++1 1
++10 1
+
+fl=/build/glibc-jxM2Ev/glibc-2.24/string/../sysdeps/x86_64/multiarch/memmove.S
+fn=memmove
+29 1
++1 1
++1 1
++1 1
++1 1
++1 1
++9 1
++1 1
++1 1
++6 1
++1 1
++1 1
++1 1
++1 1
++10 1
+
+ob=/media/sergio/A8F0BDFDF0BDD1B4/Users/savd_/Documents/1S 2017/Análisis Numérico/git/CE-3102-1S17/Tarea 3/main
+fl=???
+fn=newton_raphson<double>::newton_raphson(double (*)(double), double (*)(double), double, int)
+0 22
+
+fn=test_func_2(double)
+0 1971
+
+fn=0x0000000000000b40
+0 8
+cob=???
+cfi=???
+cfn=0x0000000000108a50
+calls=1 0 
+0 78
+0 1
+cfn=0x0000000000000ab0
+calls=1 0 
+0 9
+0 3
+
+fn=brent<double>::brent(double (*)(double), double, int)
+0 18
+
+fn=std::numeric_limits<double>::quiet_NaN()
+0 5
+
+fn=main
+0 18
+cob=???
+cfi=???
+cfn=0x0000000000108a40
+calls=1 0 
+0 398
+0 7
+cob=???
+cfi=???
+cfn=0x0000000000108a40
+calls=1 0 
+0 418
+0 3
+cfn=std::numeric_limits<double>::epsilon()
+calls=1 0 
+0 5
+0 1
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=1 0 
+0 6
+0 5
+cfn=biseccion<double>::biseccion(double (*)(double), double, int)
+calls=1 0 
+0 18
+0 1
+cfn=std::numeric_limits<double>::epsilon()
+calls=1 0 
+0 5
+0 1
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=1 0 
+0 6
+0 5
+cfn=interpolacion<double>::interpolacion(double (*)(double), double, int)
+calls=1 0 
+0 18
+0 1
+cfn=std::numeric_limits<double>::epsilon()
+calls=1 0 
+0 5
+0 1
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=1 0 
+0 6
+0 6
+cfn=newton_raphson<double>::newton_raphson(double (*)(double), double (*)(double), double, int)
+calls=1 0 
+0 22
+0 1
+cfn=std::numeric_limits<double>::epsilon()
+calls=1 0 
+0 5
+0 1
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=1 0 
+0 6
+0 5
+cfn=secant<double>::secant(double (*)(double), double, int)
+calls=1 0 
+0 18
+0 1
+cfn=std::numeric_limits<double>::epsilon()
+calls=1 0 
+0 5
+0 1
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=1 0 
+0 6
+0 5
+cfn=brent<double>::brent(double (*)(double), double, int)
+calls=1 0 
+0 18
+0 8
+cfn=biseccion<double>::operator()(double, double)
+calls=1 0 
+0 2905
+0 8
+cfn=interpolacion<double>::operator()(double, double)
+calls=1 0 
+0 5143
+0 6
+cfn=newton_raphson<double>::operator()(double)
+calls=1 0 
+0 908
+0 8
+cfn=secant<double>::operator()(double, double)
+calls=1 0 
+0 1833
+0 8
+cfn=brent<double>::operator()(double, double)
+calls=1 0 
+0 5807
+0 3
+cfn=newton_raphson<double>::~newton_raphson()
+calls=1 0 
+0 6
+0 3
+cfn=interpolacion<double>::~interpolacion()
+calls=1 0 
+0 6
+0 3
+cfn=biseccion<double>::~biseccion()
+calls=1 0 
+0 6
+0 8
+
+fn=interpolacion<double>::interpolacion(double (*)(double), double, int)
+0 18
+
+fn=_GLOBAL__sub_I__Z11test_func_1d
+0 5
+cfn=__static_initialization_and_destruction_0(int, int)
+calls=1 0 
+0 100203
+0 2
+
+fn=__static_initialization_and_destruction_0(int, int)
+0 11
+cob=???
+cfi=???
+cfn=0x0000000000108a28
+calls=1 0 
+0 100117
+0 5
+cob=???
+cfi=???
+cfn=0x0000000000108a38
+calls=1 0 
+0 67
+0 3
+
+fn=brent<double>::operator()(double, double)
+0 17
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 8
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 18
+cfn=brent<double>::swap(double&, double&)
+calls=1 0 
+0 18
+0 6
+cfn=brent<double>::swap(double&, double&)
+calls=1 0 
+0 18
+0 234
+cfn=std::abs(double)
+calls=28 0 
+0 224
+0 1574
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 156
+cfn=test_func_2(double)
+calls=26 0 
+0 234
+0 341
+cfn=std::abs(double)
+calls=4 0 
+0 32
+0 16
+cfn=std::abs(double)
+calls=4 0 
+0 32
+0 60
+cfn=std::abs(double)
+calls=4 0 
+0 32
+0 352
+cfn=test_func_2(double)
+calls=4 0 
+0 36
+0 138
+cfn=test_func_2(double)
+calls=23 0 
+0 207
+0 508
+cfn=test_func_2(double)
+calls=26 0 
+0 234
+0 6
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 216
+cfn=test_func_2(double)
+calls=27 0 
+0 243
+0 330
+cfn=brent<double>::swap(double&, double&)
+calls=10 0 
+0 180
+0 60
+cfn=brent<double>::swap(double&, double&)
+calls=10 0 
+0 180
+0 61
+
+fn=brent<double>::swap(double&, double&)
+0 396
+
+fn=__libc_csu_init
+0 15
+cob=???
+cfi=???
+cfn=0x00000000001089f0
+calls=1 0 
+0 6
+0 8
+cfn=0x0000000000000b80
+calls=1 0 
+0 17
+0 4
+cfn=_GLOBAL__sub_I__Z11test_func_1d
+calls=1 0 
+0 100210
+0 14
+
+fn=secant<double>::secant(double (*)(double), double, int)
+0 18
+
+fn=std::abs(double)
+0 1888
+
+fn=interpolacion<double>::operator()(double, double)
+0 14
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 8
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 1069
+cfn=test_func_2(double)
+calls=53 0 
+0 477
+0 318
+cfn=std::abs(double)
+calls=53 0 
+0 424
+0 106
+cfn=std::numeric_limits<double>::epsilon()
+calls=53 0 
+0 265
+0 477
+cfn=std::abs(double)
+calls=53 0 
+0 424
+0 1533
+cfn=std::numeric_limits<double>::quiet_NaN()
+calls=1 0 
+0 5
+0 5
+
+fn=newton_raphson<double>::~newton_raphson()
+0 6
+
+fn=0x0000000000000ab0
+0 9
+
+fn=biseccion<double>::biseccion(double (*)(double), double, int)
+0 18
+
+fn=biseccion<double>::operator()(double, double)
+0 14
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 502
+cfn=test_func_2(double)
+calls=33 0 
+0 297
+0 198
+cfn=std::abs(double)
+calls=33 0 
+0 264
+0 66
+cfn=std::numeric_limits<double>::epsilon()
+calls=33 0 
+0 165
+0 297
+cfn=std::abs(double)
+calls=33 0 
+0 264
+0 829
+
+fn=d_test_func_2(double)
+0 56
+
+fn=secant<double>::operator()(double, double)
+0 21
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 8
+cfn=test_func_2(double)
+calls=1 0 
+0 9
+0 166
+cfn=secant<double>::slope(double, double, double, double)
+calls=10 0 
+0 140
+0 120
+cfn=secant<double>::intersection(double, double, double)
+calls=10 0 
+0 130
+0 130
+cfn=test_func_2(double)
+calls=10 0 
+0 90
+0 200
+cfn=secant<double>::distance(double, double, double, double)
+calls=9 0 
+0 288
+0 126
+cfn=secant<double>::distance(double, double, double, double)
+calls=9 0 
+0 288
+0 108
+
+fn=secant<double>::slope(double, double, double, double)
+0 140
+
+fn=interpolacion<double>::~interpolacion()
+0 6
+
+fn=_start
+0 11
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/csu/../csu/libc-start.c
+cfn=(below main)
+calls=1 134 
+0 125131
+
+fn=0x0000000000000b80
+0 17
+
+fn=std::numeric_limits<double>::epsilon()
+0 535
+
+fn=newton_raphson<double>::operator()(double)
+0 82
+cfn=test_func_2(double)
+calls=8 0 
+0 72
+0 64
+cfn=d_test_func_2(double)
+calls=8 0 
+0 56
+0 48
+cfn=std::abs(double)
+calls=8 0 
+0 64
+0 16
+cfn=std::numeric_limits<double>::epsilon()
+calls=8 0 
+0 40
+0 112
+cfn=std::abs(double)
+calls=8 0 
+0 64
+0 16
+cfn=std::numeric_limits<double>::epsilon()
+calls=8 0 
+0 40
+0 72
+cfn=std::abs(double)
+calls=8 0 
+0 64
+0 98
+
+fn=secant<double>::distance(double, double, double, double)
+0 378
+cob=???
+cfi=???
+cfn=0x0000000000108a70
+calls=18 0 
+0 108
+0 90
+
+fn=biseccion<double>::~biseccion()
+0 6
+
+fn=secant<double>::intersection(double, double, double)
+0 130
+
+ob=???
+fl=???
+fn=0x0000000004cb14b0
+0 6
+
+fn=0x00000000001089f0
+0 6
+
+fn=0x00000000052bca80
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+cfn=__cxa_finalize
+calls=1 31 
+0 77
+
+fn=0x0000000000108a28
+0 1
+cob=/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.22
+cfi=???
+cfn=std::ios_base::Init::Init()
+calls=1 0 
+0 100116
+
+fn=0x0000000000108a70
+0 23
+cob=/lib/x86_64-linux-gnu/libm-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/math/w_sqrt.c
+cfn=sqrt
+calls=23 27 
+0 115
+
+fn=0x0000000004000a90
+0 1
+cob=/lib/x86_64-linux-gnu/ld-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/elf/dl-minimal.c
+cfn=free
+calls=1 118 
+0 6
+
+fn=0x0000000005027b7c
+0 3
+
+fn=0x0000000000108a38
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_atexit.c
+cfn=__cxa_atexit
+calls=1 57 
+0 66
+
+fn=0x0000000004fb6700
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+cfn=__cxa_finalize
+calls=1 31 
+0 77
+
+fn=0x0000000004fb6548
+0 6
+
+fn=0x0000000000108a50
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+cfn=__cxa_finalize
+calls=1 31 
+0 77
+
+fn=0x000000000010a024
+0 3
+
+fn=0x0000000004cb4880
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+cfn=__cxa_finalize
+calls=1 31 
+0 1757
+
+fn=0x0000000004d63c7c
+0 3
+
+fn=0x0000000004a27560
+0 6
+
+fn=0x00000000052bc7b0
+0 6
+
+fn=0x0000000004a27818
+0 3
+
+fn=0x0000000000108a40
+0 2
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/atof.c
+cfn=atof
+calls=2 27 
+0 814
+
+fn=0x0000000004a275a0
+0 1
+cob=/lib/x86_64-linux-gnu/libc-2.24.so
+cfi=/build/glibc-jxM2Ev/glibc-2.24/stdlib/cxa_finalize.c
+cfn=__cxa_finalize
+calls=1 31 
+0 77
+
+fn=0x00000000052cc878
+0 3
+
+totals: 2242139

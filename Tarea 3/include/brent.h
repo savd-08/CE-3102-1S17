@@ -1,8 +1,7 @@
-#ifndef secant_f
-#define secant_f
+#ifndef brent_f
+#define brent_f
 
 #include <cmath>
-#include <iostream>
 #include <limits>
 
 template<class T>
@@ -43,8 +42,6 @@ class brent {
         swap(x1, x2);
         swap(y1, y2);
       }
-
-      std::cout << "x1: " << x1 << " x2: " << x2;
 
       //calculo de la tercer punto
       x3 = x1;
