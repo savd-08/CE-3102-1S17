@@ -1,4 +1,5 @@
 #include <boost/math/tools/polynomial.hpp>
+#include <iostream>
 
 namespace boost{ namespace math{ namespace tools{
 	/*
@@ -25,7 +26,7 @@ inline polynomial<T> divide(const polynomial<T>& n, const polynomial<T>& d, poly
 	polynomial<T> q(n);
 
 	//Instanciación del polinomio divisor auxiliar como copia de n
-	polynomial<T> d_shifted(n); 
+	polynomial<T> d_shifted(n);
 
 	//Se inicializa el cociente en cero
 	for (i = 0; i <= n_deg; i++){
@@ -74,7 +75,7 @@ inline polynomial<T> divide(const polynomial<T>& n, const polynomial<T>& d, poly
 /*
 * Función para deflación de polinomios. Se toma la deflación como un caso
 * especial de división polinomial con divisor de grado 1 y residuo 0.
-* Recibe el dividendo (n) y el divisior de grado 1 o raíz (d) como argumentos. 
+* Recibe el dividendo (n) y el divisior de grado 1 o raíz (d) como argumentos.
 * Retorna el cociente. Todos los polinomios se representan con boost::math::tools::polynomial.
 */
 template <typename T>
@@ -89,24 +90,43 @@ inline polynomial<T> deflate(const polynomial<T>& n, const T d){
 	T r = q[n_deg];
 
 	//Se establece el cociente con un grado menor que el dividendo
-	q[n_deg] = T(0);  
+	q[n_deg] = T(0);
 
 	T c;
-	
-	for(int i = n_deg-1; i >= 0; i--) { 
+
+	for(int i = n_deg-1; i >= 0; i--) {
 		//Valor del coeficiente de i-ésimo grado
-		c = q[i]; 
+		c = q[i];
 
 		//Coeficiente del cociente
 		q[i] = r;
 
 		//Residuo de la división polinomial
-		r = d*r + c; 
+		r = d*r + c;
 	}
 
 	//Se eliminan los coeficientes iguales a cero
 	q.normalize();
 	return q;
+}
+
+/**
+* Algoritmo de horner para evaluar polinomios
+*/
+template <typename T>
+inline T poly_evaluator(T x, const polynomial<T>& terms){
+
+	int term_amt = terms.degree()+1;
+
+	T result = terms[term_amt - 1] * x;
+
+	for(int i = term_amt - 2; i > 0; i--){
+		result = (result + terms[i]) * x;
+	}
+
+	result += terms[0];
+
+	return result;
 }
 
 
