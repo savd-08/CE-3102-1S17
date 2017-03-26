@@ -1,7 +1,7 @@
-#include "boost_poly.h"
+//#include "boost_poly.h"
 #include <iostream>
 #include <complex>
-#include "muller.h"
+#include "rootsalgorithms.h"
 
 using namespace boost::math::tools;
 
@@ -40,11 +40,15 @@ int main(){
 		std::cout << std::endl;
 	}
 
-	anpi::muller<double> muller(f_x);
+	polynomial<std::complex<double>> pol{{std::complex<double>(-3.0,0.0), std::complex<double>(0.0,0.0), std::complex<double>(1.0,0.0)}};
 
-	std::complex<double> complex1 = muller(0.0, 4.0);
+	polynomial<std::complex<double>> pol2{{std::complex<double>(6.0,0.0), std::complex<double>(4.0,0.0), std::complex<double>(6.0,0.0), std::complex<double>(8.0,0.0)}};
 
-	std::cout <<"\n\nraiz: " << complex1 << "\n";
+	muller<double> muller(pol2);
+
+	polynomial<std::complex<double>> root = muller(0.0,4.0);
+
+	std::cout << "\n\nraiz: " << root[0] << " " << root[1] << "\n";
 
 	return 0;
 }

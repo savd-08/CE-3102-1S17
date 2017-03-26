@@ -25,7 +25,7 @@ namespace boost{ namespace math{ namespace tools{
         _polinomio = polinomio;
       }
 
-      std::complex<T> operator()(T x1, T x2){
+      polynomial<std::complex<T>> operator()(T x1, T x2){
 
         //paso a numeros complejos
         std::complex<T> cx0 = x1;
@@ -69,12 +69,16 @@ namespace boost{ namespace math{ namespace tools{
 
           if(std::abs(h) <= _precision){
             if(std::abs(std::real(p)) <= _precision){
-              p = std::complex<T>(0, std::imag(p));
+              p = std::complex<T>(0.0, std::imag(p));
             }
             if(std::abs(std::imag(p)) <= _precision){
-              p = std::complex<T>(std::real(p), 0);
+              p = std::complex<T>(std::real(p), 0.0);
             }
-            return p;
+
+            p *= -1.0;
+            polynomial<std::complex<T>> root{{p, std::complex<T>(1.0, 0.0)}};
+
+            return root;
           }
 
           cx0 = cx1;
