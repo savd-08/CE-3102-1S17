@@ -150,7 +150,7 @@ namespace boost{ namespace math{ namespace tools{
 					_polinomio = polinomio;
 	      }
 
-	      polynomial<std::complex<T>> operator()(T x1){
+	      std::complex<T> operator()(T x1){
 
 					//paso a numeros complejos
 					std::complex<T> cx0 = x1;
@@ -200,10 +200,7 @@ namespace boost{ namespace math{ namespace tools{
 					      p = std::complex<T>(std::real(p), 0.0);
 					    }
 
-					    p *= -1.0;
-					    polynomial<std::complex<T>> root{{p, std::complex<T>(1.0, 0.0)}};
-
-					    return root;
+					    return p;
 					  }
 
 					  cx0 = cx1;

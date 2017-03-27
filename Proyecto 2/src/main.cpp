@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
 
 	//MULLER
 	muller<double> muller(pol2);
-	polynomial<complex<double>> root_mul = muller(0.0);
-	std::cout << "\n\nRaíz por método de Muller: " << root_mul[0] << " " << root_mul[1] << "\n";
+
+	std::cout << "\n\nRaíz por método de Muller: " << muller(0.0) << "\n";
 
 	//LAGUERRE
 	laguerre<double> lag(pol2);
