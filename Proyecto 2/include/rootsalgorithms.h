@@ -1,6 +1,5 @@
 #include <iostream>
 #include <complex>
-#include <boost/math/tools/polynomial.hpp>
 #include <limits>
 #include <cmath>
 #include "boost_poly.h"
@@ -12,17 +11,18 @@ namespace boost{ namespace math{ namespace tools{
   //Cálculo de la n-ésima potencia entera de un número de punto flotante.
 	template <typename fp>
 	inline fp pow(fp base, int power) {
-	fp result = fp(1);
-	while(power > 0) {
 
-		if(power & 1) {
-			result = (result*base);
+		fp result = fp(1);
+		while(power > 0) {
+
+			if(power & 1) {
+				result = (result*base);
+			}
+
+			base = (base * base);
+			power >>= 1;
 		}
-
-		base = (base * base);
-		power >>= 1;
-	}
-	return result;
+		return result;
 	}
 
 /********************************************************************************************************************************/
@@ -31,22 +31,20 @@ namespace boost{ namespace math{ namespace tools{
 	*Clase que realiza el metodo de Laguerre
 	*/
 	template <typename T>
-	class laguerre {
+	class laguerre { 
 
 	private:
 		polynomial<std::complex<T>> _poly;
 		T _precision; //Tolerancia
-		unsigned int _iters; //Iteraciones
+		unsigned int _iters; //Iteraciones 
 		std::complex<T>* d_coefs; //Arreglo para almacenar coeficientes de la primera derivada
-		bool _type;
 
 	public:
 		//Constructor
-		laguerre(polynomial<std::complex<T>> ppoly, bool ptype, unsigned int piters = 100, T pprecision = 0.00001) {
+		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 100, T pprecision = 0.00001) {
 			//Se establecen parametros
 			_iters = piters;
 			_precision = pprecision;
-			_type = ptype;
 			_poly = ppoly;
 			d_coefs = new std::complex<T>[_poly.degree()];
 		}
@@ -58,7 +56,7 @@ namespace boost{ namespace math{ namespace tools{
 
 		/***************FUNCIONES PARA EVALUAR POLINOMIOS***************************/
 
-		//Evalua la funcion derivada en un punto especifico
+			//Evalua la funcion derivada en un punto especifico
 		std::complex<T> dpol(std::complex<T> x, const polynomial<std::complex<T>>& ppol) {
 
 			std::complex<T> result = std::complex<T>(0);
@@ -81,31 +79,31 @@ namespace boost{ namespace math{ namespace tools{
 		}
 		/***************************CALCULO DE LA RAIZ**********************************/
 
-		//Operador del funtor
+		//Operador del funtor 
 		polynomial<std::complex<T>> operator() (T lim_inf) {
 
 			/*****Método de Laguerre para la busqueda de raices*****/
-			std::complex<T> tmp_root, new_root, g, h, c; //Variables para calcular la aproximacion de la raiz
-			tmp_root = lim_inf;   //Se inicia con una raiz estimada igual al limite inferior del rango
-			std::complex<T> _degree = std::complex<T>(_poly.degree()); //Grado del polinomio a evaluar
+			std::complex<T> tmp_root, new_root, g, h, c; //Variables para calcular la aproximacion de la raiz 
+			tmp_root = lim_inf;   //Se inicia con una raiz estimada igual al limite inferior del rango 
+			std::complex<T> _degree = std::complex<T>(_poly.degree()); //Grado del polinomio a evaluar 
 
-			//Iteraciones para buscar la raiz mas aproximada dentro del determinado rango
+			//Iteraciones para buscar la raiz mas aproximada dentro del determinado rango 
 			for (int i = 0; i < _iters; i++) {
 
-				if(i >= 1) g = std::complex<T>(-1.0,0.0) * dpol(tmp_root, _poly) / poly_evaluator(tmp_root, _poly); //Verificacion de signo para
-				else g = dpol(tmp_root, _poly) / poly_evaluator(tmp_root, _poly);              // la variable G
-
+				if(i >= 1) g = std::complex<T>(-1) * dpol(tmp_root, _poly) / poly_evaluator(tmp_root, _poly); //Verificacion de signo para
+				else g = dpol(tmp_root, _poly) / poly_evaluator(tmp_root, _poly);              // la variable G  
+				
 				h = pow(g,2) - (d2pol(tmp_root) / poly_evaluator(tmp_root, _poly)); //calculo del termino H para el metodo Laguerre
 
 				/*Se evalua un termino que compone la variable c para determinar
 				el numerador mas grande en la operación */
 				std::complex<T> term1 = g + sqrt((_degree-std::complex<T>(1))*((_degree*h)-(pow(g,2))));
 				std::complex<T> term2 = g - sqrt((_degree-std::complex<T>(1))*((_degree*h)-(pow(g,2))));
-				if (std::abs(term1) > std::abs(term2)) c = term1 / _degree;
-				else c = term2 / _degree;
-
-				new_root = tmp_root + (std::complex<T>(1) / c); //Se establece la nueva raiz aproximada
-
+				if (std::abs(term1) > std::abs(term2)) c = term1 / _degree; 
+				else c = term2 / _degree; 
+				
+				new_root = tmp_root + (std::complex<T>(1) / c); //Se establece la nueva raiz aproximada 
+			
 				// Se verifica si ya la raiz converge lo suficiente con un valor estimado establecido
 				if ( std::abs((new_root - tmp_root) / new_root) <= _precision ) {
 					if(std::abs(std::real(new_root)) <= _precision){
@@ -115,25 +113,20 @@ namespace boost{ namespace math{ namespace tools{
 		              new_root = std::complex<T>(std::real(new_root), 0.0);
 		            }
 
-		            //new_root *= -1.0;
+		            new_root *= -1.0;
 		            polynomial<std::complex<T>> res{{new_root, std::complex<T>(1.0, 0.0)}};
 
-					//Se verifica si el resultado calculado no es un numero (advertencia: NaN)
-					if (_type) {
-						if (new_root.imag() != T(0)) {
-							std::cout << "Advertencia: la raíz es obtenida no es un número real." << std::endl;
-						}
-					}
-
-					return res; //Raiz aproximada por metodo de Laguerre
+					return res; //Raiz aproximada por metodo de Laguerre 
 				}
 
 				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
 			}
 
+			throw("Cantidad maxima de iteraciones alcanzada");
+
 		}//Fin del operador
 
-	};//laguerre
+	}; //laguerre
 
 /********************************************************************************************************************************/
 

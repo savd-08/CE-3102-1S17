@@ -1,6 +1,5 @@
 #include <iostream>
 #include <complex>
-//#include "boost_poly.h"
 #include "rootsalgorithms.h"
 
 using namespace std;
@@ -42,22 +41,16 @@ int main(int argc, char *argv[]) {
 
 	/****************************************************************************************************************/
 
-	int params = 1;
-	if (argc < params) {cout << "Por favor, ingrese los parámetros necesarios..." << endl;}
-	else
-	{
-		//MULLER
-		muller<double> muller(pol2);
-		polynomial<complex<double>> root_mul = muller(0.0);
-		std::cout << "\n\nRaíz por método de Muller: " << root_mul[0] << " " << root_mul[1] << "\n";
+	//MULLER
+	muller<double> muller(pol2);
+	polynomial<complex<double>> root_mul = muller(0.0);
+	std::cout << "\n\nRaíz por método de Muller: " << root_mul[0] << " " << root_mul[1] << "\n";
 
-		//LAGUERRE
-		bool complex_mode = (char)atoi(argv[1]);
-		laguerre<double> lag(pol2, complex_mode);
-		polynomial<complex<double>> root_lag = lag(0.0);
-		cout << "\n\nRaíz por método de Laguerre: " << root_lag[0] << " " << root_lag[1] << "\n";
+	//LAGUERRE
+	laguerre<double> lag(pol2);
+	polynomial<complex<double>> root_lag = lag(0.0);
+	cout << "\n\nRaíz por método de Laguerre: " << root_lag[0] << " " << root_lag[1] << "\n";
 
-	}
 
 	return 0;
 }

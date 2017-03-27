@@ -8,6 +8,7 @@ CXX = g++
 
 CFLAGS = -I$(IDIR) 
 CPPFLAGS = -Ofast -I /usr/share/boost_1_63_0/ -I $(IDIR)
+CPPFLAGS += -std=c++11
 
 EXEC = main
 
