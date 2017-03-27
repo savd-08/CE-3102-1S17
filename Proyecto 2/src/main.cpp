@@ -42,12 +42,31 @@ int main(int argc, char *argv[]) {
 	/****************************************************************************************************************/
 
 	//MULLER
-	muller<double> muller(pol2);
-	cout << "\n\nRaíz por método de Muller: " << muller(0.0) << "\n";
+	muller<double> muller(pol);
+	std::complex<double> root_muller = muller(0.0);
+	cout << "\n\nRaíz por método de Muller: " << root_muller << "\n";
+
+	//Deflacion para calcular las demas raices 
+	polynomial<complex<double>> def_muller = deflate(pol, root_muller);
+	cout << "Raíces restantes: ";
+	for (int i=0; i < def_muller.degree() + 1; i++)
+			cout << def_muller[i] << ", ";
+	cout << endl;
+
+	/*********************************************************/  
 
 	//LAGUERRE
-	laguerre<double> lag(pol2);
+	laguerre<double> lag(pol);
+	complex<double> root_laguerre = lag(0.0);
 	cout << "\n\nRaíz por método de Laguerre: " << lag(0.0) << "\n";
+
+	//Deflacion para calcular las demas raices 
+	polynomial<complex<double>> def_laguerre = deflate(pol, root_laguerre);
+	cout << "Raíces restantes: ";
+	for (int i=0; i < def_laguerre.degree() + 1; i++)
+			cout << def_laguerre[i] << ", ";
+	cout << endl;
+
 
 
 	return 0;
