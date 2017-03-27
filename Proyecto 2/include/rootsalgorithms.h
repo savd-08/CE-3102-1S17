@@ -5,7 +5,6 @@
 #include "boost_poly.h"
 
 
-
 namespace boost{ namespace math{ namespace tools{
 
   //Cálculo de la n-ésima potencia entera de un número de punto flotante.
@@ -79,8 +78,8 @@ namespace boost{ namespace math{ namespace tools{
 		}
 		/***************************CALCULO DE LA RAIZ**********************************/
 
-		//Operador del funtor
-		polynomial<std::complex<T>> operator() (T lim_inf) {
+		//Operador del funtor 
+		std::complex<T> operator() (T lim_inf) {
 
 			/*****Método de Laguerre para la busqueda de raices*****/
 			std::complex<T> tmp_root, new_root, g, h, c; //Variables para calcular la aproximacion de la raiz
@@ -111,12 +110,9 @@ namespace boost{ namespace math{ namespace tools{
 		            }
 		            if(std::abs(std::imag(new_root)) <= _precision){
 		              new_root = std::complex<T>(std::real(new_root), 0.0);
-		            }
+		            }		        
 
-		            new_root *= -1.0;
-		            polynomial<std::complex<T>> res{{new_root, std::complex<T>(1.0, 0.0)}};
-
-					return res; //Raiz aproximada por metodo de Laguerre
+					return new_root; //Raiz aproximada por metodo de Laguerre 
 				}
 
 				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
@@ -212,7 +208,7 @@ namespace boost{ namespace math{ namespace tools{
 					throw("Cantidad maxima de iteraciones alcanzada");
 	      }
 
-	  };//fin de muller
+};//fin de muller
 
 } //namespace tools
 } //namespace math

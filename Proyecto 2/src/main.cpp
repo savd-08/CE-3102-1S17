@@ -16,40 +16,38 @@ int main(int argc, char *argv[]) {
 
 
 	if(!c.is_zero()){
-		std::cout << "Residuo: ";
+		cout << "Residuo: ";
 		for (int i=0; i < c.degree() + 1; i++)
-				std::cout << c[i] << ", ";
-		std::cout << std::endl;
+				cout << c[i] << ", ";
+		cout << endl;
 	}
 
 	if(!d.is_zero()){
-		std::cout << "Cociente div: ";
+		cout << "Cociente div: ";
 		for (int i=0; i < d.degree() + 1; i++)
-				std::cout << d[i] << ", ";
-		std::cout << std::endl;
+				cout << d[i] << ", ";
+		cout << std::endl;
 	}
 
 	if(!def.is_zero()){
-		std::cout << "Cociente def: ";
+		cout << "Cociente def: ";
 		for (int i=0; i < def.degree() + 1; i++)
-				std::cout << def[i] << ", ";
-		std::cout << std::endl;
+				cout << def[i] << ", ";
+		cout << std::endl;
 	}
 
-	polynomial<std::complex<double>> pol{{std::complex<double>(-3.0,0.0), std::complex<double>(0.0,0.0), std::complex<double>(1.0,0.0)}};
-	polynomial<std::complex<double>> pol2{{std::complex<double>(6.0,0.0), std::complex<double>(4.0,0.0), std::complex<double>(6.0,0.0), std::complex<double>(8.0,0.0)}};
+	polynomial<complex<double>> pol{{complex<double>(-3.0,0.0), complex<double>(0.0,0.0), complex<double>(1.0,0.0)}};
+	polynomial<complex<double>> pol2{{complex<double>(6.0,0.0), complex<double>(4.0,0.0), complex<double>(6.0,0.0), complex<double>(8.0,0.0)}};
 
 	/****************************************************************************************************************/
 
 	//MULLER
 	muller<double> muller(pol2);
-
-	std::cout << "\n\nRaíz por método de Muller: " << muller(0.0) << "\n";
+	cout << "\n\nRaíz por método de Muller: " << muller(0.0) << "\n";
 
 	//LAGUERRE
 	laguerre<double> lag(pol2);
-	polynomial<complex<double>> root_lag = lag(0.0);
-	cout << "\n\nRaíz por método de Laguerre: " << root_lag[0] << " " << root_lag[1] << "\n";
+	cout << "\n\nRaíz por método de Laguerre: " << lag(0.0) << "\n";
 
 
 	return 0;
