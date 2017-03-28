@@ -1,0 +1,985 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass IEEEtran
+\begin_preamble
+% for subfigures/subtables
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{braket}
+\end_preamble
+\options conference
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package none
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Your Title"
+\pdf_author "Your Name"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is a template LyX file for conference articles of conferences organized
+ by the Institute of Electrical and Electronics Engineers (IEEE).
+ For IEEE journal articles, see the template file 
+\emph on
+IEEEtran-Journal.lyx
+\emph default
+.
+ For general info see 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/Examples/IEEE
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+It is important that you use the correct document class options for your
+ document..
+ These are explained in the IEEEtran documentation: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://mirror.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Computación Cuántica: Arquitecturas y Aplicaciones
+\end_layout
+
+\begin_layout Author
+\begin_inset Flex Author Name
+status open
+
+\begin_layout Plain Layout
+Sergio Andrés Vargas Delgado
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Author Affiliation
+status open
+
+\begin_layout Plain Layout
+Email: savd_08@outlook.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Peer Review Title
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Don't add text here!
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+required if you use the document class option 
+\family sans
+peerreview
+\family default
+, must otherwise not be used
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+En esta investigación se exploran conceptos básicos de computación cúantica,
+ algunas arquitecturas que se han implementado, la jerarquía de memoria
+ de un sistema cuántico y un aplicación específica de computación cuántica
+ para algoritmos de seguridad informática.
+ Se proveen, además, ayudas visuales para que el lector tenga una mejor
+ noción de los conceptos acá descritos.
+\end_layout
+
+\begin_layout Keywords
+Arquitectura de computadores, Computación cuántica, Qubit.
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+La capacidad de procesamiento de los computadores modernos se está volviendo
+ más limitada debido a la imposibilidad de construir compuertas cada vez
+ más delgadas, lo que impone una restricción en el rendimiento de los microproce
+sadores.
+ Se suele solventar este problema a través de diferentes técnicas computación
+ paralela, mas no se incrementa propiamente el rendimiento de un solo procesador.
+ En vista de esto, se ha considerado utilizar conceptos y fenómenos de mecánica
+ cuántica para realizar procesamiento paralelo de grandes cantidades de
+ datos.
+ Dado que existe la posibilidad de representar infinitos estados a través
+ de la superposición de estados propia de la mecánic cuántica, el paralelismo
+ es inherente de un computador cuántico 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poonacha"
+
+\end_inset
+
+, de manera que se considera una alternativa de mayor velocidad y pareciera
+ ser útil en una variedad de aplicaciones, como algoritmos de criptografía,
+ simulaciones de procesos físicos y químicos, incluyendo simulación cuántica
+ y resolución de problemas cuya característica es que se deben probar todas
+ las posibles respuestas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lyshevski"
+
+\end_inset
+
+.
+ A pesar de que la computación cuántica no es una realidad aún y de que
+ todavía existen retos que deben superarse, se ve con luz positiva el desarrollo
+ del área y las posibles aplicaciones que tiene 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Lyshevski"
+
+\end_inset
+
+, por lo que es de interés para cualquier profesional del área de la computación.
+\end_layout
+
+\begin_layout Section
+Conceptos Básicos
+\end_layout
+
+\begin_layout Standard
+Como se ha mencionado con anterioridad, la base la computación cuántica
+ es la aplicación de fenómenos como la superposición de estados y el entrelazami
+ento cuántico.
+ La superposición de estados es un principio fundamental de la mecánica
+ cuántica es que todos los posibles estados de un sistema coexisten y forman
+ una función para todo el sistema.
+ Se conoce al entrelazamiento cuántico como la interacción entre partículas
+ que no permite al estado cuántico de cada una de ellas ser descrito de
+ manera independiente de los otros.
+ Esto es independiente de la separación física de las partículas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poonacha"
+
+\end_inset
+
+.
+ Así como la computación convecional está construida alrededor de los bits,
+ la computación cuántica toma como base los qubits, que se basan en los
+ mismos dos estados del bit (1 y 0), que se representan como 
+\begin_inset Formula $\Ket{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $\Ket{1}$
+\end_inset
+
+ y adicionalmente la superposición de ambos de manera que 
+\begin_inset Formula $\Ket{\psi}=\alpha\Ket{0}+\beta\Ket{1}$
+\end_inset
+
+, donde 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ y 
+\begin_inset Formula $\beta$
+\end_inset
+
+ son amplitudes de probabilidad tal que 
+\begin_inset Formula $|\alpha|^{2}+|\beta|^{2}=1$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poonacha"
+
+\end_inset
+
+.
+ Análogamente a un bit, existen compuertas cuánticas que realizan operaciones
+ sobre qubits y de la misma forma son los bloques de construcción de la
+ computación cuántica 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Poonacha"
+
+\end_inset
+
+.
+ Adicionalmente, el entrelazamiento cuántico permite conocer el estado de
+ ciertos componentes del sistema realizando una medición sobre solo uno
+ de ellos, sin necesidad de observar el otro componente 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Computador cuántico
+\end_layout
+
+\begin_layout Standard
+Nuevamente, las técnicas de computación convencional se emplean en alguna
+ medida en computación cuántica.
+ De acurdo con Jain 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+, deben existir tres componentes principales: ALU cuántica, memoria cuántica
+ y un calendarizador dinámico, que aprovechan el efecto de 
+\shape italic
+teletransportación cuántica
+\shape default
+ por la manera en que se conectan entre sí.
+ La Fig.
+ 1 muestra cómo interactúan estos componentes.
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Arquitectura.PNG
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Componentes básicos de una arquitectura cuántica.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oskin"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aparte del diseño básico mostrado en la Fig.
+ 1, existen varios enfoques: computación de estado clúster, arquitecturas
+ tolerantes a fallos, arquitecturas en capas, arquitecturas en FPGA cuántica.
+\end_layout
+
+\begin_layout Subsection
+Computador de estado clúster
+\end_layout
+
+\begin_layout Standard
+Se llama estado clúster a un estado entrelazado muy grande compuesto por
+ múltiples qubits.
+ Al ejecutar operaciones, se realiza una medición a un solo qubit y por
+ entrelazamiento se puede conocer el estado de los demás qubits.
+ Un estado clúster permite reintentar operaciones si no se obtiene el resultado
+ esperado, lo que quiere decir que la corrección de errores está implícita
+ en el modelo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Arquitecturas tolerantes a fallos
+\end_layout
+
+\begin_layout Standard
+Debido a que no es posible aislar totalmente el sistema, no se puede escapar
+ de los errores inducidos por interferecia externa.
+ Para evitar esto se controla el spin de átomos de un semiconductor de manera
+ eléctrica y se utiliza memoria cuántica y mecanismos de acoplamiento que
+ permiten control autónomo y acoplamiento a través de la transmisión controlada
+ de electrones.
+ Utilizando esta aproximación se puede lograr una escalabilidad y porcentaje
+ de error aceptables 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Arquitecturas en capas
+\end_layout
+
+\begin_layout Standard
+Al igual que en ingeniería de software, dividir la arquitectura del sistema
+ en capas provee uuna serie de ventajas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Itemize
+Se divide la funcionalidad del sistema en tareas más pequeñas
+\end_layout
+
+\begin_layout Itemize
+Se establecen interfaces para la interacción entre capas, permitiendo cambiar
+ las capas individualmente sin afectar el resto del sistema.
+\end_layout
+
+\begin_layout Itemize
+Aparece una jerarquía en la que las capas superiores dependen de las inferiores
+\end_layout
+
+\begin_layout Itemize
+Se pueden aislar los posibles problemas de cada capa
+\end_layout
+
+\begin_layout Itemize
+Cada capa se puede considerar autónoma
+\end_layout
+
+\begin_layout Itemize
+Cada capa tiene responsabilidades definidas
+\end_layout
+
+\begin_layout Standard
+Las capas que típicamente integran este tipo de arquitecturas aparecen en
+ la Fig.
+ 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename layered.PNG
+	scale 82
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura de capas para un computador cuántico.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Arquitecturas en FPGA cuántica
+\end_layout
+
+\begin_layout Standard
+Al intentar modelar algoritmos cuánticos en computadores clásicos se pierde
+ totalmente la ganancia de eficiencia puesto que los conceptos de superposición
+ y entrelazamiento son muy difíciles de implementar en estos computadores.
+ Se puede emplear una FPGA para programar una arquitectura cuántica que
+ se aproxime de mejor manera a la realidad y se han desarrollado FPGAs cuánticas
+ que abran las puertas a la computación cuántica programable que provean
+ estructuras flexibles para el usuario.
+ Las arquitecturas de FPGAs cuánticas son una combinación de sistemas de
+ computación basada en mediciones (Quantum Logic Blocks, QLB) y un qubus
+ (Quantum Routing Channel, QRC), que se emplea para generar entrelazamiento
+ en el sistema.
+ La Fig.
+ 3 ilustra este sistema.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fpga.PNG
+	scale 68
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura de FPGA cuántica.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Jain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Memoria Cuántica
+\end_layout
+
+\begin_layout Standard
+Thaker et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+ implementaron en 2006 una memoria llamada Compressed Quantum Logic Array
+ (CQLA) diseñada especialmente para solventar problemas de escalabilidad
+ para arquitecturas cuántimas de gran escala.
+ En este sentido, CQLA incrementa el tamaño de la memoria cuántica e incrementa
+ el rendimiento del sistema al ayudar a comprender mejor los roles de las
+ unidades funcionales y de la memoria caché.
+ Este tipo de memoria contiene tres componentes fundamentales: 
+\shape italic
+qubits lógicos 
+\shape default
+como unidades computacionales de corrección de errores, tecnología de iones
+ atrapados y comunicaciones basadas en teletransportación cuántica.
+ 
+\end_layout
+
+\begin_layout Subsection
+Quibit logico
+\end_layout
+
+\begin_layout Standard
+El qubit lógico es básicamente un bit cuántico tolerante a fallos que implementa
+ un mecanismo de corrección de errores.
+ Esto es un procedimiento caro debido a que se deben codificar qubits recursivam
+ente a un estado de alta correlación con el fin de obtener un único qubit
+ lógico.
+ Con cada nivel 
+\begin_inset Formula $L$
+\end_inset
+
+ de recursividad de la codificación, la probabilidad de fallo se escala
+ con la relación 
+\begin_inset Formula $p_{0}^{2^{L}}$
+\end_inset
+
+ , siendo 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+ la tasa de fallas de cada componente físico.
+ La capacidad de operar lógicamente un qubt lógico sin la necesidad de decodific
+ar y codificar los datos es de suma importancia para memorias y microarquitectur
+as tolerantes a fallos en general 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Tecnología de trampa de iones
+\end_layout
+
+\begin_layout Standard
+Esta tecnología se basa en utilizar iones atómicos que interactúan con lásers
+ para realizar operaciones cuánticas.
+ Los datos cuánticos se almacenan en los estados electrónicos y nucleares
+ de los iones.
+ Para acceder a estos datos se atrapan los iones en un par de electrodos,
+ que se agrupan con más trampas para formar cadenas de iones, de manera
+ que se hace posible la interacción entre qubits.
+ Este es el principio detrá de las compuertas cuánticas universales (que
+ hacen cualquier operación).
+ La lectura o medición y escritura de los qubits se da al aplicar lásers
+ sobre los mismos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename trap.PNG
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama básico de la tecnología de trampas de iones.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Jerarquía de memoria
+\end_layout
+
+\begin_layout Standard
+La jerarquía de memoria utilizando CQLA no difiere mucho de la de un computador
+ convencional, aunque si se debe recalcar que sí es importante el nivel
+ de recursividad de los qubits lógicos que conforman cada sección de la
+ jerarquía.
+ Un qubit lógico de nivel 1 se emplea para los circuitos rápidos, como registros
+ y memoria caché, mientras que los de nivel 2 toman más tiempo de acceso,
+ por lo que se utilizan en la memoria principal (RAM) del sistema 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+.
+ Se aprecia una representación de la jerarquía de memoria en la Fig.
+ 5.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Mem.PNG
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Jerarquía de memoria para sistemas CQLA.
+ Nótese la diferenciación entre secciones implementadas con qubits lógicos
+ de nivel 1 y nivel 2.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aplicación: arquitectura híbrida para aceleración de algoritmos de seguridad
+\end_layout
+
+\begin_layout Standard
+El algoritmo de Shor es un método de factorizar números enteros utilizando
+ computación cuántica.
+ Para poder emplearlo efectivamente se requiere un computador cuántico,
+ que está lejos de existir para el consumidor.
+ Possignolo 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Margi"
+
+\end_inset
+
+ ha desarrollado una arquitectura que mezcla un procesador cuántico pequeño
+ para los pasos más demandantes del algoritmo de Shor y un procesador clásico
+ para el resto de la desencripción.
+ Se emplea el procesador clásico como principal y se utiliza el cuántico
+ como un coprocesador, de manera que el control se realiza de la misma forma
+ que una escritura a memoria.
+ En la Fig 6.
+ aparece la arquitectura del sistema híbrido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename hybrid.PNG
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Arquitectura híbrida de Possignolo.
+ El único componente cuántico es el coprocesador.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Thaker"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+A pesar de que existe una enorme diferencia de tecnologías entre la computación
+ ordinaria y la computación cuántica, se puede observar que los conceptos
+ de arquitectura de computadores son válidos para ambos modelos y posiblemente
+ sigan aplicando sin importar la tecnología con que se implementen.
+\end_layout
+
+\begin_layout Standard
+La computación cuántica es un campo al que se le puede sacar bastante provecho
+ especialmente en apliaciones científicas.
+ No obstante, acualmente no parecen existir dispositivos de computación
+ cuántica a los que se le pueda sacar un verdadero provercho o que cumplan
+ las expectativas que tienen los expertos sobre el tema, por lo que mucho
+ de lo encontrado a lo largo de la investigación es de relevancia limitada
+ para usuarios finales e incluso programadores que no está familiarizados
+ con algoritmos cuánticos.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Poonacha"
+
+\end_inset
+
+R.
+ Vignesh and P.
+ Poonacha, "Quantum computer architectures: An idea whose time is not far
+ away", 2015 International Conference on Computers, Communications, and
+ Systems (ICCCS), 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Lyshevski"
+
+\end_inset
+
+S.
+ Lyshevski, "Quantum processing: Feasibility studies and solutions", 2011
+ 11th IEEE International Conference on Nanotechnology, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Jain"
+
+\end_inset
+
+S.
+ Jain, "Quantum Computer Architectures: A Survey", 2015 2nd International
+ Conference on Computing for Sustainable Global Development (INDIACom),
+ 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Oskin"
+
+\end_inset
+
+M.
+ Oskin, F.
+ Chong and I.
+ Chuang, "A practical architecture for reliable quantum computers", Computer,
+ vol.
+ 35, no.
+ 1, pp.
+ 79-87, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Thaker"
+
+\end_inset
+
+D.
+ Thaker, T.
+ Metodi, A.
+ Cross, I.
+ Chuang and F.
+ Chong, "Quantum Memory Hierarchies: Efficient Designs to Match Available
+ Parallelism in Quantum Computing", 33rd International Symposium on Computer
+ Architecture (ISCA'06).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Margi"
+
+\end_inset
+
+R.
+ Possignolo and C.
+ Margi, "A Quantum-classical Hybrid Architecture for Security Algorithms
+ Acceleration", 2012 IEEE 11th International Conference on Trust, Security
+ and Privacy in Computing and Communications, 2012.
+\end_layout
+
+\end_body
+\end_document
