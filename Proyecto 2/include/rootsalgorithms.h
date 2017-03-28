@@ -39,7 +39,7 @@ namespace boost{ namespace math{ namespace tools{
 	/**
 	*Clase que realiza el metodo de Laguerre
 	*/
-	template <typename T>
+	template <class T>
 	class laguerre {
 
 	private:
@@ -88,7 +88,7 @@ namespace boost{ namespace math{ namespace tools{
 		}
 		/***************************CALCULO DE LA RAIZ**********************************/
 
-		//Operador del funtor 
+		//Operador del funtor
 		std::complex<T> operator() (T lim_inf) {
 
 			/*****Método de Laguerre para la busqueda de raices*****/
@@ -126,8 +126,12 @@ namespace boost{ namespace math{ namespace tools{
 		              new_root = std::complex<T>(std::real(new_root), 0.0);
 		            }
 
+<<<<<<< Updated upstream
 		            tmp_file.close(); //Cierra el archivo 
 					return new_root; //Raiz aproximada por metodo de Laguerre 
+=======
+					return new_root; //Raiz aproximada por metodo de Laguerre
+>>>>>>> Stashed changes
 				}
 
 				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
