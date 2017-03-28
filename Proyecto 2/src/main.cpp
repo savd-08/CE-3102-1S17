@@ -14,29 +14,40 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 	// compia donde se inicia a probar el polinomio
 	complex<T> t_root = x0;
 
-	for (int i = poly_deg - 1; i >= 0; i--) {
-		polynomial<complex<T>> p_loop(poly_aux);
+	try{
+		for (int i = poly_deg - 1; i >= 0; i--) {
+			polynomial<complex<T>> p_loop(poly_aux);
 
-		t_root = complex_root(x0); //-----------------------------FUNCION--------------------------
+			t_root = complex_root(x0);
 
+			if (abs(imag(t_root)) <= 2.0*epsilon*abs(real(t_root))){
+				t_root = complex<T>(real(t_root),0.0);
+			}
 
-		if (abs(imag(t_root)) <= 2.0*epsilon*abs(real(t_root))){
-			t_root = complex<T>(real(t_root),0.0);
+			roots[i]=t_root;
+
+			poly_aux = deflate(poly_aux, t_root);
+
+			complex_root = function(poly_aux);
+
 		}
-
-		roots[i]=t_root;
-
-		poly_aux = deflate(poly_aux, t_root);
-
-		complex_root = function(poly_aux);
-
+	}
+	catch(const char* msg){
+		cerr << msg << " calulo de raices" << endl;
 	}
 
-	if (polish){
-		for (int i = 0; i < poly_deg; i++){
-			complex_root = function(poly);
-			complex_root(roots[i]);
+	try{
+
+		if (polish){
+			for (int i = 0; i < poly_deg; i++){
+				complex_root = function(poly);
+				complex_root(roots[i]);
+			}
 		}
+
+	}
+	catch(const char* msg){
+		cerr << msg << " pulimiento" << endl;
 	}
 }
 
@@ -72,8 +83,8 @@ int main(int argc, char *argv[]) {
 	}*/
 
 	polynomial<complex<double>> pol{{complex<double>(-3.0,0.0), complex<double>(0.0,0.0), complex<double>(1.0,0.0)}};
-	polynomial<complex<double>> pol2{{complex<double>(6.0,0.0), complex<double>(4.0,0.0), complex<double>(6.0,0.0),
-		complex<double>(8.0,0.0)}};
+	polynomial<complex<double>> pol2{{complex<double>(-5.0,0.0), complex<double>(-1.0,0.0), complex<double>(0.0,0.0),complex<double>(2.0,0.0)}};
+	polynomial<complex<double>> pol3{{complex<double>(7.0,0.0),complex<double>(0.0,0.0),complex<double>(4.0,0.0),complex<double>(-3.0,0.0),complex<double>(1.0,0.0)}};
 
 	/****************************************************************************************************************/
 
@@ -105,36 +116,17 @@ int main(int argc, char *argv[]) {
 		cerr << msg << endl;
 	}
 
-	complex<double> *roots = new complex<double>[3];
+	complex<double> *roots = new complex<double>[2];
 
-	muller<double>  muller(pol2);
+	muller<double>  muller(pol);
 
-	find_roots(pol, roots, false, complex<double>(0.0), muller);
+	find_roots(pol, roots, true, complex<double>(10.0), muller);
 
-	for(int i = 0; i < 3; i++){
+	for(int i = 0; i < 2; i++){
 		cout << "raiz: " << roots[i] << " ";
 	}
 
-	//Deflacion para calcular las demas raices
-	/*polynomial<complex<double>> def_muller = deflate(pol, root_muller);
-	cout << "Raíces restantes: ";
-	for (int i=0; i < def_muller.degree() + 1; i++)
-			cout << def_muller[i] << ", ";
 	cout << endl;
-
-	/*********************************************************/
-
-	//LAGUERRE
-	/*laguerre<double> lag(pol);
-	complex<double> root_laguerre = lag(0.0);
-	cout << "\n\nRaíz por método de Laguerre: " << lag(0.0) << "\n";
-
-	//Deflacion para calcular las demas raices
-	polynomial<complex<double>> def_laguerre = deflate(pol2, root_laguerre);
-	cout << "Raíces restantes: ";
-	for (int i=0; i < def_laguerre.degree() + 1; i++)
-			cout << def_laguerre[i] << ", ";
-	cout << endl;*/
 
 	return 0;
 }

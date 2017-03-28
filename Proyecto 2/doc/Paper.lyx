@@ -251,13 +251,13 @@ peerreview
 \end_layout
 
 \begin_layout Abstract
-En este documento se exploran técnicas de evaluación de polinomios, enfocado
- en técnicas paralelizables a través de la extensión SIMD de un procesador.
- Se presentan ventajas y desventajas de estas técnicas y una comparación
- entre el método de Horner y el esquema de Estrin en términos de precisión,
- error y tiempo de ejecución.
- Además, se presentan algunas recomendaciones para optimizar el tiempo de
- ejecución del algoritmo paralelo.
+En este documento se analizan los métodos de búqueda de raíces en polinomios,
+ para encontrar todas las raíces de un polinomio dado.
+ Se estudian los métodos de Múller y Laguerre que encuentran una sola raíz
+ ya sea compleja o real, además de la deflación polinomial que encuentra
+ todas las raíces en un polinomio.
+ Se determina la precisión de las raíces y como se ve afectado el resultado
+ con pulido de raíces.
  
 \end_layout
 
@@ -373,7 +373,179 @@ Método de Müller
 \end_layout
 
 \begin_layout Standard
-Muller Muller Muller
+El método de Mülller es una variante del método de la secante.
+ En el método de la secante se usan dos puntos, en el cual se dibuja una
+ recta y se toma el punto del eje "x" donde "y" es cero.
+ En el caso de Müller es similar pero en este caso se usan 3 puntos iniciales
+ por lo cuales se dirige una parábola.
+ En este caso se toma dos "x" donde sus respectivas "y" son cero.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Otra ventaja de este método es que también puede determinar las raíces de
+ complejas de un polinomio.
+ Cómo se obtienen estas raíces no es tan sencillo verlo geométricamente.
+ Es más evidente en el análisis de la función.
+\end_layout
+
+\begin_layout Standard
+En el método de Müller se utiliza el siguiente polinomio
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P(x)=a\left(x-x_{2}\right){}^{2}+b\left(x-x_{2}\right)+c\label{eq:mull1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este polinomio describe la parabola que se va a utilizar para encontrar
+ las dos intersecciones con el eje x.
+ Se utilizan 3 ecuaciones para determiar a, b y c.
+ Estas cambian en la variable del polinomio anterior.
+ Las ecuaciones son las siguientes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f\left(x_{0}\right)=a\left(x_{0}-x_{2}\right){}^{2}+b\left(x_{0}-x_{2}\right)+c\label{eq:mull2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f\left(x_{1}\right)=a\left(x_{1}-x_{2}\right){}^{2}+b\left(x_{1}-x_{2}\right)+c\label{eq:eq:mull3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f\left(x_{2}\right)=a\left(0\right){}^{2}+b\left(0\right)+c\label{eq:eq:mull4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con las ecuaciones 2, 3 y 4 se pueden obtener los valroes de a, b y c.
+ Estos son calculados con las siguientes ecuaciones
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+a=\frac{\left(x_{1}-x_{2}\right)\left[f\left(x_{0}\right)-f\left(x_{2}\right)\right]-\left(x_{0}-x_{2}\right)\left[f\left(x_{1}\right)-f\left(x_{2}\right)\right]}{\left(x_{0}-x_{2}\right)\left(x_{0}-x_{1}\right)\left(x_{1}-x_{2}\right)}\label{eq:mull5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+b=\frac{\left(x_{0}-x_{2}\right){}^{2}\left[f\left(x_{1}\right)-f\left(x_{2}\right)\right]-\left(x_{1}-x_{2}\right){}^{2}\left[f\left(x_{0}\right)-f\left(x_{2}\right)\right]}{\left(x_{0}-x_{2}\right)\left(x_{0}-x_{1}\right)\left(x_{1}-x_{2}\right)}\label{eq:mull6}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+c=f\left(x_{2}\right)\label{eq:mull7}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con estas ecuaciones se determina los coeficientes de la parabola usada
+ para determinar el tercer punto para determiar un cuarto punto en x donde
+ y sea cero y además este más cerca de del 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+que es por así decirlo el centro de la búsqueda.
+ Esta x se determina con la ecuación 8:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+x_{3}=x_{2}-\frac{2c}{b\pm\sqrt{b^{2}-4ac}}\label{eq:mull8}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esta ecuación se calcula un cuarto término, se elige la que este más
+ cerca de 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+lo cual se puede determinar usando el signo de b.
+ Como se puede determinar de la ecución, este nuevo término puede dar imaginario
+ por lo tanto este análisis también calcula las raíces complejas por la
+ geometría de las soluciones.
+ Y el método continúa cambiando 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ por 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ por 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ y 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ por 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+.
+ Con estos cambios se vuelve a hacer el cálculo hasta que la precisión sea
+ igual o menor a la establecida.
 \end_layout
 
 \begin_layout Subsection
