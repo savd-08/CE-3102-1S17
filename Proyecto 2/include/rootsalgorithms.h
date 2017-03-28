@@ -2,6 +2,7 @@
 #include <complex>
 #include <limits>
 #include <cmath>
+#include <fstream>
 #include "boost_poly.h"
 
 
@@ -22,6 +23,15 @@ namespace boost{ namespace math{ namespace tools{
 			power >>= 1;
 		}
 		return result;
+	}
+
+	//Genera archivo con los puntos para las gráficas 
+	template <typename T>
+	void load_plot(T y, T x, std::ofstream& file) {
+
+		//Introducir datos a los archivos
+		file << (x) << "\t";
+		file << (y) << std::endl;
 	}
 
 /********************************************************************************************************************************/
@@ -82,9 +92,10 @@ namespace boost{ namespace math{ namespace tools{
 		std::complex<T> operator() (T lim_inf) {
 
 			/*****Método de Laguerre para la busqueda de raices*****/
-			std::complex<T> tmp_root, new_root, g, h, c; //Variables para calcular la aproximacion de la raiz
+			std::complex<T> tmp_root, new_root, g, h, c, error; //Variables para calcular la aproximacion de la raiz
 			tmp_root = lim_inf;   //Se inicia con una raiz estimada igual al limite inferior del rango
 			std::complex<T> _degree = std::complex<T>(_poly.degree()); //Grado del polinomio a evaluar
+			std::ofstream tmp_file("laguerre.txt"); //Archivo para la graficacion
 
 			//Iteraciones para buscar la raiz mas aproximada dentro del determinado rango
 			for (int i = 0; i < _iters; i++) {
@@ -102,22 +113,25 @@ namespace boost{ namespace math{ namespace tools{
 				else c = term2 / _degree;
 
 				new_root = tmp_root + (std::complex<T>(1) / c); //Se establece la nueva raiz aproximada
+				error = std::abs((new_root - tmp_root) / new_root);
+
+				load_plot(new_root.imag(), new_root.real(), tmp_file); //Carga los datos calculados en un archivos para las graficas
 
 				// Se verifica si ya la raiz converge lo suficiente con un valor estimado establecido
-				if ( std::abs((new_root - tmp_root) / new_root) <= _precision ) {
+				if ( error.real() <= _precision ) {
 					if(std::abs(std::real(new_root)) <= _precision){
 		              new_root = std::complex<T>(0.0, std::imag(new_root));
 		            }
 		            if(std::abs(std::imag(new_root)) <= _precision){
 		              new_root = std::complex<T>(std::real(new_root), 0.0);
-		            }		        
+		            }
 
+		            tmp_file.close(); //Cierra el archivo 
 					return new_root; //Raiz aproximada por metodo de Laguerre 
 				}
 
 				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
 			}
-
 			throw("Cantidad maxima de iteraciones alcanzada");
 
 		}//Fin del operador
@@ -158,6 +172,8 @@ namespace boost{ namespace math{ namespace tools{
 					//secante para calcular un tercer punto
 					std::complex<T> cx1 = (cx2 - cy2)*((cx2 - cx0)/(cy2 - cy0));
 
+					std::ofstream tmp_file("muller.txt"); //Archivo para la graficacion
+
 					for(unsigned int i = 2; i < _iters; i++){
 					  //calculo de distancias
 					  std::complex<T> h1 = cx1 - cx0;
@@ -188,6 +204,8 @@ namespace boost{ namespace math{ namespace tools{
 					  //nueva x
 					  std::complex<T> p = cx2 + h;
 
+					  load_plot(p.imag(), p.real(), tmp_file); //Carga los datos calculados en un archivos para las graficas
+
 					  if(std::abs(h) <= _precision){
 					    if(std::abs(std::real(p)) <= _precision){
 					      p = std::complex<T>(0.0, std::imag(p));
@@ -196,6 +214,7 @@ namespace boost{ namespace math{ namespace tools{
 					      p = std::complex<T>(std::real(p), 0.0);
 					    }
 
+					    tmp_file.close();
 					    return p;
 					  }
 

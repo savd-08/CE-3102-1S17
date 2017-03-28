@@ -36,8 +36,10 @@ int main(int argc, char *argv[]) {
 		cout << std::endl;
 	}
 
-	polynomial<complex<double>> pol{{complex<double>(-3.0,0.0), complex<double>(0.0,0.0), complex<double>(1.0,0.0)}};
-	polynomial<complex<double>> pol2{{complex<double>(6.0,0.0), complex<double>(4.0,0.0), complex<double>(6.0,0.0), complex<double>(8.0,0.0)}};
+	polynomial<complex<double>> pol{{complex<double>(-82.0,0.0), complex<double>(55.0,0.0), complex<double>(-23.0,0.0), 
+		complex<double>(-98.0,0.0), complex<double>(112.0,0.0)}};
+	polynomial<complex<double>> pol2{{complex<double>(96.0,0.0), complex<double>(-32.0,0.0), complex<double>(45.0,0.0), 
+		complex<double>(15.0,0.0)}};  
 
 	/****************************************************************************************************************/
 
@@ -61,13 +63,11 @@ int main(int argc, char *argv[]) {
 	cout << "\n\nRaíz por método de Laguerre: " << lag(0.0) << "\n";
 
 	//Deflacion para calcular las demas raices 
-	polynomial<complex<double>> def_laguerre = deflate(pol, root_laguerre);
+	polynomial<complex<double>> def_laguerre = deflate(pol2, root_laguerre);
 	cout << "Raíces restantes: ";
 	for (int i=0; i < def_laguerre.degree() + 1; i++)
 			cout << def_laguerre[i] << ", ";
 	cout << endl;
-
-
 
 	return 0;
 }
