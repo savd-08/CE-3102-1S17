@@ -25,7 +25,7 @@ namespace boost{ namespace math{ namespace tools{
 		return result;
 	}
 
-	//Genera archivo con los puntos para las gráficas 
+	//Genera archivo con los puntos para las gráficas
 	template <typename T>
 	void load_plot(T y, T x, std::ofstream& file) {
 
@@ -50,7 +50,7 @@ namespace boost{ namespace math{ namespace tools{
 
 	public:
 		//Constructor
-		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 100, T pprecision = 0.00001) {
+		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 1000, T pprecision = std::sqrt(std::numeric_limits<T>::epsilon())) {
 			//Se establecen parametros
 			_iters = piters;
 			_precision = pprecision;
@@ -89,7 +89,7 @@ namespace boost{ namespace math{ namespace tools{
 		/***************************CALCULO DE LA RAIZ**********************************/
 
 		//Operador del funtor
-		std::complex<T> operator() (T lim_inf) {
+		std::complex<T> operator() (std::complex<T> lim_inf) {
 
 			/*****Método de Laguerre para la busqueda de raices*****/
 			std::complex<T> tmp_root, new_root, g, h, c, error; //Variables para calcular la aproximacion de la raiz
@@ -120,26 +120,20 @@ namespace boost{ namespace math{ namespace tools{
 				// Se verifica si ya la raiz converge lo suficiente con un valor estimado establecido
 				if ( error.real() <= _precision ) {
 					if(std::abs(std::real(new_root)) <= _precision){
-		              new_root = std::complex<T>(0.0, std::imag(new_root));
-		            }
-		            if(std::abs(std::imag(new_root)) <= _precision){
-		              new_root = std::complex<T>(std::real(new_root), 0.0);
-		            }
+		      	new_root = std::complex<T>(0.0, std::imag(new_root));
+		      }
+		      if(std::abs(std::imag(new_root)) <= _precision){
+		      	new_root = std::complex<T>(std::real(new_root), 0.0);
+		      }
 
-<<<<<<< Updated upstream
-		            tmp_file.close(); //Cierra el archivo 
-					return new_root; //Raiz aproximada por metodo de Laguerre 
-=======
+		      tmp_file.close(); //Cierra el archivo
 					return new_root; //Raiz aproximada por metodo de Laguerre
->>>>>>> Stashed changes
-				}
 
 				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
+				}
+				throw("Cantidad maxima de iteraciones alcanzada");
 			}
-			throw("Cantidad maxima de iteraciones alcanzada");
-
-		}//Fin del operador
-
+   	}//Fin del operador
 	}; //laguerre
 
 /********************************************************************************************************************************/
@@ -158,23 +152,20 @@ namespace boost{ namespace math{ namespace tools{
 	    public:
 
 	      //constructor
-	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 1000, T precision = std::sqrt(std::numeric_limits<T>::epsilon())){
+	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 100, T precision = 0.00001){
 					_precision = precision;
 					_iters = iters;
 					_polinomio = polinomio;
 	      }
 
-	      std::complex<T> operator()(T x1){
+	      std::complex<T> operator()(std::complex<T> x1){
+
+					T diff = T(0.001);
 
 					//paso a numeros complejos
-					std::complex<T> cx0 = x1;
-					std::complex<T> cx2 = x1 + 1.0;
-
-					std::complex<T> cy0 = poly_evaluator(cx0, _polinomio);//f_x(cx0);
-					std::complex<T> cy2 = poly_evaluator(cx2, _polinomio);
-
-					//secante para calcular un tercer punto
-					std::complex<T> cx1 = (cx2 - cy2)*((cx2 - cx0)/(cy2 - cy0));
+					std::complex<T> cx0 = x1-diff;
+					std::complex<T> cx1 = x1;
+					std::complex<T> cx2 = x1+diff;
 
 					std::ofstream tmp_file("muller.txt"); //Archivo para la graficacion
 
@@ -230,8 +221,7 @@ namespace boost{ namespace math{ namespace tools{
 
 					throw("Cantidad maxima de iteraciones alcanzada");
 	      }
-
-};//fin de muller
+		};//fin de muller
 
 } //namespace tools
 } //namespace math

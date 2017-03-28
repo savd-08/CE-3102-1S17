@@ -6,36 +6,42 @@ using namespace std;
 using namespace boost::math::tools;
 
 template <typename T, typename function>
-inline void find_roots(polynomial<T> &poly, T* roots, const bool &polish, T x0, function complex_root){
+inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bool &polish, complex<T> x0, function complex_root){
+	const double epsilon = std::sqrt(std::numeric_limits<T>::epsilon());
 	// grado del polinomio
 	int poly_deg = poly.degree();
-	polynomial<T> poly_aux(poly);
+	polynomial<complex<T>> poly_aux(poly);
+	// compia donde se inicia a probar el polinomio
+	complex<T> t_root = x0;
 
 	for (int i = poly_deg - 1; i >= 0; i--) {
-		polynomial<T> p_loop(poly_aux);
+		polynomial<complex<T>> p_loop(poly_aux);
 
-		x0 = complex_root(x0); //-----------------------------FUNCION--------------------------
+		t_root = complex_root(x0); //-----------------------------FUNCION--------------------------
 
 
-		if (abs(imag(x)) <= 2.0*EPS*abs(real(x))){
-			x = Complex(real(x),0.0);
+		if (abs(imag(t_root)) <= 2.0*epsilon*abs(real(t_root))){
+			t_root = complex<T>(real(t_root),0.0);
 		}
 
-		roots[i]=x;
+		roots[i]=t_root;
 
-		poly_aux = deflate(poly_aux, x);
+		poly_aux = deflate(poly_aux, t_root);
+
+		complex_root = function(poly_aux);
 
 	}
 
 	if (polish){
 		for (int i = 0; i < poly_deg; i++){
-			laguer(poly,roots[i],its); //-----------------------------FUNCION------------------
+			complex_root = function(poly);
+			complex_root(roots[i]);
 		}
 	}
 }
 
 int main(int argc, char *argv[]) {
-	polynomial<double> const a{{-6.0, 1.0, 1.0}};
+	/*polynomial<double> const a{{-6.0, 1.0, 1.0}};
 	polynomial<double> const b{{3.0, 1.0, 0.0}};
 
 	polynomial<double> c;
@@ -63,22 +69,54 @@ int main(int argc, char *argv[]) {
 		for (int i=0; i < def.degree() + 1; i++)
 				cout << def[i] << ", ";
 		cout << std::endl;
-	}
+	}*/
 
-	polynomial<complex<double>> pol{{complex<double>(-82.0,0.0), complex<double>(55.0,0.0), complex<double>(-23.0,0.0),
-		complex<double>(-98.0,0.0), complex<double>(112.0,0.0)}};
-	polynomial<complex<double>> pol2{{complex<double>(96.0,0.0), complex<double>(-32.0,0.0), complex<double>(45.0,0.0),
-		complex<double>(15.0,0.0)}};
+	polynomial<complex<double>> pol{{complex<double>(-3.0,0.0), complex<double>(0.0,0.0), complex<double>(1.0,0.0)}};
+	polynomial<complex<double>> pol2{{complex<double>(6.0,0.0), complex<double>(4.0,0.0), complex<double>(6.0,0.0),
+		complex<double>(8.0,0.0)}};
 
 	/****************************************************************************************************************/
 
 	//MULLER
-	muller<double> muller(pol);
-	std::complex<double> root_muller = muller(0.0);
-	cout << "\n\nRaíz por método de Muller: " << root_muller << "\n";
+	try{
+		muller<double> muller(pol);
+		std::complex<double> root_muller = muller(std::complex<double>(8.0));
+		cout << "\n\nRaíz por método de Muller: " << root_muller << "\n";
+
+		laguerre<double> lag(pol);
+		complex<double> root_laguerre = lag(complex<double>(8.0));
+		cout << "\n\nRaíz por método de Laguerre: " << root_laguerre << "\n";
+	}
+	catch(const char* msg){
+		cerr << msg << endl;
+	}
+
+
+	try{
+		muller<double> muller(pol2);
+		std::complex<double> root_muller = muller(std::complex<double>(50.0));
+		cout << "\n\nRaíz por método de Muller: " << root_muller << "\n";
+
+		laguerre<double> lag(pol2);
+		complex<double> root_laguerre = lag(complex<double>(8.0));
+		cout << "\n\nRaíz por método de Laguerre: " << root_laguerre << "\n";
+	}
+	catch(const char* msg){
+		cerr << msg << endl;
+	}
+
+	complex<double> *roots = new complex<double>[3];
+
+	muller<double>  muller(pol2);
+
+	find_roots(pol, roots, false, complex<double>(0.0), muller);
+
+	for(int i = 0; i < 3; i++){
+		cout << "raiz: " << roots[i] << " ";
+	}
 
 	//Deflacion para calcular las demas raices
-	polynomial<complex<double>> def_muller = deflate(pol, root_muller);
+	/*polynomial<complex<double>> def_muller = deflate(pol, root_muller);
 	cout << "Raíces restantes: ";
 	for (int i=0; i < def_muller.degree() + 1; i++)
 			cout << def_muller[i] << ", ";
@@ -87,7 +125,7 @@ int main(int argc, char *argv[]) {
 	/*********************************************************/
 
 	//LAGUERRE
-	laguerre<double> lag(pol);
+	/*laguerre<double> lag(pol);
 	complex<double> root_laguerre = lag(0.0);
 	cout << "\n\nRaíz por método de Laguerre: " << lag(0.0) << "\n";
 
@@ -96,7 +134,7 @@ int main(int argc, char *argv[]) {
 	cout << "Raíces restantes: ";
 	for (int i=0; i < def_laguerre.degree() + 1; i++)
 			cout << def_laguerre[i] << ", ";
-	cout << endl;
+	cout << endl;*/
 
 	return 0;
 }
