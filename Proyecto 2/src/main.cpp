@@ -68,8 +68,8 @@ int main(int argc, char *argv[]) {
 	cout.precision(std::numeric_limits<double>::digits10 + 1);
 	// polinomio de la especificacion -8-4x+2x^2-x^3+x^4
 	polynomial<complex<double>> pol1{{complex<double>(-8.0,0.0), complex<double>(-4.0,0.0), complex<double>(2.0,0.0), complex<double>(-1.0,0.0), complex<double>(1.0,0.0)}};
-	// polinomio con raices complejas y reales -105-x+7x^2+2x^3+x^4
-	polynomial<complex<double>> pol2{{complex<double>(-105.0,0.0), complex<double>(-1.0,0.0), complex<double>(7.0,0.0),complex<double>(2.0,0.0),complex<double>(1.0,0.0)}};
+	// polinomio con raices complejas y reales -3+x-3x^2+x^3
+	polynomial<complex<double>> pol2{{complex<double>(-3.0,0.0), complex<double>(1.0,0.0), complex<double>(-3.0,0.0),complex<double>(1.0,0.0)}};
 	// polinomio con 3 raices reales 216-6x-11^2+x^3
 	polynomial<complex<double>> pol3{{complex<double>(216.0,0.0),complex<double>(-6.0,0.0),complex<double>(-11.0,0.0),complex<double>(1.0,0.0)}};
 
