@@ -1,0 +1,784 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass IEEEtran
+\begin_preamble
+% for subfigures/subtables
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{braket}
+\end_preamble
+\options conference
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package none
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command bibtex
+\index_command default
+\float_placement tbh
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_title "Evaluación de polinomios utilizando paralelismo a nivel de datos"
+\pdf_author "Sergio Vargas"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle false
+\pdf_quoted_options "pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false"
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This is a template \SpecialChar LyX
+ file for conference articles of conferences organized
+ by the Institute of Electrical and Electronics Engineers (IEEE).
+ For IEEE journal articles, see the template file 
+\emph on
+IEEEtran-Journal.lyx
+\emph default
+.
+ For general info see 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://wiki.lyx.org/Examples/IEEE
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+It is important that you use the correct document class options for your
+ document..
+ These are explained in the IEEEtran documentation: 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+http://mirror.ctan.org/macros/latex/contrib/IEEEtran/IEEEtran_HOWTO.pdf
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Eficiencia de algoritmos de búsqueda de raíces para polinomios.
+\end_layout
+
+\begin_layout Author
+\begin_inset Flex Author Name
+status collapsed
+
+\begin_layout Plain Layout
+Fabián Astorga Cerdas
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Author Affiliation
+status collapsed
+
+\begin_layout Plain Layout
+Email: astorgafabian6@gmail.com
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Author Name
+status collapsed
+
+\begin_layout Plain Layout
+Andrés Brais Cháves
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Author Affiliation
+status collapsed
+
+\begin_layout Plain Layout
+Email: abcbrais@gmail.com
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex Author Name
+status collapsed
+
+\begin_layout Plain Layout
+Sergio Vargas Delgado
+\end_layout
+
+\end_inset
+
+
+\begin_inset Flex Author Affiliation
+status collapsed
+
+\begin_layout Plain Layout
+Email: savd_08@outlook.com
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Peer Review Title
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Don't add text here!
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+required if you use the document class option 
+\family sans
+peerreview
+\family default
+, must otherwise not be used
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+En este documento se exploran técnicas de evaluación de polinomios, enfocado
+ en técnicas paralelizables a través de la extensión SIMD de un procesador.
+ Se presentan ventajas y desventajas de estas técnicas y una comparación
+ entre el método de Horner y el esquema de Estrin en términos de precisión,
+ error y tiempo de ejecución.
+ Además, se presentan algunas recomendaciones para optimizar el tiempo de
+ ejecución del algoritmo paralelo.
+ 
+\end_layout
+
+\begin_layout Keywords
+Deflación polinomial, Pulido de raíces, Raíces de polinomios.
+\end_layout
+
+\begin_layout Section
+Introducción
+\end_layout
+
+\begin_layout Standard
+Encontrar raíces de polinomios es un problema recurrente en ingeniería y
+ otras ciencias aplicadas, que además resulta de gran importancia en el
+ área de análisis numérico.
+ No obstante, encontrar todas las ráices de un polinomio es un proceso propenso
+ a errores debido a que el polinomio propiamente puede estar muy mal condicionad
+o, lo que llevaría al algoritmo de búsqueda a realizar muchas más operaciones
+ de las necesarias.
+ En este documento se analizan los métodos de Müller y Laguerre para búsqueda
+ de raíces y las técnicas de deflación polinomial y el pulido de raíces
+ como medios de apoyo para lograr encontrar todas las raíces de un polinomio
+ con la mayor precisión posible.
+ Este análisis tiene como finalidad comparar el desempeño de los métodos
+ en términos de tiempo de ejecución y cantidad de instrucciones en lenguaje
+ de máquina, así como el error de las raíces cuando se varía la aplicación
+ de la técnica de pulido o la precisión.
+\end_layout
+
+\begin_layout Section
+Antecedentes
+\end_layout
+
+\begin_layout Standard
+De acuerdo con el teorema fundamental del álgebra, un polinomio de 
+\emph on
+n-ésimo
+\emph default
+ orden tiene exactamente 
+\emph on
+n
+\emph default
+ raíces.
+ Si todos los coeficientes del mismo son reales, las raíces complejas (si
+ existen) aparecen en pares conjugados, de lo contrario las raíces complejas
+ no presentan ningún tipo de relación entre ellas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press,Jia"
+
+\end_inset
+
+.
+ Conociendo esto, se pueden emplear algoritmos de búsqueda de ráices para
+ encontrar cada una de ellas, aunque es importante mencionar que los métodos
+ de búsqueda cerrados son poco prácticos debido a que se les debe dar un
+ intervalo de búsqueda.
+ Es por esto que los algorimos más comúnmente empleados son los que corresponden
+ a métodos abiertos, en especial el método de Newton 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press,Jia,Cheng,Horman"
+
+\end_inset
+
+.
+ Otros algoritmos más recientes involucran la utilización de 
+\emph on
+eigenvectors
+\emph default
+ y 
+\emph on
+eigenvalues
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press,Ivanov"
+
+\end_inset
+
+ o hasta computación cuántica 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Guodong"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Propuesta
+\end_layout
+
+\begin_layout Standard
+Para este documento se procura utilizar los métodos de Müller y de Laguerre
+ como una alternativa a los algoritmos presentados en la sección anterior,
+ siguiendo la sugerencia que se plantea en 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press"
+
+\end_inset
+
+.
+ A dichos métodos se les suman las técnicas de deflación polinomial y de
+ pulido de raíces, también sugeridos en la misma fuente.
+\end_layout
+
+\begin_layout Subsection
+Método de Müller
+\end_layout
+
+\begin_layout Standard
+Muller Muller Muller
+\end_layout
+
+\begin_layout Subsection
+Método de Laguerre
+\end_layout
+
+\begin_layout Standard
+El método de Laguerre es capaz de encontrar raíces reales, complejas, simples
+ y múltiples, por lo que es una opción muy versátil cuando se trata de encontrar
+ todas las raíces de un polinomio.
+ Si un polinomio posee solo raíces reales, el método garantiza converger
+ a alguna de ellas dado cualquier punto de inicio, mientras que si existen
+ raíces complejas no se puede garantizar convergencia, aunque si lo hay
+ para la mayoría de los casos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press"
+
+\end_inset
+
+.
+ Dado un polinomio 
+\begin_inset Formula $P(x)=0$
+\end_inset
+
+ de grado 
+\emph on
+n
+\emph default
+, para aproximar una raíz 
+\emph on
+r
+\emph default
+, se emplean 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag1"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag3"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag4"
+
+\end_inset
+
+ iterativamente hasta obtener un valor de 
+\emph on
+r
+\emph default
+ satisfactorio, usualmente comparándolo con el de la iteración anterior
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=\frac{-P'(r)}{P(r)}\label{eq:lag1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=G^{2}-\frac{P''(r)}{P(r)}\label{eq:lag2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C=\frac{n}{G\pm\sqrt{(n-1)(nH-G^{2})}}\label{eq:lag3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+r=r+C\label{eq:lag4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Deflación Polinomial
+\end_layout
+
+\begin_layout Standard
+La deflación polinomial no es más que un caso especial de división polinomial
+ donde es el dividendo, 
+\begin_inset Formula $(x-r)$
+\end_inset
+
+, un monomio que representa una raíz, el divisor (por esta misma razón el
+ residuo debe ser cero), y 
+\begin_inset Formula $Q(x)$
+\end_inset
+
+ el cociente.
+ El objetivo de realizar deflación polinomial es reducir el esfuerzo computacion
+al de calcular todas las raíces de un polinomio: al encontrar una raíz utilizand
+o cualquier método, se divide el polinomio original por esa raíz, lo que
+ da como resultado un polinomio de menor grado al que se le busca una raíz
+ y se divide por la misma.
+ El proceso se repite hasta haber calculado todas las raíces.
+ Una ventaja clara de hacer esto es que con cada iteración se disminuye
+ el grado del polinomio, por lo que la búsqueda de raíces se simplifica,
+ además de que al deflacionar se quita la posibilidad de que el algoritmo
+ de búsqueda llegue a la misma raíz varias veces.
+ Sin embargo, la gran desventaja de la deflación polinomial yace en que
+ realizar división polinomial es una fuente de error, por lo que las raíces
+ obtenidas utilizando este proceso también estarán impactadas por dicho
+ error 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Pulido de Raíces
+\end_layout
+
+\begin_layout Standard
+El proceso de pulido de raíces es básicamente la búsqueda de ráices, utilizando
+ cualquier método, a partir de una raíz con una componente de error; es
+ decir, un valor muy cercano a una raíz.
+ Se pulen raíces cuando un método de búsqeda haya alcanzado su límite de
+ iteraciones (lo que quiere decir que no se obtuvo un valor satisfactorio
+ para la raíz) o cuando se emplea deflación polinomial, pues las raíces
+ que se obtienen acarrean el error de cada iteración de la deflación 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Press"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Algoritmo
+\end_layout
+
+\begin_layout Standard
+Para encontrar todas las raíces de un polinomio, se deben integrar los métodos
+ de búsqueda y las técnicas de las secciones anteriores de manera que se
+ obtenga una raíz inicial a través del método que el usuario seleccione,
+ con la que luego se procede a deflacionar el polinomio original tantas
+ veces como sea necesario, para finalmente pulir dichas raíces (si el usuario
+ así lo desea) y poder mostrar todas las raíces del polinomio.
+\end_layout
+
+\begin_layout Section
+Resultados
+\end_layout
+
+\begin_layout Standard
+Se generó una serie de gráficas para visualizar el com- portamiento de los
+ algoritmos mediante diversos factores.
+ Primeramente, se creó una relación gráfica entre las funciones coseno y
+ logaritmo natural aproximadas mediante las series de Taylor, partiendo
+ de un rango de valores en los que se deseaba representar la función respectiva.
+\end_layout
+
+\begin_layout Standard
+Como se muestra en la Fig.
+ 1, la función logaritmo natural real es representada por el trazo azul,
+ el trazo verde representa dicha función aproximada mediante n términos
+ y por último, el trazo rojo representa también una aproximación de la función
+ pero con la mitad de términos empleados para la función verde.
+ Se aprecia como se pierde la precisión al disminuir la cantidad de términos
+ utilizados para realizar la aproximación requerida.
+ Asimismo, la gráfica para representar la función coseno, se realizó de
+ igual forma que anteriormente.
+ Refiérase a la Fig.
+ 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img1.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gráfica de la función logaritmo natural real y aproximados mediante series
+ de Taylor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para realizar un análisis temporal de los evaluadores de polinomios implementado
+s, se crearon diversas gráficas con el objetivo de visualizar la duración
+ de cada algoritmo con respecto a las iteraciones establecidas como pertinentes.
+ Esto se logró tomando el tiempo entre cada iteración respectiva.
+ La Fig.
+ 3 muestra el comportamiento temporal del evaluador de referencia en azul,
+ así como se muestra en rojo el comportamiento temporal del evaluador optimizado.
+ Se aprecia levemente que, en efecto, el evaluador optimizado es más eficiente.
+\end_layout
+
+\begin_layout Standard
+De forma similar, se realizó el proceso respectivo para analizar temporalmente
+ el comportamiento de ambos evalu- adores, pero ahora para la función coseno.
+ En esta gráfica es más notorio observar que, efectivamente, el evaluador
+ optimizado posee mayor eficiencia a la hora de realizar los respectivos
+ cálculos de la función con respecto a las iteraciones dadas, como aparece
+ en la Fig.
+ 4.
+\end_layout
+
+\begin_layout Standard
+Para observar el error relativo de las funciones evaluadas, se realizaron
+ diversas gráficas para ilustrar dónde difieren los valores aproximados
+ de los valores reales.
+ Para ello, se graficaron los errores relativos de cada iteración de la
+ función con respecto a los valores evaluados en dicha función.
+ Específicamente, se puede apreciar en la Fig.
+ 5 el error relativo de la función de logaritmo natural.
+ Las tres funciones mostradas son calculadas mediante el mismo proceso,
+ exceptuando que se disminuyeron los términos a utilizar.
+\end_layout
+
+\begin_layout Standard
+El trazo azul posee mayor cantidad de términos, el verde tiene menos que
+ el azul pero más que el rojo, he ahí la razón de la forma tan irregular
+ de esta última (falta de precisión en las aproximaciones).
+ Cabe resaltar que se utilizó valor absoluto para realizar el cálculo del
+ error, sin embargo en la gráfica se ve cómo el trazo describe valores negativos
+, esto por cuestiones que no se lograron resolver.
+ De igual forma, se observan curvas drásticas y diferencias en los patrones
+ de comportamiento de cada función.
+ 
+\end_layout
+
+\begin_layout Section
+Conclusiones
+\end_layout
+
+\begin_layout Standard
+La elaboración de este documento, así como la implemetación de código e
+ investigación correspondientes han revelado que la extensión SIMD del procesado
+r mejora el tiempo de ejecución, pero solo cuando los términos aumentan.
+ De lo contrario, sería una pérdida de tiempo implementarlo.
+ El overhead inherente de SIMD hace que la aplicación no sea muy práctica,
+ si los datos son pocos.
+ La utilización de paralelismo a nivel de datos a través de la extensión
+ SIMD del procesador limitó la precisión utilizable en el programa, por
+ lo que se es más propenso a errores de redondeo, especialmente cuando la
+ cantidad de operaciones aumenta considerablemente.
+ No obstante, este efecto está ligado fuertemente a la aplicación.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Press"
+
+\end_inset
+
+W.
+ Press, S.
+ Teukolsky, W.
+ Vetterling and B.
+ Flannery, Numerical Recipes 3rd Edition: The Art of Scientific Computing,
+ 1st ed.
+ New York: Cambridge University Press, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Jia"
+
+\end_inset
+
+ Y.
+ Jia, Roots of Polynomials.
+ Ames: Department of Computer Science, Iowa State University, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Cheng"
+
+\end_inset
+
+P.
+ Du, L.
+ Cheng, H.
+ Jiang and F.
+ Wang, "Some Accurate Methods for Finding Simple Roots of Polynomials in
+ Floating Point Arithmetic", 2012 Fourth International Conference on Computation
+al and Information Sciences, 2012.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Horman"
+
+\end_inset
+
+D.
+ Horman, T.
+ Marusenkova and I.
+ Yurchak, "Algorithm of polynomials' root separation for ARM-based microcontroll
+ers", The Experience of Designing and Application of CAD Systems in Microelectro
+nics, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Ivanov"
+
+\end_inset
+
+A.
+ Ivanov, H.
+ Aliyev and B.
+ Bakiyev, "Analytical method of finding polynomial roots by using the eigenvecto
+rs, eigenvalues apparatus", 2015 Twelve International Conference on Electronics
+ Computer and Computation (ICECCO), 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Guodong"
+
+\end_inset
+
+S.
+ Guodong, S.
+ Shenghui and X.
+ Maozhi, "Quantum Algorithm for Polynomial Root Finding Problem", 2014 Tenth
+ International Conference on Computational Intelligence and Security, 2014.
+\end_layout
+
+\end_body
+\end_document
