@@ -15,9 +15,7 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 	complex<T> t_root = x0;
 
 	try{
-		for (int i = poly_deg-1; i >= 0; i--) {
-			
-			polynomial<complex<T>> p_loop(poly_aux);
+		for (int i = poly_deg-1; i > 0; i--) {
 
 			t_root = complex_root(x0);
 
@@ -32,6 +30,7 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 			complex_root = function(poly_aux);
 		}
 
+		roots[0] = poly_aux[0] * T(-1);
 
 	}
 	catch(const char* msg){
@@ -54,9 +53,11 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 }
 
 int main(int argc, char *argv[]) {
-
-	polynomial<complex<double>> pol1{{complex<double>(1.0,0.0),complex<double>(1.0,0.0), complex<double>(1.0,0.0)}};
+	// polinomio de la especificacion -8-4x+2x^2-x^3+x^4
+	polynomial<complex<double>> pol1{{complex<double>(-8.0,0.0), complex<double>(-4.0,0.0), complex<double>(2.0,0.0), complex<double>(-1.0,0.0), complex<double>(1.0,0.0)}};
+	// polinomio con raices complejas y reales -105-x+7x^2+2x^3+x^4
 	polynomial<complex<double>> pol2{{complex<double>(-105.0,0.0), complex<double>(-1.0,0.0), complex<double>(7.0,0.0),complex<double>(2.0,0.0),complex<double>(1.0,0.0)}};
+	// polinomio con 3 raices reales 216-6x-11^2+x^3
 	polynomial<complex<double>> pol3{{complex<double>(216.0,0.0),complex<double>(-6.0,0.0),complex<double>(-11.0,0.0),complex<double>(1.0,0.0)}};
 
 	/****************************************************************************************************************/
@@ -73,7 +74,7 @@ int main(int argc, char *argv[]) {
 	}
 	catch(const char* msg){
 		cerr << msg << endl;
-	} 
+	}
 
 
 	try{
@@ -87,33 +88,33 @@ int main(int argc, char *argv[]) {
 	}
 	catch(const char* msg){
 		cerr << msg << endl;
-	}   
+	}
 
 	/********************************************************************************/
 		//PRUEBA 1
 
 	//MULLER
 	//prueba polinomio especificacion
-/*	cout << "especificacion" << endl;
-	complex<double> *roots1 = new complex<double>[5];
-	muller<double>  muller1(pol2);
-	find_roots(pol2, roots1, true, complex<double>(0.0), muller1);
-	for(int i = 0; i < 5; i++){
+	cout << "especificacion" << endl;
+	complex<double> *roots1 = new complex<double>[4];
+	muller<double>  muller1(pol1);
+	find_roots(pol1, roots1, true, complex<double>(0.0), muller1);
+	for(int i = 0; i < 4; i++){
 		cout << "raices muller: " << roots1[i] << " ";
 	}
 	cout << endl;
 
 	//LAGUERRE
-	cout << "especificacion" << endl;
-	complex<double> *roots2 = new complex<double>[5];
-	laguerre<double>  laguerre1(pol2);
-	find_roots(pol2, roots2, true, complex<double>(0.0), laguerre1);
-	for(int i = 0; i < 5; i++){
+	/*cout << "especificacion" << endl;
+	complex<double> *roots2 = new complex<double>[4];
+	laguerre<double>  laguerre1(pol1);
+	find_roots(pol1, roots2, true, complex<double>(0.0), laguerre1);
+	for(int i = 0; i < 4; i++){
 		cout << "raices laguerre: " << roots2[i] << " ";
 	}
-	cout << endl;
+	cout << endl;*/
 
-	
+
 
 	    //PRUEBA 2
 
@@ -139,7 +140,7 @@ int main(int argc, char *argv[]) {
 	}
 	cout << endl;
 
-	
+
 
 	   //PRUEBA 3
 
@@ -152,7 +153,7 @@ int main(int argc, char *argv[]) {
 	for(int i = 0; i < 3; i++){
 		cout << "raices muller: " << roots5[i] << " ";
 	}
-	cout << endl;   
+	cout << endl;
 
 	//LAGUERRE
 	//prueba polinomio raices reales y complejas
@@ -163,7 +164,7 @@ int main(int argc, char *argv[]) {
 	for(int i = 0; i < 4; i++){
 		cout << "raices laguerre: " << roots6[i] << " ";
 	}
-	cout << endl;     */
+	cout << endl;
 
 	return 0;
 }

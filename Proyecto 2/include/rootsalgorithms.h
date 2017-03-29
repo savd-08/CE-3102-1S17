@@ -50,7 +50,7 @@ namespace boost{ namespace math{ namespace tools{
 
 	public:
 		//Constructor
-		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 1000, T pprecision = std::sqrt(std::numeric_limits<T>::epsilon())) {
+		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 10000000, T pprecision = std::sqrt(std::numeric_limits<T>::epsilon())) {
 			//Se establecen parametros
 			_iters = piters;
 			_precision = pprecision;
@@ -60,7 +60,7 @@ namespace boost{ namespace math{ namespace tools{
 
 		//Destructor
 		~laguerre() {
-			free(d_coefs);
+			//free(d_coefs);
 		}
 
 		/***************FUNCIONES PARA EVALUAR POLINOMIOS***************************/
@@ -134,7 +134,7 @@ namespace boost{ namespace math{ namespace tools{
 
 				tmp_root = new_root;
 			}
-			
+
 			throw("Cantidad maxima de iteraciones alcanzada");
    		}//Fin del operador
 	}; //laguerre
@@ -155,7 +155,7 @@ namespace boost{ namespace math{ namespace tools{
 	    public:
 
 	      //constructor
-	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 100, T precision = 0.00001){
+	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 1000, T precision = 0.00001){
 					_precision = precision;
 					_iters = iters;
 					_polinomio = polinomio;
