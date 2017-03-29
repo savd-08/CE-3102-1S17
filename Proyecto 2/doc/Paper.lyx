@@ -251,13 +251,13 @@ peerreview
 \end_layout
 
 \begin_layout Abstract
-En este documento se analizan los métodos de búqueda de raíces en polinomios,
+En este documento se analizan métodos de búqueda de raíces en polinomios,
  para encontrar todas las raíces de un polinomio dado.
  Se estudian los métodos de Múller y Laguerre que encuentran una sola raíz
- ya sea compleja o real, además de la deflación polinomial que encuentra
- todas las raíces en un polinomio.
- Se determina la precisión de las raíces y como se ve afectado el resultado
- con pulido de raíces.
+ ya sea compleja o real, además de la técnica de deflación polinomial que
+ ayuda a encuentrar todas las raíces en un polinomio de manera más eficiente.
+ Se estudia también la variación en la precisión de las raíces y cómo se
+ ve afectada cada una de ellas al ser pulida.
  
 \end_layout
 
@@ -375,15 +375,27 @@ Método de Müller
 \begin_layout Standard
 El método de Mülller es una variante del método de la secante.
  En el método de la secante se usan dos puntos, en el cual se dibuja una
- recta y se toma el punto del eje "x" donde "y" es cero.
+ recta y se toma el punto del eje "
+\emph on
+x
+\emph default
+" donde "
+\emph on
+y
+\emph default
+" es cero.
  En el caso de Müller es similar pero en este caso se usan 3 puntos iniciales
  por lo cuales se dirige una parábola.
- En este caso se toma dos "x" donde sus respectivas "y" son cero.
+ En este caso se toma dos "
+\emph on
+x
+\emph default
+" donde sus respectivas "
+\emph on
+y
+\emph default
+" son cero.
  
-\end_layout
-
-\begin_layout Standard
-
 \end_layout
 
 \begin_layout Standard
@@ -410,8 +422,24 @@ P(x)=a\left(x-x_{2}\right){}^{2}+b\left(x-x_{2}\right)+c\label{eq:mull1}
 
 \begin_layout Standard
 Este polinomio describe la parabola que se va a utilizar para encontrar
- las dos intersecciones con el eje x.
- Se utilizan 3 ecuaciones para determiar a, b y c.
+ las dos intersecciones con el eje 
+\emph on
+x
+\emph default
+.
+ Se utilizan 3 ecuaciones para determiar 
+\emph on
+a
+\emph default
+, 
+\emph on
+b
+\emph default
+ y 
+\emph on
+c
+\emph default
+.
  Estas cambian en la variable del polinomio anterior.
  Las ecuaciones son las siguientes
 \end_layout
@@ -450,7 +478,40 @@ f\left(x_{2}\right)=a\left(0\right){}^{2}+b\left(0\right)+c\label{eq:eq:mull4}
 \end_layout
 
 \begin_layout Standard
-Con las ecuaciones 2, 3 y 4 se pueden obtener los valroes de a, b y c.
+Con las 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:mull2"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq:mull3"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq:mull4"
+
+\end_inset
+
+ se pueden obtener los valores de 
+\emph on
+a
+\emph default
+, 
+\emph on
+b
+\emph default
+ y 
+\emph on
+c
+\emph default
+.
  Estos son calculados con las siguientes ecuaciones
 \end_layout
 
@@ -495,7 +556,14 @@ Con estas ecuaciones se determina los coeficientes de la parabola usada
 \end_inset
 
 que es por así decirlo el centro de la búsqueda.
- Esta x se determina con la ecuación 8:
+ Esta x se determina con 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:mull8"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -519,7 +587,7 @@ lo cual se puede determinar usando el signo de b.
  Como se puede determinar de la ecución, este nuevo término puede dar imaginario
  por lo tanto este análisis también calcula las raíces complejas por la
  geometría de las soluciones.
- Y el método continúa cambiando 
+ El método continúa cambiando 
 \begin_inset Formula $x_{0}$
 \end_inset
 
@@ -698,7 +766,7 @@ o cualquier método, se divide el polinomio original por esa raíz, lo que
  error 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Press"
+key "Press,Dumitrescu"
 
 \end_inset
 
@@ -950,6 +1018,19 @@ S.
  Shenghui and X.
  Maozhi, "Quantum Algorithm for Polynomial Root Finding Problem", 2014 Tenth
  International Conference on Computational Intelligence and Security, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Dumitrescu"
+
+\end_inset
+
+B.
+ Dumitrescu and I.
+ Tabus, "How to deflate polynomials in LSP computation", 1999 IEEE Workshop
+ on Speech Coding Proceedings, 1999.
 \end_layout
 
 \end_body
