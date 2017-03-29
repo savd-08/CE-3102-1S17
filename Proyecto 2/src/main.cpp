@@ -52,49 +52,20 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 }
 
 int main(int argc, char *argv[]) {
-	/*polynomial<double> const a{{-6.0, 1.0, 1.0}};
-	polynomial<double> const b{{3.0, 1.0, 0.0}};
 
-	polynomial<double> c;
-	polynomial<double> d = divide(a, b, c);
-
-	polynomial<double> def = deflate(a, -3.0);
-
-
-	if(!c.is_zero()){
-		cout << "Residuo: ";
-		for (int i=0; i < c.degree() + 1; i++)
-				cout << c[i] << ", ";
-		cout << endl;
-	}
-
-	if(!d.is_zero()){
-		cout << "Cociente div: ";
-		for (int i=0; i < d.degree() + 1; i++)
-				cout << d[i] << ", ";
-		cout << std::endl;
-	}
-
-	if(!def.is_zero()){
-		cout << "Cociente def: ";
-		for (int i=0; i < def.degree() + 1; i++)
-				cout << def[i] << ", ";
-		cout << std::endl;
-	}*/
-
-	polynomial<complex<double>> pol{{complex<double>(-3.0,0.0), complex<double>(0.0,0.0), complex<double>(1.0,0.0)}};
-	polynomial<complex<double>> pol2{{complex<double>(-5.0,0.0), complex<double>(-1.0,0.0), complex<double>(0.0,0.0),complex<double>(2.0,0.0)}};
-	polynomial<complex<double>> pol3{{complex<double>(7.0,0.0),complex<double>(0.0,0.0),complex<double>(4.0,0.0),complex<double>(-3.0,0.0),complex<double>(1.0,0.0)}};
+	polynomial<complex<double>> pol1{{complex<double>(-8.0,0.0), complex<double>(-4.0,0.0), complex<double>(2.0,0.0), complex<double>(-1.0,0.0), complex<double>(1.0,0.0)}};
+	polynomial<complex<double>> pol2{{complex<double>(-105.0,0.0), complex<double>(-1.0,0.0), complex<double>(7.0,0.0),complex<double>(2.0,0.0),complex<double>(1.0,0.0)}};
+	polynomial<complex<double>> pol3{{complex<double>(216.0,0.0),complex<double>(-6.0,0.0),complex<double>(-11.0,0.0),complex<double>(1.0,0.0)}};
 
 	/****************************************************************************************************************/
 
 	//MULLER
 	try{
-		muller<double> muller(pol);
+		muller<double> muller(pol1);
 		std::complex<double> root_muller = muller(std::complex<double>(8.0));
 		cout << "\n\nRaíz por método de Muller: " << root_muller << "\n";
 
-		laguerre<double> lag(pol);
+		laguerre<double> lag(pol1);
 		complex<double> root_laguerre = lag(complex<double>(8.0));
 		cout << "\n\nRaíz por método de Laguerre: " << root_laguerre << "\n";
 	}
@@ -116,16 +87,35 @@ int main(int argc, char *argv[]) {
 		cerr << msg << endl;
 	}
 
-	complex<double> *roots = new complex<double>[2];
 
-	muller<double>  muller(pol);
-
-	find_roots(pol, roots, true, complex<double>(10.0), muller);
-
-	for(int i = 0; i < 2; i++){
-		cout << "raiz: " << roots[i] << " ";
+	//prueba polinomio especificacion
+	cout << "especificaion" << endl;
+	complex<double> *roots1 = new complex<double>[4];
+	muller<double>  muller1(pol1);
+	find_roots(pol1, roots1, true, complex<double>(0.0), muller1);
+	for(int i = 0; i < 4; i++){
+		cout << "raiz: " << roots1[i] << " ";
 	}
+	cout << endl;
 
+	//prueba polinomio raices reales y complejas
+	cout << "raices reales y complejas" << endl;
+	complex<double> *roots2 = new complex<double>[4];
+	muller<double> muller2(pol2);
+	find_roots(pol2, roots2, true, complex<double>(0.0), muller2);
+	for(int i = 0; i < 4; i++){
+		cout << "raiz: " << roots2[i] << " ";
+	}
+	cout << endl;
+
+	//prueba con 3 raíces reales
+	cout << "3 raices reales" << endl;
+	complex<double> *roots3 = new complex<double>[3];
+	muller<double> muller3(pol3);
+	find_roots(pol3, roots3, true, complex<double>(0.0), muller3);
+	for(int i = 0; i < 3; i++){
+		cout << "raiz: " << roots3[i] << " ";
+	}
 	cout << endl;
 
 	return 0;
