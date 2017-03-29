@@ -50,7 +50,7 @@ namespace boost{ namespace math{ namespace tools{
 
 	public:
 		//Constructor
-		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 10000000, T pprecision = std::sqrt(std::numeric_limits<T>::epsilon())) {
+		laguerre(polynomial<std::complex<T>> ppoly, unsigned int piters = 100000, T pprecision = std::sqrt(std::numeric_limits<T>::epsilon())) {
 			//Se establecen parametros
 			_iters = piters;
 			_precision = pprecision;
@@ -114,11 +114,12 @@ namespace boost{ namespace math{ namespace tools{
 
 				new_root = tmp_root + (std::complex<T>(1) / c); //Se establece la nueva raiz aproximada
 				error = std::abs((new_root - tmp_root) / new_root);
+				error = poly_evaluator(new_root, _poly);
 
 				load_plot(new_root.imag(), new_root.real(), tmp_file); //Carga los datos calculados en un archivos para las graficas
 
 				// Se verifica si ya la raiz converge lo suficiente con un valor estimado establecido
-				if ( error.real() <= _precision ) {
+				if ( std::abs(error) <= _precision ) {
 					if(std::abs(std::real(new_root)) <= _precision){
 		      			new_root = std::complex<T>(0.0, std::imag(new_root));
 		      		}
@@ -155,7 +156,7 @@ namespace boost{ namespace math{ namespace tools{
 	    public:
 
 	      //constructor
-	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 1000, T precision = 0.00001){
+	      muller(polynomial<std::complex<T>> polinomio, unsigned int iters = 100000, T precision = std::sqrt(std::numeric_limits<T>::epsilon())){
 					_precision = precision;
 					_iters = iters;
 					_polinomio = polinomio;

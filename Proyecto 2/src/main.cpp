@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 	// polinomio con 3 raices reales 216-6x-11^2+x^3
 	polynomial<complex<double>> pol3{{complex<double>(216.0,0.0),complex<double>(-6.0,0.0),complex<double>(-11.0,0.0),complex<double>(1.0,0.0)}};
 
-	
+
 		//PRUEBA 1
 	cout << "======================================Polinomio 1======================================" << endl;
 	for(int i = 0; i <= pol1.degree(); i++){
@@ -91,14 +91,14 @@ int main(int argc, char *argv[]) {
 
 
 	//LAGUERRE
-	/*cout << "Método de Laguerre" << endl;
+	cout << "Método de Laguerre" << endl;
 	complex<double> *roots2 = new complex<double>[4];
 	laguerre<double>  laguerre1(pol1);
 	find_roots(pol1, roots2, true, complex<double>(0.0), laguerre1);
 	for(int i = 0; i < 4; i++){
 		cout << "raices laguerre: " << roots2[i] << " ";
 	}
-	cout << endl;*/
+	cout << endl;
 
 
 	    //PRUEBA 2
