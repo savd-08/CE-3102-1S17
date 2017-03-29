@@ -205,7 +205,9 @@ namespace boost{ namespace math{ namespace tools{
 
 					  load_plot(p.imag(), p.real(), tmp_file); //Carga los datos calculados en un archivos para las graficas
 
-					  if(std::abs(h) <= _precision){
+						std::complex<T> y_p = poly_evaluator(p, _polinomio);
+
+					  if(std::abs(y_p) <= _precision){
 					    if(std::abs(std::real(p)) <= _precision){
 					      p = std::complex<T>(0.0, std::imag(p));
 					    }
