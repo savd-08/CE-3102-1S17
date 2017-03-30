@@ -1,5 +1,6 @@
 #include <iostream>
 #include <complex>
+#include <limits>
 #include "rootsalgorithms.h"
 
 using namespace std;
@@ -16,8 +17,6 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 
 	try{
 		for (int i = poly_deg-1; i >= 0; i--) {
-			
-			polynomial<complex<T>> p_loop(poly_aux);
 
 			t_root = complex_root(x0);
 
@@ -25,12 +24,17 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 				t_root = complex<T>(real(t_root),0.0);
 			}
 
-			roots[i]=t_root;
+			roots[i] = t_root;
 
 			poly_aux = deflate(poly_aux, t_root);
 
 			complex_root = function(poly_aux);
 		}
+		cout << "Raíces sin pulir: ";
+		for(int i = 0; i < 4; i++){
+			cout << roots[i] << ", ";
+		}
+		cout << endl << endl;
 
 
 	}
@@ -41,26 +45,29 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 	try{
 
 		if (polish){
+			complex_root = function(poly);
 			for (int i = 0; i < poly_deg; i++){
-				complex_root = function(poly);
-				complex_root(roots[i]);
+				roots[i] = complex_root(roots[i]);
 			}
+			cout << "Raíces pulidas:   ";
+			for(int i = 0; i < 4; i++){
+				cout << roots[i] << ", ";
+			}
+			cout << endl << endl;
 		}
 
 	}
 	catch(const char* msg){
-		cerr << msg << " pulimiento" << endl;
+		cerr << msg << " pulido" << endl;
 	}
 }
 
 int main(int argc, char *argv[]) {
-
+	cout.precision(std::numeric_limits<double>::digits10 + 1);
 	polynomial<complex<double>> pol1{{complex<double>(1.0,0.0),complex<double>(1.0,0.0), complex<double>(1.0,0.0)}};
 	polynomial<complex<double>> pol2{{complex<double>(-105.0,0.0), complex<double>(-1.0,0.0), complex<double>(7.0,0.0),complex<double>(2.0,0.0),complex<double>(1.0,0.0)}};
 	polynomial<complex<double>> pol3{{complex<double>(216.0,0.0),complex<double>(-6.0,0.0),complex<double>(-11.0,0.0),complex<double>(1.0,0.0)}};
-
-	/****************************************************************************************************************/
-
+	/*
 	//MULLER
 	try{
 		muller<double> muller(pol1);
@@ -87,7 +94,7 @@ int main(int argc, char *argv[]) {
 	}
 	catch(const char* msg){
 		cerr << msg << endl;
-	}   
+	}   */
 
 	/********************************************************************************/
 		//PRUEBA 1
@@ -111,7 +118,7 @@ int main(int argc, char *argv[]) {
 	for(int i = 0; i < 5; i++){
 		cout << "raices laguerre: " << roots2[i] << " ";
 	}
-	cout << endl;
+	cout << endl;*/
 
 	
 
@@ -123,7 +130,7 @@ int main(int argc, char *argv[]) {
 	complex<double> *roots3 = new complex<double>[4];
 	muller<double> muller2(pol2);
 	find_roots(pol2, roots3, true, complex<double>(0.0), muller2);
-	for(int i = 0; i < 4; i++){
+	/*for(int i = 0; i < 4; i++){
 		cout << "raices muller: " << roots3[i] << " ";
 	}
 	cout << endl;
