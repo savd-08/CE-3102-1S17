@@ -120,20 +120,23 @@ namespace boost{ namespace math{ namespace tools{
 				// Se verifica si ya la raiz converge lo suficiente con un valor estimado establecido
 				if ( error.real() <= _precision ) {
 					if(std::abs(std::real(new_root)) <= _precision){
-		      	new_root = std::complex<T>(0.0, std::imag(new_root));
-		      }
-		      if(std::abs(std::imag(new_root)) <= _precision){
-		      	new_root = std::complex<T>(std::real(new_root), 0.0);
-		      }
+		      			new_root = std::complex<T>(0.0, std::imag(new_root));
+		      		}
+		      		if(std::abs(std::imag(new_root)) <= _precision){
+		      			new_root = std::complex<T>(std::real(new_root), 0.0);
+		    		}
 
-		      tmp_file.close(); //Cierra el archivo
+		      		tmp_file.close(); //Cierra el archivo
 					return new_root; //Raiz aproximada por metodo de Laguerre
 
-				tmp_root = new_root; //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
+				 //la raiz temporal se cambia por la nueva raiz, para repetir el proceso
 				}
-				throw("Cantidad maxima de iteraciones alcanzada");
+
+				tmp_root = new_root;
 			}
-   	}//Fin del operador
+			
+			throw("Cantidad maxima de iteraciones alcanzada");
+   		}//Fin del operador
 	}; //laguerre
 
 /********************************************************************************************************************************/
