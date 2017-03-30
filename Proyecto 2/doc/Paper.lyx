@@ -828,7 +828,8 @@ Para realizar una comparación entre los métodos de Laguerre y Muller, se
 
 \begin_layout Standard
 \begin_inset Float table
-wide false
+placement !t
+wide true
 sideways false
 status open
 
@@ -837,15 +838,7 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Comparación de métodos y con pulir y sin pulir raíces
-\end_layout
-
-\end_inset
-
-
+Tabla 1 Comparación de métodos y con pulir y sin pulir raíces
 \end_layout
 
 \begin_layout Plain Layout
