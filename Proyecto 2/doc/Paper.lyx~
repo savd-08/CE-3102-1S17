@@ -812,15 +812,6 @@ Resultados
 \end_layout
 
 \begin_layout Standard
-De acuerdo con mediciones realizadas con la herramienta Callgrind, del paquete
- Valgrind, la cantidad de instrucciones en lenguaje de máquina al utilizar
- el método de Müller representa el 99.80% de las instrucciones totales del
- programa, mientras que este porcentaje es del 0,04% para el método de Laguerre.
- Es evidente el esfuerzo computacional adicional que requiere el método
- de Müller, aunque se esperaba que la diferencia no fuera tan marcada.
-\end_layout
-
-\begin_layout Standard
 Para realizar una comparación entre los métodos de Laguerre y Muller, se
  utilizaron tres polinomios de prueba (véase la tabla 1).
  
@@ -828,13 +819,9 @@ Para realizar una comparación entre los métodos de Laguerre y Muller, se
 
 \begin_layout Standard
 \begin_inset Float table
-wide false
+wide true
 sideways false
 status open
-
-\begin_layout Plain Layout
-
-\end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1152,7 +1139,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
--1.99999i
+-1.9..9i
 \end_layout
 
 \end_inset
@@ -1338,7 +1325,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
--1.000000319
+-1.0...0319
 \end_layout
 
 \end_inset
@@ -1349,7 +1336,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
--1.00000639
+-1.0...0639
 \end_layout
 
 \end_inset
@@ -1360,7 +1347,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-2.00000018
+2.0...018
 \end_layout
 
 \end_inset
@@ -1371,7 +1358,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-2.000000036
+2.0...036
 \end_layout
 
 \end_inset
@@ -1382,11 +1369,10 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-3.15
-\begin_inset Formula $\times10^{-13}$
+\begin_inset Formula $3.15\times10^{-13}-2.0..89i$
 \end_inset
 
--2.000089i
+
 \end_layout
 
 \end_inset
@@ -1397,7 +1383,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-2.000000178i
+2.0...0178i
 \end_layout
 
 \end_inset
@@ -1408,7 +1394,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-2.00000089i
+2.0...089i
 \end_layout
 
 \end_inset
@@ -1419,7 +1405,7 @@ Resultado
 \begin_layout Plain Layout
 
 \size tiny
-2.00000178i
+2.0...0178i
 \end_layout
 
 \end_inset
@@ -1615,6 +1601,15 @@ as al valor real, pero afectan la precisión de los cálculos ya que se aumenta
  significa mayor precisión.
 \end_layout
 
+\begin_layout Standard
+De acuerdo con mediciones realizadas con la herramienta Callgrind, del paquete
+ Valgrind, la cantidad de instrucciones en lenguaje de máquina al utilizar
+ el método de Müller representa el 99.80% de las instrucciones totales del
+ programa, mientras que este porcentaje es del 0,04% para el método de Laguerre.
+ Es evidente el esfuerzo computacional adicional que requiere el método
+ de Müller, aunque se esperaba que la diferencia no fuera tan marcada.
+\end_layout
+
 \begin_layout Section
 Conclusiones
 \end_layout
@@ -1626,10 +1621,10 @@ Si bien en algunos casos las raíces encontradas con el método de Müller
  El pulido de raíces ayuda a incrementar la precisión de las raíces encontradas
  cuando se trata del método de Müller.
  Sin embargo, para el método de Laguerre parece ser detrimental, incrementando
- el error casi en un factor de dos.
- Se comprobó que un polinomio de grado uno se considera como una excepción
- para el método de Laguerre, ya que este utiliza cálculo diferencial y diversas
- evaluaciones del polinomio en ciertos puntos a evaluar.
+ el error casi en un factor de dos.Se comprobó que un polinomio de grado
+ uno se considera como una excepción para el método de Laguerre, ya que
+ este utiliza cálculo diferencial y diversas evaluaciones del polinomio
+ en ciertos puntos a evaluar.
  Además de que las variables que componen el método contienen algunas divisiones
 , por lo que se indefine a la hora de evaluar con valores muy pequeños que
  tienden a cero, y por ende no se puede encontrar un valor aproximado para
