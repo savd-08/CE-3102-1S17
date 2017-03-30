@@ -31,7 +31,7 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 			complex_root = function(poly_aux);
 		}
 		cout << "Raíces sin pulir: ";
-		for(int i = 0; i < 4; i++){
+		for(int i = 0; i < poly_deg; i++){
 			cout << roots[i] << ", ";
 		}
 		cout << endl;
@@ -51,7 +51,7 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 				roots[i] = complex_root(roots[i]);
 			}
 			cout << "Raíces pulidas:   ";
-			for(int i = 0; i < 4; i++){
+			for(int i = 0; i < poly_deg; i++){
 				cout << roots[i] << ", ";
 			}
 			cout << endl;
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 
 	//MULLER
 	//prueba polinomio especificacion
-	cout << "Método de Müller" << endl;
+	cout << endl << "Método de Müller" << endl;
 
 	complex<double> *roots1 = new complex<double>[4];
 	muller<double>  muller1(pol1);
@@ -91,14 +91,10 @@ int main(int argc, char *argv[]) {
 
 
 	//LAGUERRE
-	cout << "Método de Laguerre" << endl;
+	cout << endl << "Método de Laguerre" << endl;
 	complex<double> *roots2 = new complex<double>[4];
 	laguerre<double>  laguerre1(pol1);
 	find_roots(pol1, roots2, true, complex<double>(0.0), laguerre1);
-	for(int i = 0; i < 4; i++){
-		cout << "raices laguerre: " << roots2[i] << " ";
-	}
-	cout << endl;
 
 
 	    //PRUEBA 2
@@ -110,14 +106,14 @@ int main(int argc, char *argv[]) {
 
 	//MULLER
 	//prueba polinomio raices reales y complejas
-	cout << "Método de Müller" << endl;
+	cout << endl << "Método de Müller" << endl;
 	complex<double> *roots3 = new complex<double>[4];
 	muller<double> muller2(pol2);
 	find_roots(pol2, roots3, true, complex<double>(0.0), muller2);
 
 	//LAGUERRE
 	//prueba polinomio raices reales y complejas
-	cout << "Método de Laguerre" << endl;
+	cout << endl << "Método de Laguerre" << endl;
 	complex<double> *roots4 = new complex<double>[4];
 	laguerre<double> laguerre2(pol2);
 	find_roots(pol2, roots4, true, complex<double>(0.0), laguerre2);
@@ -134,7 +130,7 @@ int main(int argc, char *argv[]) {
 
 	//MULLER
 	//prueba con 3 raíces reales
-	cout << "Método de Müller" << endl;
+	cout << endl << "Método de Müller" << endl;
 	complex<double> *roots5 = new complex<double>[3];
 	muller<double> muller3(pol3);
 	find_roots(pol3, roots5, true, complex<double>(0.0), muller3);
@@ -142,7 +138,7 @@ int main(int argc, char *argv[]) {
 
 	//LAGUERRE
 	//prueba polinomio raices reales y complejas
-	cout << "Método de Laguerre" << endl;
+	cout << endl << "Método de Laguerre" << endl;
 	complex<double> *roots6 = new complex<double>[3];
 	laguerre<double> laguerre3(pol3);
 	find_roots(pol3, roots6, true, complex<double>(0.0), laguerre3);
