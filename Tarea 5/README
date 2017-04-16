@@ -1,0 +1,4 @@
+Compilar con make
+Ejecutar con ./main x0 x1, siendo x0 y x1 los límites de búsqueda
+Para el perfilador: valgrind --tool=callgrind --callgrind-out-file=prof.out --compress-strings=no ./main x0 x1
+Para ver los resultados: kcachegrind prof.out
