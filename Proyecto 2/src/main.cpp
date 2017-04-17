@@ -30,13 +30,14 @@ inline void find_roots(polynomial<complex<T>> &poly, complex<T>* roots, const bo
 
 			complex_root = function(poly_aux);
 		}
+
+		roots[0] = poly_aux[0] * T(-1);
+
 		cout << "Raíces sin pulir: ";
 		for(int i = 0; i < poly_deg; i++){
 			cout << roots[i] << ", ";
 		}
 		cout << endl;
-
-		roots[0] = poly_aux[0] * T(-1);
 
 	}
 	catch(const char* msg){
