@@ -22,10 +22,10 @@ namespace anpi
   public:
     /// Construct an empty matrix
     Matrix();
-    
+
     /**
      * Construct a matrix rows x cols and initialize all
-     * elements with the given value     
+     * elements with the given value
      */
     Matrix(const size_t rows,
 	   const size_t cols,
@@ -43,8 +43,8 @@ namespace anpi
      * Copy constructor will do a deep copy on the given matrix
      */
     Matrix(const Matrix<T>& other);
-    
-    /** 
+
+    /**
      * Release all memory
      */
     ~Matrix();
@@ -53,7 +53,7 @@ namespace anpi
      * Deep copy another matrix
      */
     Matrix<T>& operator=(const Matrix<T>& other);
-    
+
     /// Return pointer to a given row
     inline T* operator[](const size_t row) {return _data + row*_cols;}
 
@@ -68,6 +68,73 @@ namespace anpi
     /// Return const reference to the element at the r row and c column
     const T& operator()(const size_t row,const size_t col) const {
       return *(_data + (row*_cols + col));
+    }
+
+    /**
+    * Sobrecarga de operador de la suma, toma cada posicion y la suma
+    * con la misma posicion de la otra matriz
+    */
+    Matrix<T> operator+ (const Matrix<T> M1){
+      //valida que las matrices tengan las mismas dimencioens
+      if(M1.rows() == this->rows() && M1.cols() == this->cols()){
+        Matrix<T> MR(M1.rows(), M1.cols(), T(0));
+        for(int i = 0; i < M1.rows(); i++){
+          for(int j = 0; j < M1.cols(); j++){
+            MR(i,j) = M1(i,j) + (*this)(i,j);
+          }
+        }
+        return MR;
+      }
+      else{
+        //exception
+        return (*this);
+      }
+    }
+
+    /**
+    * Resta las matrices, funciona de la misma manera
+    * que la suma
+    */
+    Matrix<T> operator- (const Matrix<T> M1){
+      //compara que las dimenciones de las matrices sean iguales
+      if(M1.rows() == this->rows() && M1.cols() == this->cols()){
+        Matrix<T> MR(M1.rows(), M1.cols(), T(0));
+        for(int i = 0; i < M1.rows(); i++){
+          for(int j = 0; j < M1.cols(); j++){
+            MR(i,j) = (*this)(i,j) - M1(i,j);
+          }
+        }
+        return MR;
+      }
+      else{
+        //exception
+        return (*this);
+      }
+    }
+
+    /**
+    * Multiplicacion de matrices
+    * Algoritmo de multiplicacion de matrices
+    */
+    Matrix<T> operator* (const Matrix<T> M1){
+      //valida que las dimenciones
+      if(M1.rows() == this->cols()){
+        //crea la matriz con las dimensiones resultantes
+        Matrix<T> MR(this->rows(), M1.cols(), T(0));
+        for(int i = 0; i < this->rows(); i++){
+          for(int j = 0; j < this->cols(); j++){
+            for(int k = 0; k < M1.cols(); k++){
+              MR(i,k) += (*this)(i,j) * M1(j,k);
+            }
+            std::cout << "\n\n";
+          }
+        }
+        return MR;
+      }
+      else{
+        //exception
+        return (*this);
+      }
     }
 
     /**
@@ -107,7 +174,7 @@ namespace anpi
      * Pointer to data block
      */
     inline const T* data() const { return _data; }
-    
+
   }; // class Matrix
 
   // --------------
@@ -116,7 +183,7 @@ namespace anpi
 
   template<typename T>
   Matrix<T>::Matrix() : _data(0),_rows(0),_cols(0) {}
- 
+
   template<typename T>
   Matrix<T>::Matrix(const size_t r,
 		    const size_t c,
@@ -138,7 +205,7 @@ namespace anpi
     allocate(r,c);
     fill(initMem);
   }
-  
+
 
   template<typename T>
   Matrix<T>::Matrix(const Matrix<T>& other)
@@ -146,7 +213,7 @@ namespace anpi
     allocate(other._rows,other._cols);
     fill(other.data());
   }
-  
+
   template<typename T>
   Matrix<T>::~Matrix() {
     delete[] _data;
@@ -154,7 +221,7 @@ namespace anpi
     _rows=0;
     _data=0;
   }
-  
+
   template<typename T>
   Matrix<T>& Matrix<T>::operator=(const Matrix<T>& other) {
     allocate(other._rows,other._cols);
