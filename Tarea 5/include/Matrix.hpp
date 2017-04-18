@@ -126,7 +126,6 @@ namespace anpi
             for(int k = 0; k < M1.cols(); k++){
               MR(i,k) += (*this)(i,j) * M1(j,k);
             }
-            std::cout << "\n\n";
           }
         }
         return MR;
