@@ -271,6 +271,27 @@ namespace anpi
     std::memcpy(_data,mem,sizeof(T)*_rows*_cols);
   }
 
+  //vector overloading, vector por matriz
+  template<typename T>
+  std::vector<T> operator*(const std::vector<T>& v1, const Matrix<T>& M1){
+    //verifica que calzen las dimensiones
+    if(v1.size() == M1.rows()){
+      //crea un vector del tamano de comulnas de la matriz
+      std::vector<T> vr(M1.cols(), T(0));
+      for(int j = 0; j < vr.size(); j++){
+        for(int i = 0; i < v1.size(); i++){
+          vr[j] += v1[i] * M1(i,j);
+        }
+      }
+      return vr;
+    }
+    else{
+      //exception
+      return v1;
+    }
+  }
+
+
 } // namespace ANPI
 
 
