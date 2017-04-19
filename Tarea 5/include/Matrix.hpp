@@ -3,6 +3,7 @@
 
 #include <cstddef>
 #include <cstring>
+#include <vector>
 
 namespace anpi
 {
@@ -133,6 +134,26 @@ namespace anpi
       else{
         //exception
         return (*this);
+      }
+    }
+
+    /**
+    * Se multiplica una matriz por un vector transpuesto
+    */
+    std::vector<T> operator* (const std::vector<T> v1){
+      //verifica las columnas con el tamaño del vector para poder multiplicarlos
+      if(this->cols() == v1.size()){
+        std::vector<T> vr(this->rows(), T(0));
+        for(int i = 0; i < this->rows(); i++){
+          for(int j = 0; j < this->cols(); j++){
+            vr[i] += (*this)(i,j) * v1[j];
+          }
+        }
+        return vr;
+      }
+      else{
+        //exception
+        return (v1);
       }
     }
 
