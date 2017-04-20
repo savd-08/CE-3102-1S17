@@ -88,7 +88,7 @@ namespace anpi
       }
       else{
         //exception
-        return (*this);
+        throw Exception("Las matrices deben de tener las mismas dimensiones");
       }
     }
 
@@ -109,7 +109,7 @@ namespace anpi
       }
       else{
         //exception
-        return (*this);
+        throw Exception("Las dimensiones de las matrices son diferentes");
       }
     }
 
@@ -133,7 +133,7 @@ namespace anpi
       }
       else{
         //exception
-        return (*this);
+        throw Exception("Dimensiones de matrices incompatibles");
       }
     }
 
@@ -153,7 +153,7 @@ namespace anpi
       }
       else{
         //exception
-        return (v1);
+        throw Exception("Longitud de vector diferente la cantidad de columnas de la matriz");
       }
     }
 
