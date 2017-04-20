@@ -7,9 +7,9 @@ CC = gcc
 CXX = g++
 
 CFLAGS = -I$(IDIR)
-CPPFLAGS = -I$(IDIR)
+CPPFLAGS = -O3 -I$(IDIR)
 
-EXEC = qr
+EXEC = main
 
 _DEPS = linear_utils.hpp qr_decomp.hpp Matrix.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
