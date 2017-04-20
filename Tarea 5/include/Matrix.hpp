@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <cstring>
 #include <vector>
+#include "Exception.hpp"
 
 namespace anpi
 {
@@ -287,7 +288,7 @@ namespace anpi
     }
     else{
       //exception
-      return v1;
+      throw Exception("Longitud de vector diferente la cantidad de filas de la matriz");
     }
   }
 
