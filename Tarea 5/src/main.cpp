@@ -61,7 +61,7 @@ int main(int argc, char *argv[]){
     anpi::Matrix<double> LU;
    
     std::vector<double> x2(3);
- 
+ 	print_Mat(A2, 'A');
     /*******************************************************************************/
 
     //Inversion de matriz por descomposicion LU
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]){
     /*******************************************************************************/
 
     //Solucion de Ax = b por descomposicion LU 
-    bool resolve = anpi::solveLU(A2, x2, b2);
+    bool resolve = anpi::solveLU(A2, x2, b2, 3);
     if (resolve) {
         std::cout << "Con b = [1, 2, 1]: " << std::endl;   
         anpi::print_vec(x2, 'x');  

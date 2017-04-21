@@ -12,7 +12,7 @@ namespace anpi{
 	 *para una matriz cuadrada A, y dos matrices L y U.
 	 */
 	template<typename T>
-	void lu(const Matrix<T>& A, Matrix<T>& LU){
+	void lu(const Matrix<T>& A, Matrix<T>& LU, int id){
 
         T res = T(0);
         int n = A.rows();
@@ -49,11 +49,11 @@ namespace anpi{
             }
         }
 
-        print_Mat(A, 'A');
-        print_Mat(L, 'L');
-        print_Mat(U, 'U');
-        
-        testLU(A,L,U);
+        if (id == n) {
+           print_Mat(L, 'L');
+           print_Mat(U, 'U');
+           testLU(A,L,U); 
+        }
         
 	}
 
@@ -95,7 +95,7 @@ namespace anpi{
      * recibiendo una matriz A y dos vectores x y b como parámetros
      */
 	template<typename T>
-	bool solveLU(const Matrix<T>& A, std::vector<T>& x, const std::vector<T>& b) {
+	bool solveLU(const Matrix<T>& A, std::vector<T>& x, const std::vector<T>& b, int id) {
 
             int n = A.rows();
             bool resolve = true;
@@ -110,7 +110,7 @@ namespace anpi{
             T sum = T(0);
             
             //Se descompone la matriz mediante LU
-            lu(A, LU);    
+            lu(A, LU, id);    
             
             // soluciona Ly = b por medio de LU
             std::vector<T> y(n);
@@ -165,7 +165,7 @@ namespace anpi{
             for(j = 0; j < n; j++) b[j] = (j == i) ? 1 : 0;
                
             // Resuelve el problema y obtiene la columna i de la inversa
-            bool sol = solveLU(A, x, b);
+            bool sol = solveLU(A, x, b, i);
              
             // Guarda la columna x
             for(j = 0; j < n; j++) Ai[j][i] = x[j];
