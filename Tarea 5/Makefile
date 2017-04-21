@@ -8,10 +8,11 @@ CXX = g++
 
 CFLAGS = -I$(IDIR)
 CPPFLAGS = -I$(IDIR)
+CPPFLAGS += -std=c++11
 
 EXEC = qr
 
-_DEPS = linear_utils.hpp qr_decomp.hpp Matrix.hpp
+_DEPS = linear_utils.hpp qr_decomp.hpp lu_decomp.hpp Matrix.hpp Exception.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = $(EXEC).o

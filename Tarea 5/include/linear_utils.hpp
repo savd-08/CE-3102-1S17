@@ -11,7 +11,7 @@ namespace anpi{
 
 	//Imprime matrices
 	template<typename T>
-	void print_Mat(const Matrix<T>& M, int id){
+	void print_Mat(const Matrix<T>& M, char id){
 		int n = M.rows();
 		int i, j;
 		std::cout << "Mat " << id << std::endl;
@@ -26,7 +26,7 @@ namespace anpi{
 
 	//Imprime vectores
 	template<typename T>
-	void print_vec(const std::vector<T> v, int id){
+	void print_vec(const std::vector<T> v, char id){
 		int n = v.size();
 		int i;
 		std::cout << "Vec " << id << std::endl;
