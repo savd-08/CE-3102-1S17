@@ -83,7 +83,7 @@ namespace anpi{
         T norm_LU = calc_norm(LU); //Se calcula la norma de LU
         T norm_A = calc_norm(A); //Se calcula la norma de A
 
-        std::cout <<  "La diferencia entre la norma de la matriz reconstruida LU y A es: " <<
+        std::cout <<  "La diferencia entre la norma de la matriz reconstruida LU y A: " <<
                        std::abs(norm_A - norm_LU) << std::endl;
         
 	}
@@ -144,7 +144,9 @@ namespace anpi{
 
     /**************************************************************************************/
 
-    
+    /* Metodo para invertir matrices por medio de la 
+    *  descomposicion LU 
+    */
     
 	template<typename T>
 	void invert(const Matrix<T>& A, Matrix<T>& Ai) {

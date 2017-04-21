@@ -2,4 +2,4 @@ Para ejecutar el programa, acceda a la ubicación del archivo Makefile.
 Posteriormente, compile con make con el siguiente comando: 
 - $ make
 Para ejecutar el programa, introduzca el siguiente comando:
-- $ ./qr
+- $ ./main

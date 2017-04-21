@@ -1,4 +1,5 @@
 #include "qr_decomp.hpp"
+#include "lu_decomp.hpp"
 
 int main(int argc, char *argv[]){
 	std::cout.precision(std::numeric_limits<double>::digits10 + 1);
@@ -8,6 +9,7 @@ int main(int argc, char *argv[]){
 	double a3[] = {6,3,-1,1,3,1,1,1,1,2,1,0,2,3,4,0};		//Sol: {3,-4,1,2} 
 	double a4[] = {1,2,3,4,5,6,7,8,9}; 						//Singular
 	double a5[] = {0.96,68,0.69,69,0.24,56,0.18,52,0.58,95,0.71,92,0.90,107,0.81,142};//Mal condicionada
+	double a6[] = {0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0};
 
 	anpi::Matrix<double> A(2, 2, a1); //Variar el vector de datos y las dimensiones
 	std::vector<double> x(2); //Cambiar el tamaño de acuerdo con dimensiones de la matriz
@@ -47,6 +49,36 @@ int main(int argc, char *argv[]){
 	
 	anpi::solveQR(A, x, b1);//Cambiar ID de b
 	anpi::print_vec(x, 'x');
+
+
+
+	//------------------------------------------PRUEBAS LU------------------------------------------
+
+	std::cout << "---------------------------------------------------------------------------------" << std::endl;
+	std::cout << "Descomposición LU" << std::endl;
+
+    anpi::Matrix<double> A2(3, 3, a2);
+    anpi::Matrix<double> LU;
+   
+    std::vector<double> x2(3);
+ 
+    /*******************************************************************************/
+
+    //Inversion de matriz por descomposicion LU
+    anpi::Matrix<double> Ai(3, 3, a6);
+    anpi::invert(A2, Ai);
+    std::cout << "Matriz A invertida: " << std::endl;
+    anpi::print_Mat(Ai, 'i');     
+
+    /*******************************************************************************/
+
+    //Solucion de Ax = b por descomposicion LU 
+    bool resolve = anpi::solveLU(A2, x2, b2);
+    if (resolve) {
+        std::cout << "Con b = [1, 2, 1]: " << std::endl;   
+        anpi::print_vec(x2, 'x');  
+    }
+    else std::cout << "No se puede resolver el sistema lineal..." << std::endl;    
 
 
     return 0;
