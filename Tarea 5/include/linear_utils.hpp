@@ -3,12 +3,13 @@
 
 #include <limits>
 #include "Matrix.hpp"
+#include "Exception.hpp"
 #include <vector>
 #include <iostream>
 
 namespace anpi{
 
-	//Imprime matrices 
+	//Imprime matrices
 	template<typename T>
 	void print_Mat(const Matrix<T>& M, char id){
 		int n = M.rows();
@@ -38,16 +39,15 @@ namespace anpi{
 	template<typename T>
 	T matrix_compare(const Matrix<T>& A, const Matrix<T>& B) {
 	  if (A.rows() != B.rows() or  A.cols() != B.cols()){
-	  	throw("Las matrices no son de dimensiones iguales");
+	  	throw Exception("Las matrices no son de dimensiones iguales");
 	  }
-	 
 	  T res = 0;
 	  for(int i = 0; i < A.rows(); i++) {
 	    for (int j = 0; j < A.cols(); j++) {
 	      res += (A[i][j]-B[i][j]) * (A[i][j]-B[i][j]);
 	    }
 	  }
-	 
+
 	  res /= A.rows()*A.cols();
 	  return res;
 	}
@@ -56,7 +56,7 @@ namespace anpi{
 	template<typename T>
 	void bckwd_subst(const Matrix<T>& R, std::vector<T> &x, const std::vector<T> &b, bool sing) {
 		int n = R.rows()-1;
-		if (sing) throw std::invalid_argument("La matriz A es singular");
+		if (sing) throw Exception("La matriz A es singular");
 		//Método de sustitución hacia atrás (ver notas del curso)
 		x[n] = b[n]/R[n][n];
 		for (int i = n - 1; i >= 0; i--)
