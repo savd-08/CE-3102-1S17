@@ -98,7 +98,7 @@ int main(int argc, char *argv[]){
 
 	anpi::Matrix<double> A21(2, 2, a1);
 
-	std::vector<double> x21(2);
+	std::vector<double> x21(2, 0.0);
 	print_Mat(A21, 'A');
 	/*******************************************************************************/
 
@@ -182,7 +182,7 @@ int main(int argc, char *argv[]){
 	std::vector<double> x4(8);
 
 	anpi::Matrix<double> Q4;
-	anpi::Matrix<double> R4; 
+	anpi::Matrix<double> R4;
 
 	try{
 		anpi::qr(A4, Q4, R4);
