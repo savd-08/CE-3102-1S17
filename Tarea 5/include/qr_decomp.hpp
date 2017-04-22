@@ -2,8 +2,8 @@
 #define _ANPI_QR_DECOMP_H
 
 #include "linear_utils.hpp"
-#include <algorithm> 
-#include <math.h> 
+#include <algorithm>
+#include <math.h>
 
 namespace anpi{
 
@@ -12,6 +12,7 @@ namespace anpi{
 	 */
 	template<typename T>
 	bool qr(const Matrix<T>& A, Matrix<T>& Q, Matrix<T>& R){
+		if (A.cols() != A.rows()) throw Exception("La matriz a resolver no es cuadrada");
 		int i,j,k;
 		int n = A.rows();
 		Q = Matrix<double>(n, n, T(0));
@@ -99,7 +100,7 @@ namespace anpi{
 	T testQR(const Matrix<T>& A, Matrix<T>& Q, Matrix<T>& R){
 		Matrix<T> A_x = Q*R;
 		//Comparación de matrices a través de norma L2
-		return matrix_compare(A, A_x); 
+		return matrix_compare(A, A_x);
 	}
 
 	/*Soluciona un sistema de ecuaciones a través de descomposición QR
