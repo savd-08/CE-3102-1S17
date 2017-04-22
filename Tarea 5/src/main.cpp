@@ -14,8 +14,8 @@ int main(int argc, char *argv[]){
 	anpi::Matrix<double> A(2, 2, a1); //Variar el vector de datos y las dimensiones
 	std::vector<double> x(2); //Cambiar el tamaño de acuerdo con dimensiones de la matriz
 
-	anpi::Matrix<double> A2(3, 3, a2);//Segunda Matriz de prueba
-	std::vector<double> x2(3);
+	anpi::Matrix<double> AQR2(3, 3, a2);//Segunda Matriz de prueba
+	std::vector<double> xQR2(3);
 
 	//Vectores b para distintas matrices A
 	std::vector<double> b1 = {1, 1};
@@ -59,36 +59,6 @@ int main(int argc, char *argv[]){
 	anpi::solveQR(A, x, b1);//Cambiar ID de b
 	anpi::print_vec(x, 'x');
 
-	std::cout << "***************Prueba QR2***********************" << std::endl;
-
-	//******Prueba de descomposición******
-	anpi::qr(A2, Q2, R2);
-
-	anpi::print_Mat(A2, 'A');
-	std::cout << std::endl;
-	anpi::print_Mat(Q2, 'Q');
-	std::cout << std::endl;
-	anpi::print_Mat(R2, 'R');
-	std::cout << std::endl;
-
-	//Comparación de Ax y Q*R
-	double norm2 = anpi::testQR(A2, Q2, R2);
-	std::cout << "||A-Q*R||² = " << norm2 << std::endl;
-
-	//*****Resolución de sistemas de ecuaciones*****
-	std::cout << std::endl << "A*x = b" << std::endl << std::endl;
-	anpi::print_Mat(A2, 'A');
-	std::cout << std::endl;
-	anpi::print_vec(b2, 'b');//Cambiar ID de b
-	std::cout << std::endl;
-
-	anpi::solveQR(A2, x2, b2);//Cambiar ID de b
-	anpi::print_vec(x2, 'x');
-
-
-
-
-
 	//------------------------------------------PRUEBAS LU------------------------------------------
 
 	std::cout << std::endl << "---------------------------------------------------------------------------------" << std::endl;
@@ -96,51 +66,58 @@ int main(int argc, char *argv[]){
 
 	std::cout << "***************Prueba LU1***********************" << std::endl;
 
-	anpi::Matrix<double> A21(2, 2, a1);
+  anpi::Matrix<double> A2(3, 3, a2);
+	anpi::Matrix<double> LU;
 
-	std::vector<double> x21(2, 0.0);
-	print_Mat(A21, 'A');
-	/*******************************************************************************/
-
-	//Inversion de matriz por descomposicion LU
-	anpi::Matrix<double> Ai(2, 2, a6);
-	anpi::invert(A21, Ai);
-	std::cout << "Matriz A invertida: " << std::endl;
-	anpi::print_Mat(Ai, 'i');
-
-	/*******************************************************************************/
-
-	//Solucion de Ax = b por descomposicion LU
-	bool resolve = anpi::solveLU(A21, x21, b1, 2);
-	if (resolve) {
-			std::cout << "Con b = [1, 1]: " << std::endl;
-			anpi::print_vec(x21, 'x');
-	}
-	else std::cout << "No se puede resolver el sistema lineal..." << std::endl;
-
-	std::cout << "***************Prueba LU2***********************" << std::endl;
-
-  anpi::Matrix<double> A22(3, 3, a2);
-
-  std::vector<double> x22(3);
-		print_Mat(A22, 'A');
+  std::vector<double> x2(3);
+		print_Mat(A2, 'A');
   /*******************************************************************************/
 
   //Inversion de matriz por descomposicion LU
-  anpi::Matrix<double> Ai2(3, 3, a6);
-  anpi::invert(A22, Ai2);
+  anpi::Matrix<double> Ai(3, 3, a6);
+  anpi::invert(A2, Ai);
   std::cout << "Matriz A invertida: " << std::endl;
-  anpi::print_Mat(Ai2, 'i');
+  anpi::print_Mat(Ai, 'i');
 
   /*******************************************************************************/
 
   //Solucion de Ax = b por descomposicion LU
-  bool resolve2 = anpi::solveLU(A22, x22, b2, 3);
+  bool resolve2 = anpi::solveLU(A2, x2, b2, 3);
   if (resolve2) {
       std::cout << "Con b = [1, 2, 1]: " << std::endl;
-      anpi::print_vec(x22, 'x');
+      anpi::print_vec(x2, 'x');
   }
   else std::cout << "No se puede resolver el sistema lineal..." << std::endl;
+
+	std::cout << std::endl << "---------------------------------------------------------------------------------" << std::endl;
+	std::cout << "Descomposición QR" << std::endl;
+
+	std::cout << "***************Prueba QR2***********************" << std::endl;
+
+	//******Prueba de descomposición******
+	anpi::qr(AQR2, Q2, R2);
+
+	anpi::print_Mat(AQR2, 'A');
+	std::cout << std::endl;
+	anpi::print_Mat(Q2, 'Q');
+	std::cout << std::endl;
+	anpi::print_Mat(R2, 'R');
+	std::cout << std::endl;
+
+	//Comparación de Ax y Q*R
+	double norm2 = anpi::testQR(AQR2, Q2, R2);
+	std::cout << "||A-Q*R||² = " << norm2 << std::endl;
+
+	//*****Resolución de sistemas de ecuaciones*****
+	std::cout << std::endl << "A*x = b" << std::endl << std::endl;
+	anpi::print_Mat(AQR2, 'A');
+	std::cout << std::endl;
+	anpi::print_vec(b2, 'b');//Cambiar ID de b
+	std::cout << std::endl;
+
+	anpi::solveQR(AQR2, xQR2, b2);//Cambiar ID de b
+	anpi::print_vec(xQR2, 'x');
+
 
 	std::cout << std::endl << "---------------------------------------------------------------------------------" << std::endl;
 	std::cout << "Matriz mal condicionada" << std::endl;
