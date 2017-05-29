@@ -1,12 +1,13 @@
 #include <iostream>
 #include <cmath>
+#include <utility>
 #include "Matrix.hpp"
 
 /**
- * Calcula la propagación de temperaturas.
+ * Calcula la distribución de temperaturas.
  *
  * Parametros:
- * M matriz en la que se va a calcular la propagación, esta va a ser llenada de ceros.
+ * M matriz en la que se va a calcular la distribución, esta va a ser llenada de ceros.
  * topT temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
  * rightT temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
  * leftT temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
@@ -82,6 +83,68 @@ void liebmann(anpi::Matrix<double> &M, double topT, double rightT, double bottom
   }//fin while
 }
 
+/**
+*
+*
+*/
+void heatflux(anpi::Matrix<double> &M, anpi::Matrix< std::pair<double,double> > &M2, double topT, double rightT, double bottomT, double leftT, double k){
+  M2.fill(std::pair<double,double>(0.0,0.0));
+
+  size_t lastRow = M.rows() - 1;
+  size_t lastCol = M.cols() - 1;
+
+  double top  = 0.0, bottom = 0.0, left = 0.0, right = 0.0, qx = 0.0, qy = 0.0, qn = 0.0, angle = 0.0;
+
+  for (size_t i = 0; i < M.rows(); i++) {
+    for (size_t j = 0; j < M.cols(); j++) {
+      //condiciones para el de arriba y abajo
+      if(i == 0){
+        bottom = M(i+1,j);
+        if(topT != topT){
+          qy = 0;
+        }else{
+          qy = (-k)*((topT - bottom)/20);
+        }
+      }else if(i == lastRow){
+        top = M(i-1,j);
+        if(bottomT != bottomT){
+          qy = 0;
+        }else{
+          qy = (-k)*((top - bottomT)/20);
+        }
+      }else{
+        top = M(i+1, j);
+        bottom = M(i-1, j);
+        qy = (-k)*((top - bottom)/20);
+      }
+      //condiciones para el derecho e izquierdo
+      if(j == 0){
+        right = M(i,j+1);
+        if(leftT != leftT){
+          qx = 0;
+        }else{
+          qx = (-k)*((right-leftT)/20);
+        }
+      }else if(j == lastCol){
+        left = M(i,j-1);
+        if(rightT != rightT){
+          qx = 0;
+        }else{
+          qx = (-k)*((rightT-left)/20);
+        }
+      }else{
+        right = M(i, j+1);
+        left = M(i, j-1);
+        qx = (-k)*((rightT-leftT)/20);
+      }
+      //calculo de magnitud y angulo
+      qn = std::sqrt(qx*qx + qy*qy);
+      angle = std::atan2(qy,qx)*(180.0/3.1416);
+      M2(i,j) = std::pair<double,double>(qn,angle);
+    }//fin for j
+  }//fin for i
+}
+
 int main(int argc, char const *argv[]) {
 
   anpi::Matrix<double> M(3,3,0.0);
@@ -91,6 +154,19 @@ int main(int argc, char const *argv[]) {
   for (size_t i = 0; i < 3; i++) {
     for (size_t j = 0; j < 3; j++) {
       std::cout << M(i,j) << " ";
+    }
+    std::cout << "\n";
+  }
+
+  std::cout << "\n\n\n";
+
+  anpi::Matrix< std::pair<double,double> > M2(3,3,std::pair<double,double>(0.0,0.0));
+
+  heatflux(M, M2, 100.0, 50.0, (0.0/0.0), 75.0, 0.49);
+
+  for (size_t i = 0; i < 3; i++) {
+    for (size_t j = 0; j < 3; j++) {
+      std::cout << "(" << M2(i,j).first << "," << M2(i,j).second << ")" << " ";
     }
     std::cout << "\n";
   }
