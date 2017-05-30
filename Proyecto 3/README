@@ -1,5 +1,12 @@
+Proyecto 3 - CE 3102 Análisis Numérico para Ingeniería
+Cálculo de temperaturas en una placa metálica
+
+Requisitos (condiciones de prueba):
+	- libboost-program-options-dev
+	- gcc 6.2.0 20161005
+
 Para ejecutar el programa, acceda a la ubicación del archivo Makefile.
-Posteriormente, compile con make con el siguiente comando: 
+Posteriormente, compile con make utilizando el siguiente comando: 
 - $ make
-Para ejecutar el programa, introduzca el siguiente comando:
-- $ ./main
+Para conocer las opciones del programa, introduzca el siguiente comando:
+- $ ./main -h
