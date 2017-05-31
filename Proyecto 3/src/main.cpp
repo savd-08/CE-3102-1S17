@@ -138,6 +138,14 @@ int main(int argc, char** argv) {
       std::cout << std::endl;
     }*/
   }
+
+  //Interfaz gráfica 
+  if(ui){
+  	int sys_msg = system("cd ui && python flux_heatmap.py");
+	if(sys_msg == -1){
+		std::cout << "Command line failed" << std::endl;
+	}
+  }
  
   auto end = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
@@ -146,3 +154,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+
