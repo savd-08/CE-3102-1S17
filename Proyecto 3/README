@@ -5,7 +5,11 @@ Requisitos (condiciones de prueba):
 	- libboost-program-options-dev
 	- gcc 6.2.0 20161005
 	- OpenMP 4.0
+	- Python 2.7.x y bibliotecas:
+		- Matplotlib
+		- Numpy
 
+* Para facilitar el proceso de instalación de todas las dependencias, puede ejecutar el archivo "Installation_Script.sh". ***CORREGIR***
 Para ejecutar el programa, acceda a la ubicación del archivo Makefile.
 Posteriormente, compile con make utilizando el siguiente comando: 
 - $ make

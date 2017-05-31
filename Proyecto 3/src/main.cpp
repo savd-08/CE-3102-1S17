@@ -148,9 +148,11 @@ int main(int argc, char** argv) {
   //Interfaz gráfica
   if(ui){
     //escritura de archivos
-    anpi::writeHeatMap(M);
-    anpi::writeFlux(M2);
-    //python
+    anpi::writeHeatMap(M, int(heatFlux));
+    if(heatFlux){
+    	anpi::writeFlux(M2);
+    } 
+    //llamada a python
   	int sys_msg = system("cd ui && python flux_heatmap.py");
     if(sys_msg == -1){
     	std::cout << "Could not launch user interface" << std::endl;

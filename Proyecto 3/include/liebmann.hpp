@@ -178,19 +178,18 @@ namespace anpi
     }//fin for i
   }
 
-  void writeHeatMap(anpi::Matrix<double> &M){
+  void writeHeatMap(anpi::Matrix<double> &M, int vectorflag){
     std::ofstream heatmap;
     heatmap.open("ui/mapa_calor.txt");
+    heatmap << vectorflag << "\n";
 
     for (size_t i = 0; i < M.rows(); i++) {
       for (size_t j = 0; j < M.cols(); j++) {
-        heatmap << M(i,j) << "# ";
+        heatmap << M(i,j) << "#";
       }
       heatmap << "\n";
     }
-
     heatmap.close();
-
   }
 
   void writeFlux(anpi::Matrix< std::pair<double,double> > M){
@@ -202,8 +201,8 @@ namespace anpi
 
     for (size_t i = 0; i < M.rows(); i++) {
       for (size_t j = 0; j < M.cols(); j++) {
-        qx << M(i,j).first << "# ";
-        qy << M(i,j).second << "# ";
+        qx << M(i,j).first << "#";
+        qy << M(i,j).second << "#";
       }
       qx << "\n";
       qy << "\n";
