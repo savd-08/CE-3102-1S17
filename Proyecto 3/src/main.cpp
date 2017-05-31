@@ -91,7 +91,8 @@ int main(int argc, char** argv) {
       return 0;
     }
 
-    if(vm.count("lambda")){
+    //Verificación 1 < lambda < 2
+    if(vm.count("lambda")){ 
       if(lambda < 1 || lambda > 2){
         std::cout << "Relaxation factor value must be bewtween 1 and 2." << std::endl;
         return 0;
@@ -117,6 +118,9 @@ int main(int argc, char** argv) {
   //Ejecución de método de Liebmann, con opciones ingresadas por el usuario
   anpi::liebmann(M, topT, rightT, bottomT, leftT, lambda, relativeError, optimize);
 
+  // Crear archivo de matriz de temperaturas
+
+
   /*for (size_t i = 0; i < plateSize; i++) {
     for (size_t j = 0; j < plateSize; j++) {
       std::cout << M(i,j) << " ";
@@ -130,7 +134,9 @@ int main(int argc, char** argv) {
   //Se calculan los vectores de flujo de calor si el usuario lo desea
   if(heatFlux){
     anpi::heatflux(M, M2, topT, rightT, bottomT, leftT, thermCond, optimize);
-    std::cout << "Heat Flux." << std::endl;
+
+    // Crear archivos de campos vectoriales
+
     /*for (size_t i = 0; i < plateSize; i++) {
       for (size_t j = 0; j < plateSize; j++) {
         std::cout << "(" << M2(i,j).first << "," << M2(i,j).second << ")" << " ";
@@ -150,9 +156,14 @@ int main(int argc, char** argv) {
   //Interfaz gráfica
   if(ui){
   	int sys_msg = system("cd ui && python flux_heatmap.py");
-	if(sys_msg == -1){
-		std::cout << "Command line failed" << std::endl;
-	}
+    if(sys_msg == -1){
+    	std::cout << "Could not launch user interface" << std::endl;
+    }
+  } else {
+    //Si no hay ui, se muestra tiempo de ejecución del programa
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
+    std::cout << "Execution time: " << duration << "ns." << std::endl << std::endl;
   }
 
   return 0;
