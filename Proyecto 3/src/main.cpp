@@ -1,5 +1,6 @@
 #include <boost/program_options.hpp>
 #include <cmath>
+#include <chrono>
 #include <iostream>
 #include "liebmann.hpp"
 #include <limits> 
@@ -104,34 +105,43 @@ int main(int argc, char** argv) {
  
   }  
 
+  auto begin = std::chrono::high_resolution_clock::now();
+
+  
   //Matriz para método de Liebmann
   anpi::Matrix<double> M(plateSize,plateSize,0.0);
 
-  //Ejecución de método de Liebmann, con opciones ingresadas por el usuario
-  liebmann(M, topT, rightT, bottomT, leftT, lambda, relativeError);
 
-  for (size_t i = 0; i < plateSize; i++) {
+
+  //Ejecución de método de Liebmann, con opciones ingresadas por el usuario
+  anpi::liebmann(M, topT, rightT, bottomT, leftT, lambda, relativeError, optimize);
+
+  /*for (size_t i = 0; i < plateSize; i++) {
     for (size_t j = 0; j < plateSize; j++) {
       std::cout << M(i,j) << " ";
     }
-    std::cout << std::endl;
+    std::cout << std::endl; 
   }
 
-  std::cout << std::endl;
+  std::cout << std::endl;*/
 
   
   //Se calculan los vectores de flujo de calor si el usuario lo desea
   if(heatFlux){
     anpi::Matrix< std::pair<double,double> > M2(plateSize,plateSize,std::pair<double,double>(0.0,0.0));
-    heatflux(M, M2, topT, rightT, bottomT, leftT, thermCond);
-
-    for (size_t i = 0; i < plateSize; i++) {
+    anpi::heatflux(M, M2, topT, rightT, bottomT, leftT, thermCond, optimize);
+    std::cout << "Heat Flux." << std::endl;
+    /*for (size_t i = 0; i < plateSize; i++) {
       for (size_t j = 0; j < plateSize; j++) {
         std::cout << "(" << M2(i,j).first << "," << M2(i,j).second << ")" << " ";
       }
       std::cout << std::endl;
-    }
+    }*/
   }
+ 
+  auto end = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
+  std::cout << "Execution time: " << duration << "ns." << std::endl << std::endl;
   
 
   return 0;

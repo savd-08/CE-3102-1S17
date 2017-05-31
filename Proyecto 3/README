@@ -4,6 +4,7 @@ Cálculo de temperaturas en una placa metálica
 Requisitos (condiciones de prueba):
 	- libboost-program-options-dev
 	- gcc 6.2.0 20161005
+	- OpenMP 4.0
 
 Para ejecutar el programa, acceda a la ubicación del archivo Makefile.
 Posteriormente, compile con make utilizando el siguiente comando: 

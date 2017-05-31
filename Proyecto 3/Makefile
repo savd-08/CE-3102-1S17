@@ -8,7 +8,7 @@ CXX = g++
 
 CFLAGS = -I$(IDIR)
 
-CPPFLAGS = -std=c++11 -O3 -lboost_program_options -I$(IDIR)
+CPPFLAGS = -std=c++11 -O3 -lboost_program_options -fopenmp -I$(IDIR)
 
 EXEC = main
 
