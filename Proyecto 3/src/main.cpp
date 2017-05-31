@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
     }
 
     //Verificación 1 < lambda < 2
-    if(vm.count("lambda")){ 
+    if(vm.count("lambda")){
       if(lambda < 1 || lambda > 2){
         std::cout << "Relaxation factor value must be bewtween 1 and 2." << std::endl;
         return 0;
@@ -145,16 +145,12 @@ int main(int argc, char** argv) {
     }*/
   }
 
-  auto end = std::chrono::high_resolution_clock::now();
-  auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
-  std::cout << "Execution time: " << duration << "ns." << std::endl << std::endl;
-
-  //escritura de archivos
-  anpi::writeHeatMap(M);
-  anpi::writeFlux(M2);
-
   //Interfaz gráfica
   if(ui){
+    //escritura de archivos
+    anpi::writeHeatMap(M);
+    anpi::writeFlux(M2);
+    //python
   	int sys_msg = system("cd ui && python flux_heatmap.py");
     if(sys_msg == -1){
     	std::cout << "Could not launch user interface" << std::endl;
