@@ -5,6 +5,8 @@
 #include <utility>
 #include "Matrix.hpp"
 #include <omp.h>
+#include <iostream>
+#include <fstream>
 
 namespace anpi
 {
@@ -121,11 +123,11 @@ namespace anpi
     size_t i;
     size_t j;
 
-    double top  = 0.0, bottom = 0.0, left = 0.0, right = 0.0, qx = 0.0, qy = 0.0, qn = 0.0, angle = 0.0;
+    double top  = 0.0, bottom = 0.0, left = 0.0, right = 0.0, qx = 0.0, qy = 0.0;
 
     #pragma omp parallel for if(enableOMP) num_threads(2*omp_get_num_procs())\
     shared(M, M2, lastRow, lastCol, topT, rightT, bottomT, leftT, k) \
-    firstprivate(top, bottom, left, right, qx, qy, qn, angle) \
+    firstprivate(top, bottom, left, right, qx, qy) \
     private(i,j) schedule(dynamic, static_cast<int>(M.rows()/omp_get_num_threads()))
 
     for (i = 0; i < M.rows(); i++) {
@@ -146,8 +148,8 @@ namespace anpi
             qy = (-k)*((top - bottomT)/20);
           }
         }else{
-          top = M(i+1, j);
-          bottom = M(i-1, j);
+          top = M(i-1, j);
+          bottom = M(i+1, j);
           qy = (-k)*((top - bottom)/20);
         }
         //condiciones para el derecho e izquierdo
@@ -170,15 +172,46 @@ namespace anpi
           left = M(i, j-1);
           qx = (-k)*((rightT-leftT)/20);
         }
-        //calculo de magnitud y angulo
-        qn = std::sqrt(qx*qx + qy*qy);
-        angle = std::atan2(qy,qx)*(180.0/3.1416);
         //#pragma omp atomic write
-        M2(i,j) = std::pair<double,double>(qn,angle);
+        M2(i,j) = std::pair<double,double>(qx,qy);
       }//fin for j
     }//fin for i
   }
 
-}
+  void writeHeatMap(anpi::Matrix<double> &M){
+    std::ofstream heatmap;
+    heatmap.open("ui/mapa_calor.txt");
+
+    for (size_t i = 0; i < M.rows(); i++) {
+      for (size_t j = 0; j < M.cols(); j++) {
+        heatmap << M(i,j) << "# ";
+      }
+      heatmap << "\n";
+    }
+
+    heatmap.close();
+
+  }
+
+  void writeFlux(anpi::Matrix< std::pair<double,double> > M){
+    std::ofstream qx;
+    qx.open("ui/mapa_x.txt");
+
+    std::ofstream qy;
+    qy.open("ui/mapa_y.txt");
+
+    for (size_t i = 0; i < M.rows(); i++) {
+      for (size_t j = 0; j < M.cols(); j++) {
+        qx << M(i,j).first << "# ";
+        qy << M(i,j).second << "# ";
+      }
+      qx << "\n";
+      qy << "\n";
+    }
+    qx.close();
+    qy.close();
+  }
+
+}//fin de anpi
 
 #endif
