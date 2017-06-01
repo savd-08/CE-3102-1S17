@@ -10,6 +10,9 @@
 
 namespace anpi
 {
+
+  const int threads = 2*omp_get_num_procs();
+
   /**
    * Calcula la distribución de temperaturas.
    *

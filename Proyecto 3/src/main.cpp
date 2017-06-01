@@ -92,11 +92,14 @@ int main(int argc, char** argv) {
     }
 
     //Verificación 1 < lambda < 2
-    if(vm.count("lambda")){
-      if(lambda < 1 || lambda > 2){
-        std::cout << "Relaxation factor value must be bewtween 1 and 2." << std::endl;
-        return 0;
-      }
+    if(lambda < 1 || lambda > 2){
+      std::cout << "Relaxation factor value must be bewtween 1 and 2." << std::endl;
+      return 0;
+    }
+
+    if(optimize && (plateSize < anpi::threads)){
+      std::cout << "Plate size must be a value greater than " << anpi::threads << " if optimization is enabled." << std::endl;
+      return 0;
     }
 
   } catch(std::exception& e) {
@@ -113,51 +116,30 @@ int main(int argc, char** argv) {
   anpi::Matrix<double> M(plateSize,plateSize,0.0);
   anpi::Matrix< std::pair<double,double> > M2(plateSize,plateSize,std::pair<double,double>(0.0,0.0));
 
-
-
   //Ejecución de método de Liebmann, con opciones ingresadas por el usuario
   anpi::liebmann(M, topT, rightT, bottomT, leftT, lambda, relativeError, optimize);
-
-  // Crear archivo de matriz de temperaturas
-
-
-  /*for (size_t i = 0; i < plateSize; i++) {
-    for (size_t j = 0; j < plateSize; j++) {
-      std::cout << M(i,j) << " ";
-    }
-    std::cout << std::endl;
-  }
-
-  std::cout << std::endl;*/
-
 
   //Se calculan los vectores de flujo de calor si el usuario lo desea
   if(heatFlux){
     anpi::heatflux(M, M2, topT, rightT, bottomT, leftT, thermCond, optimize);
-
-    // Crear archivos de campos vectoriales
-
-    /*for (size_t i = 0; i < plateSize; i++) {
-      for (size_t j = 0; j < plateSize; j++) {
-        std::cout << "(" << M2(i,j).first << "," << M2(i,j).second << ")" << " ";
-      }
-      std::cout << std::endl;
-    }*/
   }
 
   //Interfaz gráfica
   if(ui){
+
     //escritura de archivos
     anpi::writeHeatMap(M, int(heatFlux));
     if(heatFlux){
     	anpi::writeFlux(M2);
     } 
+
     //llamada a python
   	int sys_msg = system("cd ui && python flux_heatmap.py");
     if(sys_msg == -1){
     	std::cout << "Could not launch user interface" << std::endl;
     }
   } else {
+
     //Si no hay ui, se muestra tiempo de ejecución del programa
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
