@@ -17,13 +17,14 @@ namespace anpi
    * Calcula la distribución de temperaturas.
    *
    * Parametros:
-   * M matriz en la que se va a calcular la distribución. Se incializa en cero.
-   * topT temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
-   * rightT temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
-   * leftT temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
-   * bottomT temperatura que va a estar constante en la parte inferior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
-   * lambda valor para el metodo de sobre relajamiento.
-   * tol porcentaje de error maximo que debe tener cada temperatura de la matriz
+   * Matrix<double,double> M matriz en la que se va a calcular la distribución. Se incializa en cero.
+   * double topT temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+   * double rightT temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+   * double leftT temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+   * double bottomT temperatura que va a estar constante en la parte inferior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+   * double lambda valor para el metodo de sobre relajamiento entre 1 y 2.
+   * double tol porcentaje de error maximo que debe tener cada temperatura de la matriz
+   * bool enableOMP habilita o deshabilita la optimización de los métodos
    */
   void liebmann(anpi::Matrix<double> &M, double topT, double rightT, double bottomT, double leftT, double lambda, double tol, bool enableOMP){
 
@@ -115,14 +116,24 @@ namespace anpi
   }
 
   /**
+  * Esta función calcula el flujo de calor según una matriz de distribución de calor.
   *
-  *
+  * Parámetros:
+  * Matrix<double> M matriz con la distribución de calor.
+  * Matrix< pair<double,dobule> >M2 matriz de pares de doubles donde el primer elemento es la componente "x"
+  * y el segundo es la componente "y" de cada vector de flujo, este es el resultado de la función.
+  * double topT temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+  * double rightT temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+  * double leftT temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+  * double bottomT temperatura que va a estar constante en la parte inferior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un NaN.
+  * double k constante de distribución de calor del material conductor.
+  * bool enableOMP habilita o deshabilita la optimización de los métodos
   */
   void heatflux(anpi::Matrix<double> &M, anpi::Matrix< std::pair<double,double> > &M2, double topT, double rightT, double bottomT, double leftT, double k, bool enableOMP){
     M2.fill(std::pair<double,double>(0.0,0.0));
 
-    size_t lastRow = M.rows() - 1;
-    size_t lastCol = M.cols() - 1;
+    size_t lastRow = M.rows() - 1; /**< Ultima fila de la matriz */
+    size_t lastCol = M.cols() - 1; /**< Ultima columna de la matriz */
     size_t i;
     size_t j;
 
@@ -181,6 +192,12 @@ namespace anpi
     }//fin for i
   }
 
+  /**
+  * Crea un archivo de extensión txt con el fin de describir la distribución de temperaturas en la placa.
+  *
+  * Parametros:
+  * Matrix<double> M matriz que contiene las temperaturas
+  */
   void writeHeatMap(anpi::Matrix<double> &M, int vectorflag){
     std::ofstream heatmap;
     heatmap.open("ui/mapa_calor.txt");
@@ -195,6 +212,12 @@ namespace anpi
     heatmap.close();
   }
 
+  /**
+  * Crea un archivo de extensión txt con el fin de describir la distribución de flujos de calor.
+  *
+  * Parametros:
+  * Matrix<double> M matriz que contiene las componentes de los flujos de calor de la placa
+  */
   void writeFlux(anpi::Matrix< std::pair<double,double> > M){
     std::ofstream qx;
     qx.open("ui/mapa_x.txt");
