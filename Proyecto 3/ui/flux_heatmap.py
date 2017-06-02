@@ -128,8 +128,6 @@ def readFile(pfile):
 		print ("Hubo algun problema y no se pudo cargar el archivo")
 		
 
-def 
-
 
 #Muestra los mapas de calor y vectorial
 def show_maps(R, vector, length):
