@@ -251,7 +251,9 @@ peerreview
 \end_layout
 
 \begin_layout Abstract
-FALTA FALTA.
+Utilización del método de Liebmann para solucionar el problema de la distribució
+n de calor en una placa aislada en los extremos y comparación de su desempeño
+ sin paralelismo y con paralelismo utilizando OpenMP.
  
 \end_layout
 
@@ -328,14 +330,7 @@ q_{i}=-k\rho C\frac{\partial T}{\partial i}\label{eq:Ley de Fourier}
 
 \end_inset
 
- analizando la 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Ley de Fourier"
-
-\end_inset
-
- la ley de Fourier especifica que el flujo de calor perpendicular al eje
+ La ley de Fourier especifica que el flujo de calor perpendicular al eje
  
 \emph on
 
@@ -405,7 +400,7 @@ T_{i+1,j}+T_{i-1,j}+T_{i,j+1}+T_{i,j-1}=4T_{i,j}\label{eq:Laplaciano con diferen
 
 \end_inset
 
- con la cual se puede calcular las temperaturas en cada punto de la malla.
+ con lo cual se puede calcular las temperaturas en cada punto de la malla.
  Todas las temperaturas son dependientes de las otras por lo que se crea
  un sistema de ecuaciones para determinar las temperaturas en cada celda.
  Para una matriz de 
@@ -449,7 +444,7 @@ reference "eq:Laplaciano con diferencias finitas"
 \end_layout
 
 \begin_layout Standard
-Para acelerar los resultados utilizan el método de relajación 
+Para acelerar los resultados, se utiliza el método de relajación 
 \begin_inset Formula 
 \begin{equation}
 T_{i,j}^{ajustado}=\lambda T_{i,j}^{nuevo}+(1-\lambda)T_{i,j}^{anterior}\label{eq:sobre relajación}
@@ -482,8 +477,8 @@ T_{i+1,0}+T_{i-1,0}+2T_{i,1}=4T_{i,j}\label{eq:Laplaciano aislado}
 
 \end_inset
 
- este representa el valor de la temperatura para el extremo para todas las
- filas 
+ y este representa el valor de la temperatura para el extremo para todas
+ las filas 
 \emph on
 
 \begin_inset Formula $i$
@@ -492,6 +487,7 @@ T_{i+1,0}+T_{i-1,0}+2T_{i,1}=4T_{i,j}\label{eq:Laplaciano aislado}
 
 \emph default
  pero en la columna cero, donde ese extremo es aislado.
+ Se procede de la misma manera para todos los extremos aislados.
 \end_layout
 
 \begin_layout Standard
@@ -518,21 +514,7 @@ q_{y}=-k\text{'}\frac{T_{i,j+1}-T_{i,j-1}}{2\Delta y}\label{eq:Componente y fluj
 
 \end_inset
 
-de 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Componente x flujo de calor"
-
-\end_inset
-
- y 
-\begin_inset CommandInset ref
-LatexCommand eqref
-reference "eq:Componente y flujo de calor"
-
-\end_inset
-
- se calcula magnitud 
+y se utilizan para calcular la magnitud del vector
 \begin_inset Formula 
 \begin{equation}
 q_{n}=\sqrt{q_{x}^{2}+q_{y}^{2}}\label{eq:Magnitud flujo de calor}
@@ -540,7 +522,7 @@ q_{n}=\sqrt{q_{x}^{2}+q_{y}^{2}}\label{eq:Magnitud flujo de calor}
 
 \end_inset
 
-y la dirección del vector 
+y su dirección
 \begin_inset Formula 
 \begin{equation}
 \theta=\arctan(\frac{q_{y}}{q_{x}})\label{eq:Dirección flujo de calor}

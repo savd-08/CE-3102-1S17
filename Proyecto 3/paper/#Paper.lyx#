@@ -628,13 +628,13 @@ Se ha medido el tiempo de ejecución para ambas variaciones del método de
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
 	filename g1.eps
-	scale 51
+	scale 50
 
 \end_inset
 

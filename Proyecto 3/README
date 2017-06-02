@@ -9,9 +9,20 @@ Requisitos (condiciones de prueba):
 		- Matplotlib
 		- Numpy
 
-* Para facilitar el proceso de instalación de todas las dependencias, puede ejecutar el archivo "Installation_Script.sh". ***CORREGIR***
 Para ejecutar el programa, acceda a la ubicación del archivo Makefile.
 Posteriormente, compile con make utilizando el siguiente comando: 
 - $ make
 Para conocer las opciones del programa, introduzca el siguiente comando:
 - $ ./main -h
+
+Algunas pruebas:
+- $ ./main -y 1.5 -k 0.49 -t 100.0 -r 50.0 -l 75.0 -e 1 -s 100 
+- $ ./main -y 1.5 -k 0.49 -t 100.0 -r 50.0 -l 75.0 -e 1 -s 100 -o
+- $ ./main -t 50 -b 100 -l 50 -r 100 -s 75 
+- $ ./main -t 50 -b 100 -l 50 -r 100 -s 75 -o
+- $ ./main -t 70 -b 30 -l 90 -r 100 -s 50 -v -u
+- $ ./main -t 70 -b 30 -l 90 -r 100 -s 50 -u
+- $ ./main -t 70 -b 30 -l 90 -r 100 -s 50 -e 3
+- $ ./main -y 1.5 -k 0.49  -r 300 -l 30 -e 2 -s 500 -o -v
+
+
