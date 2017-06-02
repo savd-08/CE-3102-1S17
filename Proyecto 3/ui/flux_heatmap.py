@@ -121,12 +121,33 @@ def readFile(pfile):
 				hmap += [row]
 				line = tmp_file.readline()
 				row = line.split("#")
-			#del hmap[len(hmap)-1]
 			tmp_file.close()
 			return castToNum(hmap)
 	except:
 		print ("Hubo algun problema y no se pudo cargar el archivo")
 		
+
+#Promedia cada fila de la matriz vectorial
+def rowres(row, jump):
+	res = 0
+	tmp = []
+	step = jump
+	for i in range(len(row)):
+		if (i==step):
+			tmp += [res]
+			res = 0
+			step += jump
+		tmp += [0]	
+		res += row[i]		
+	return tmp
+	
+
+#Escala la cantidad de vectores en el mapa 
+def scaleVector(matrix, lim, jump):
+	scale_mat = []
+	for i in range(lim):
+		scale_mat += [rowres(matrix[i], jump)]
+	return scale_mat
 
 
 #Muestra los mapas de calor y vectorial
@@ -152,6 +173,13 @@ def show_maps(R, vector, length):
 	if (vector):
 		U = readFile("mapa_x")
 		V = readFile("mapa_y")
+		# Si las dimensiones de la matriz son mayores a 30
+		#Se escalan las matrices vectoriales
+		if (length > 30):
+			arrows = 15
+			jump = length/arrows
+			U = scaleVector(U, length, jump)
+			V = scaleVector(V, length, jump)
 		U = np.array(U)
 		V = np.array(V)
 		plt.quiver(U, V, alpha=.8)
