@@ -1,0 +1,90 @@
+\hypertarget{class_exception}{}\section{Exception Class Reference}
+\label{class_exception}\index{Exception@{Exception}}
+
+
+{\ttfamily \#include $<$Exception.\+hpp$>$}
+
+
+
+Inheritance diagram for Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_exception__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{class_exception__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_exception_ac541ead5c20548813d7dea73c28c7fab}{Exception} (const char $\ast$message)
+\item 
+\hyperlink{class_exception_a472b7904dadf1047ba48c23741888456}{Exception} (const std\+::string \&message)
+\item 
+virtual \hyperlink{class_exception_ad1ba411de295ef2eeb02ba26284a829a}{$\sim$\+Exception} ()  throw ()
+\item 
+virtual const char $\ast$ \hyperlink{class_exception_a78154a31544a609cbd226d32574f52cd}{what} () const   throw ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_exception_a5d59cc46086c61391ed26773ce861780}{msg\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Excepcion general 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_exception_ac541ead5c20548813d7dea73c28c7fab}{}\index{Exception@{Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!Exception@{Exception}}
+\subsubsection[{Exception}]{\setlength{\rightskip}{0pt plus 5cm}Exception\+::\+Exception (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\label{class_exception_ac541ead5c20548813d7dea73c28c7fab}
+Constructor con puntero de string \hypertarget{class_exception_a472b7904dadf1047ba48c23741888456}{}\index{Exception@{Exception}!Exception@{Exception}}
+\index{Exception@{Exception}!Exception@{Exception}}
+\subsubsection[{Exception}]{\setlength{\rightskip}{0pt plus 5cm}Exception\+::\+Exception (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\label{class_exception_a472b7904dadf1047ba48c23741888456}
+Constructor con objeto string \hypertarget{class_exception_ad1ba411de295ef2eeb02ba26284a829a}{}\index{Exception@{Exception}!````~Exception@{$\sim$\+Exception}}
+\index{````~Exception@{$\sim$\+Exception}!Exception@{Exception}}
+\subsubsection[{$\sim$\+Exception}]{\setlength{\rightskip}{0pt plus 5cm}virtual Exception\+::$\sim$\+Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_exception_ad1ba411de295ef2eeb02ba26284a829a}
+Destructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_exception_a78154a31544a609cbd226d32574f52cd}{}\index{Exception@{Exception}!what@{what}}
+\index{what@{what}!Exception@{Exception}}
+\subsubsection[{what}]{\setlength{\rightskip}{0pt plus 5cm}virtual const char$\ast$ Exception\+::what (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{class_exception_a78154a31544a609cbd226d32574f52cd}
+Retorna puntero de la descripcion de la excepcion 
+
+\subsection{Member Data Documentation}
+\hypertarget{class_exception_a5d59cc46086c61391ed26773ce861780}{}\index{Exception@{Exception}!msg\+\_\+@{msg\+\_\+}}
+\index{msg\+\_\+@{msg\+\_\+}!Exception@{Exception}}
+\subsubsection[{msg\+\_\+}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Exception\+::msg\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}\label{class_exception_a5d59cc46086c61391ed26773ce861780}
+Descricion de excepcion 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Exception.\+hpp\end{DoxyCompactItemize}

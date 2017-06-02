@@ -125,29 +125,32 @@ def readFile(pfile):
 			return castToNum(hmap)
 	except:
 		print ("Hubo algun problema y no se pudo cargar el archivo")
+	
+def delCols(matrix, jump, length):
+	step = jump
+	new_mat = []
+	new_mat += [matrix[0]]
+	for i in range(length):
+		if (i==step):
+			new_mat += [matrix[i]]
+			step += jump
+	return new_mat
 		
 
-#Promedia cada fila de la matriz vectorial
-def rowres(row, jump):
-	res = 0
-	tmp = []
-	step = jump
-	for i in range(len(row)):
-		if (i==step):
-			tmp += [res]
-			res = 0
-			step += jump
-		tmp += [0]	
-		res += row[i]		
-	return tmp
-	
-
 #Escala la cantidad de vectores en el mapa 
-def scaleVector(matrix, lim, jump):
+def scaleMatrix(matrix, jump, length):
 	scale_mat = []
-	for i in range(lim):
-		scale_mat += [rowres(matrix[i], jump)]
-	return scale_mat
+	for i in range(length):
+		row = []
+		step = jump
+		row += [matrix[i][0]]
+		for j in range(length):
+			if (j==step):
+				row += [matrix[i][j]]
+				step += jump
+		scale_mat += [row]
+	return delCols(scale_mat, jump, length)		
+	
 
 
 #Muestra los mapas de calor y vectorial
@@ -173,19 +176,32 @@ def show_maps(R, vector, length):
 	if (vector):
 		U = readFile("mapa_x")
 		V = readFile("mapa_y")
-		# Si las dimensiones de la matriz son mayores a 30
-		#Se escalan las matrices vectoriales
-		if (length > 30):
-			arrows = 15
-			jump = length/arrows
-			U = scaleVector(U, length, jump)
-			V = scaleVector(V, length, jump)
+		print "U"
+		print U
+		print "V"
+		print V
 		U = np.array(U)
 		V = np.array(V)
-		plt.quiver(U, V, alpha=.8)
-		plt.quiver(U, V, edgecolor='none', facecolor='none', linewidth=.9)
-		plt.xticks(visible = False)
-		plt.yticks(visible = False)
+		##############################################################		
+		# Si las dimensiones de la matriz son mayores a 20
+		#Se escalan las matrices vectoriales
+		if (length > 30):
+			arrows = 10
+			X = np.linspace(0, length, arrows, endpoint=True)
+			Y = np.linspace(0, length, arrows, endpoint=True)
+			X, Y = np.meshgrid(X, Y)
+			jump = int(length/arrows)
+			print "jump", jump
+			#Escala componentes
+			U = scaleMatrix(U, jump, length)
+			V = scaleMatrix(V, jump, length)
+			plt.quiver(X, Y, U, V, alpha=.8)
+			plt.quiver(X, Y, U, V, edgecolor='black', facecolor='white', linewidth=.9)
+		else:
+			X = Y = np.linspace(0,length-1,num=length)
+			X,Y = np.meshgrid(X,Y)
+			plt.quiver(X, Y, U, V, alpha=.8)
+			plt.quiver(X, Y, U, V, edgecolor='black', facecolor='white', linewidth=.9)
 	plt.show()
 
 #######################################################################
