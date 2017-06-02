@@ -184,7 +184,7 @@ namespace anpi
         }else{
           right = M(i, j+1);
           left = M(i, j-1);
-          qx = (-k)*((rightT-leftT)/20);
+          qx = (-k)*((right-left)/20);
         }
         //#pragma omp atomic write
         M2(i,j) = std::pair<double,double>(qx,qy);
