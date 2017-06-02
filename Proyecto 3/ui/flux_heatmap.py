@@ -195,6 +195,8 @@ def show_maps(R, vector, length):
 			#Escala componentes
 			U = scaleMatrix(U, jump, length)
 			V = scaleMatrix(V, jump, length)
+			U.reverse()
+			V.reverse()
 			plt.quiver(X, Y, U, V, alpha=.8)
 			plt.quiver(X, Y, U, V, edgecolor='black', facecolor='white', linewidth=.9)
 		else:
