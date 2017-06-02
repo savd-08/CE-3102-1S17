@@ -251,7 +251,9 @@ peerreview
 \end_layout
 
 \begin_layout Abstract
-FALTA FALTA.
+Utilización del método de Liebmann para solucionar el problema de la distribució
+n de calor por una placa aislada en los extremos y comparación de su desempeño
+ sin paralelismo y con paralelismo con OpenMP.
  
 \end_layout
 
