@@ -1,0 +1,87 @@
+\hypertarget{namespaceanpi}{}\section{anpi Namespace Reference}
+\label{namespaceanpi}\index{anpi@{anpi}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classanpi_1_1_matrix}{Matrix}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceanpi_a1d6b418745abe3f2cfb4fa2dadd952f5}{liebmann} (\hyperlink{classanpi_1_1_matrix}{anpi\+::\+Matrix}$<$ double $>$ \&M, double top\+T, double right\+T, double bottom\+T, double left\+T, double lambda, double tol, bool enable\+O\+M\+P)
+\item 
+void \hyperlink{namespaceanpi_afabb544c6ba4b0e74c64819514dde57c}{heatflux} (\hyperlink{classanpi_1_1_matrix}{anpi\+::\+Matrix}$<$ double $>$ \&M, \hyperlink{classanpi_1_1_matrix}{anpi\+::\+Matrix}$<$ std\+::pair$<$ double, double $>$ $>$ \&M2, double top\+T, double right\+T, double bottom\+T, double left\+T, double k, bool enable\+O\+M\+P)
+\item 
+void \hyperlink{namespaceanpi_a4ec8112d77f2af26d8da1954cc465707}{write\+Heat\+Map} (\hyperlink{classanpi_1_1_matrix}{anpi\+::\+Matrix}$<$ double $>$ \&M, int vectorflag)
+\item 
+void \hyperlink{namespaceanpi_a2f885fcb56cf9214852d38588948a0d6}{write\+Flux} (\hyperlink{classanpi_1_1_matrix}{anpi\+::\+Matrix}$<$ std\+::pair$<$ double, double $>$ $>$ M)
+\item 
+\hypertarget{namespaceanpi_aa345df2fcc1e2936fa69be3220c3eb1d}{}{\footnotesize template$<$typename T $>$ }\\std\+::vector$<$ T $>$ {\bfseries operator$\ast$} (const std\+::vector$<$ T $>$ \&v1, const \hyperlink{classanpi_1_1_matrix}{Matrix}$<$ T $>$ \&M1)\label{namespaceanpi_aa345df2fcc1e2936fa69be3220c3eb1d}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceanpi_af2f4674639e6136c0740f304b93aca40}{}const int {\bfseries threads} = 2$\ast$omp\+\_\+get\+\_\+num\+\_\+procs()\label{namespaceanpi_af2f4674639e6136c0740f304b93aca40}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceanpi_afabb544c6ba4b0e74c64819514dde57c}{}\index{anpi@{anpi}!heatflux@{heatflux}}
+\index{heatflux@{heatflux}!anpi@{anpi}}
+\subsubsection[{heatflux}]{\setlength{\rightskip}{0pt plus 5cm}void anpi\+::heatflux (
+\begin{DoxyParamCaption}
+\item[{{\bf anpi\+::\+Matrix}$<$ double $>$ \&}]{M, }
+\item[{{\bf anpi\+::\+Matrix}$<$ std\+::pair$<$ double, double $>$ $>$ \&}]{M2, }
+\item[{double}]{top\+T, }
+\item[{double}]{right\+T, }
+\item[{double}]{bottom\+T, }
+\item[{double}]{left\+T, }
+\item[{double}]{k, }
+\item[{bool}]{enable\+O\+M\+P}
+\end{DoxyParamCaption}
+)}\label{namespaceanpi_afabb544c6ba4b0e74c64819514dde57c}
+Esta función calcula el flujo de calor según una matriz de distribución de calor.
+
+Parámetros\+: Matrix$<$double$>$ M matriz con la distribución de calor. \hyperlink{classanpi_1_1_matrix}{Matrix}$<$ pair$<$double,dobule$>$ $>$M2 matriz de pares de doubles donde el primer elemento es la componente \char`\"{}x\char`\"{} y el segundo es la componente \char`\"{}y\char`\"{} de cada vector de flujo, este es el resultado de la función. double top\+T temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double right\+T temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double left\+T temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double bottom\+T temperatura que va a estar constante en la parte inferior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double k constante de distribución de calor del material conductor. bool enable\+O\+M\+P habilita o deshabilita la optimización de los métodos $<$ Ultima fila de la matriz
+
+$<$ Ultima columna de la matriz \hypertarget{namespaceanpi_a1d6b418745abe3f2cfb4fa2dadd952f5}{}\index{anpi@{anpi}!liebmann@{liebmann}}
+\index{liebmann@{liebmann}!anpi@{anpi}}
+\subsubsection[{liebmann}]{\setlength{\rightskip}{0pt plus 5cm}void anpi\+::liebmann (
+\begin{DoxyParamCaption}
+\item[{{\bf anpi\+::\+Matrix}$<$ double $>$ \&}]{M, }
+\item[{double}]{top\+T, }
+\item[{double}]{right\+T, }
+\item[{double}]{bottom\+T, }
+\item[{double}]{left\+T, }
+\item[{double}]{lambda, }
+\item[{double}]{tol, }
+\item[{bool}]{enable\+O\+M\+P}
+\end{DoxyParamCaption}
+)}\label{namespaceanpi_a1d6b418745abe3f2cfb4fa2dadd952f5}
+Calcula la distribución de temperaturas.
+
+Parametros\+: Matrix$<$double,double$>$ M matriz en la que se va a calcular la distribución. Se incializa en cero. double top\+T temperatura que va a estar constante en la parte superior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double right\+T temperatura que va a estar constante en la parte derecha de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double left\+T temperatura que va a estar constante en la parte izquierda de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double bottom\+T temperatura que va a estar constante en la parte inferior de la matriz esta no se cuenta dentro de la matriz, para aislado debe ser un Na\+N. double lambda valor para el metodo de sobre relajamiento entre 1 y 2. double tol porcentaje de error maximo que debe tener cada temperatura de la matriz bool enable\+O\+M\+P habilita o deshabilita la optimización de los métodos \hypertarget{namespaceanpi_a2f885fcb56cf9214852d38588948a0d6}{}\index{anpi@{anpi}!write\+Flux@{write\+Flux}}
+\index{write\+Flux@{write\+Flux}!anpi@{anpi}}
+\subsubsection[{write\+Flux}]{\setlength{\rightskip}{0pt plus 5cm}void anpi\+::write\+Flux (
+\begin{DoxyParamCaption}
+\item[{{\bf anpi\+::\+Matrix}$<$ std\+::pair$<$ double, double $>$ $>$}]{M}
+\end{DoxyParamCaption}
+)}\label{namespaceanpi_a2f885fcb56cf9214852d38588948a0d6}
+Crea un archivo de extensión txt con el fin de describir la distribución de flujos de calor.
+
+Parametros\+: Matrix$<$double$>$ M matriz que contiene las componentes de los flujos de calor de la placa \hypertarget{namespaceanpi_a4ec8112d77f2af26d8da1954cc465707}{}\index{anpi@{anpi}!write\+Heat\+Map@{write\+Heat\+Map}}
+\index{write\+Heat\+Map@{write\+Heat\+Map}!anpi@{anpi}}
+\subsubsection[{write\+Heat\+Map}]{\setlength{\rightskip}{0pt plus 5cm}void anpi\+::write\+Heat\+Map (
+\begin{DoxyParamCaption}
+\item[{{\bf anpi\+::\+Matrix}$<$ double $>$ \&}]{M, }
+\item[{int}]{vectorflag}
+\end{DoxyParamCaption}
+)}\label{namespaceanpi_a4ec8112d77f2af26d8da1954cc465707}
+Crea un archivo de extensión txt con el fin de describir la distribución de temperaturas en la placa.
+
+Parametros\+: Matrix$<$double$>$ M matriz que contiene las temperaturas 
