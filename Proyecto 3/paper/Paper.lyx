@@ -279,6 +279,207 @@ El método de Liebmann es un método iterativo para solucionar sistemas de
 Antecedentes
 \end_layout
 
+\begin_layout Standard
+Según el 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chapra"
+
+\end_inset
+
+ para una placa aislada en los extremos, limitada a dimensiones “x” y “y”
+ en estado estacionario, el flujo de calor hacia un elemento en una unidad
+ de tiempo debe ser igual al flujo de salida del mismo, resultando la siguiente
+ ecuación 
+\begin_inset Formula 
+\begin{equation}
+-\frac{\partial q}{\partial x}-\frac{\partial q}{\partial y}=0\label{eq:Conservación de energía}
+\end{equation}
+
+\end_inset
+
+ esta ecuación es una ecuación diferencial parcial, de la conservación de
+ la energía de la placa.
+\end_layout
+
+\begin_layout Standard
+Debido a las condiciones frontera se debe reformular en términos de la temperatu
+ra, la relación entre flujo y temperatura está dada por la ley de Fourier
+ de conducción de calor 
+\begin_inset Formula 
+\begin{equation}
+q_{i}=-k\rho C\frac{\partial T}{\partial i}\label{eq:Ley de Fourier}
+\end{equation}
+
+\end_inset
+
+ analizando la 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Ley de Fourier"
+
+\end_inset
+
+ la ley de Fourier especifica que el flujo de calor perpendicular al eje
+ i es proporcional al gradiente de la temperatura en la dirección i.
+ Sustituyendo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Ley de Fourier"
+
+\end_inset
+
+ en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Conservación de energía"
+
+\end_inset
+
+ resulta 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}T}{\partial x^{2}}+\frac{\partial^{2}T}{\partial y^{2}}=0\label{eq:Ecuación de Laplace}
+\end{equation}
+
+\end_inset
+
+ que es la ecuación de Laplace.
+\end_layout
+
+\begin_layout Standard
+La solución numérica consiste en representaciones por diferencias finitas
+ basadas en tratar la placa como una malla de puntos discretos, con las
+ diferencias finitas se sustituyen las derivadas en 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Ecuación de Laplace"
+
+\end_inset
+
+.
+ Además al ser una malla cuadrada las diferencias en x son iguales a las
+ diferencias en y resultando 
+\begin_inset Formula 
+\begin{equation}
+T_{i+1,j}+T_{i-1,j}+T_{i,j+1}+T_{i,j-1}=4T_{i,j}\label{eq:Laplaciano con diferencias finitas}
+\end{equation}
+
+\end_inset
+
+ con la cual se puede calcular las temperaturas en cada punto de la malla.
+ Todas las temperaturas son dependientes de las otras por lo que se crea
+ un sistema de ecuaciones para determinar las temperaturas en cada celda.
+ Para una matriz de n por n el sistema de ecuaciones resultante es de n
+ incógnitas con n ecuaciones.
+\end_layout
+
+\begin_layout Standard
+Resolver un sistema de ecuaciones requiere una alta complejidad para matrices
+ de longitud mayor a 10, por lo cual se vuelve poco práctico.
+ Los métodos aproximados son más utilizados, comúnmente el Gauss-Seidel,
+ que utilizado para ecuaciones diferenciales parciales se le llama método
+ de Liebmann.
+ Con este método 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Laplaciano con diferencias finitas"
+
+\end_inset
+
+ se resuelve de manera iterativa para todas las celdas hasta que el error
+ relativo porcentual de cada celda esté por debajo un criterio específico.
+\end_layout
+
+\begin_layout Standard
+Para acelerar los resultados utilizan el método de relajación 
+\begin_inset Formula 
+\begin{equation}
+T_{i,j}^{ajustado}=\lambda T_{i,j}^{nuevo}+(1-\lambda)T_{i,j}^{anterior}\label{eq:sobre relajación}
+\end{equation}
+
+\end_inset
+
+ donde la temperatur nueva es la temperatura nueva después de la iteración
+ y el es un coeficiente de ponderación entre 1 y 2.
+\end_layout
+
+\begin_layout Standard
+Cuando las condiciones en la frontera de la placa no son discretas y son
+ diferenciales o nulas en vez de utilizar una temperatura se utiliza el
+ diferencial.
+ Para el caso del proyecto este es 0 debido a que el caso especial es con
+ un borde aislado.
+ La ecuación resultante es similar a 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Laplaciano con diferencias finitas"
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+T_{i+1,0}+T_{i-1,0}+2T_{i,1}=4T_{i,j}\label{eq:Laplaciano aislado}
+\end{equation}
+
+\end_inset
+
+ este representa el valor de la temperatura para el extremo para todas las
+ filas i pero en la columna cero, donde ese extremo es aislado.
+\end_layout
+
+\begin_layout Standard
+Para el cálculo de los vectores de flujo de calor se utiliza (2) para calcular
+ la componente de calor para cada celda
+\begin_inset Formula 
+\begin{equation}
+q_{x}=-k\text{'}\frac{T_{i+1,j}-T_{i-1,j}}{2\Delta x}\label{eq:Componente x flujo de calor}
+\end{equation}
+
+\end_inset
+
+ y
+\begin_inset Formula 
+\begin{equation}
+q_{y}=-k\text{'}\frac{T_{i,j+1}-T_{i,j-1}}{2\Delta y}\label{eq:Componente y flujo de calor}
+\end{equation}
+
+\end_inset
+
+de 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Componente x flujo de calor"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Componente y flujo de calor"
+
+\end_inset
+
+ se calcula magnitud 
+\begin_inset Formula 
+\begin{equation}
+q_{n}=\sqrt{q_{x}^{2}+q_{y}^{2}}\label{eq:Magnitud flujo de calor}
+\end{equation}
+
+\end_inset
+
+y la dirección del vector 
+\begin_inset Formula 
+\begin{equation}
+\theta=\arctan(\frac{q_{y}}{q_{x}})\label{eq:Dirección flujo de calor}
+\end{equation}
+
+\end_inset
+
+con lo cual se calcula el flujo del calor a través de una placa.
+\end_layout
+
 \begin_layout Section
 Propuesta
 \end_layout

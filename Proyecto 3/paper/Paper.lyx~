@@ -251,21 +251,12 @@ peerreview
 \end_layout
 
 \begin_layout Abstract
-Este artículo está basado en la resolución del método numérico de Liebmann,
- el cual es utilizado para caracterizar la conducción y el flujo de calor
- para una placa metálica.
- Este análisis se realizó mediante la programación de algoritmos computacionales
- con diversas herramientas de ingeniería, utilizando el hardware disponible
- para agilizar el proceso de solución.
- Asimismo, se empleó una muestra gráfica del estado de la placa y las temperatur
-as correspondientes en cada sección de la misma, así como la muestra del
- flujo de calor según dichas temperaturas obtenidas.
+FALTA FALTA.
  
 \end_layout
 
 \begin_layout Keywords
-Ecuaciones diferenciales parciales, Método de Liebmann, Programación multiproces
-o, OpenMP.
+Ecuaciones diferenciales parciales, Método de Liebmann, OpenMP.
 \end_layout
 
 \begin_layout Section
